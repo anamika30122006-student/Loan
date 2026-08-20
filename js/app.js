@@ -821,7 +821,7 @@ const HINDI_TRANSLATIONS = {
   "All Credit Schemes Catalog": "सभी क्रेडिट योजनाएं कैटलॉग",
   "Support & Grievance Portal": "सहायता और शिकायत पोर्टल",
   "The Process Walkthrough": "प्रक्रिया निर्देशिका",
-  "View All 17 Government Schemes": "सभी 17 सरकारी योजनाएं देखें",
+  "View All 4 Government Schemes": "सभी 4 सरकारी योजनाएं देखें",
   "Explore full catalog & criteria": "पूरा कैटलॉग और पात्रता देखें",
   "Loans up to ₹10 Lakhs (100% Collateral Free)": "₹10 लाख तक का ऋण (100% बिना गारंटी)",
   "Up to ₹50 Lakhs (15% to 35% Subsidy)": "₹50 लाख तक (15% से 35% सब्सिडी)",
