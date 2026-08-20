@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grievance & Feedback Redressal Portal | CreditSamarth</title>
+  <meta name="description" content="Official Government Portal for lodging complaints, bank escalations, tracking ticket status, and feedback.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 Government of India</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Ministry of Finance • Department of Financial Services</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="toggleVoiceModal()">🎙 Voice Guide</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Helpline: 1800-11-3456</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls (Login + Hamburger) -->
+      <div class="mobile-navbar-right-controls">
+        <button class="btn-js-login mobile-nav-login-btn" onclick="openAuthModal('login')">🔑 Login</button>
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links with Interactive Schemes Dropdown -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item">Home</a></li>
+        
+        <li class="nav-dropdown-wrapper">
+          <a href="schemes.html" class="gov-nav-item">Schemes ▾</a>
+          <div class="dropdown-menu-box">
+            <a href="apply.html?step=2&scheme=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=PMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏭</div>
+              <div>
+                <div class="dropdown-item-title">Prime Minister's Employment Generation (PMEGP)</div>
+                <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
+              <div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=CMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏛</div>
+              <div>
+                <div class="dropdown-item-title">Chief Minister Employment Generation (CMEGP)</div>
+                <div class="dropdown-item-sub">State Soft Loan & Seed Capital</div>
+              </div>
+            </a>
+            <a href="apply.html?step=3&scheme=KCC" class="dropdown-item">
+              <div class="dropdown-icon-badge">🌾</div>
+              <div>
+                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
+                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+              </div>
+            </a>
+            <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
+            <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
+              <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
+              <div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 16 Government Schemes</div>
+                <div class="dropdown-item-sub">Explore full catalog & criteria</div>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="process.html" class="gov-nav-item">The Process</a></li>
+        <li><a href="grievances.html" class="gov-nav-item active">Grievances</a></li>
+        <li><a href="index.html#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
+
+        <li class="mobile-nav-actions-item">
+          <div class="mobile-nav-actions-box">
+            <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
+            <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <select onchange="changeLanguage(this.value)">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions" id="nav-actions-box">
+        <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+          <option value="en">English ▾</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- GRIEVANCES PAGE EXECUTIVE HERO BANNER -->
+  <section class="js-hero-fullwidth-section" style="padding: 3.5rem 1.5rem; text-align: center; margin-bottom: 2.5rem;">
+    <div class="hero-executive-container">
+      <div class="hero-govt-tag">🏛 DEPARTMENT OF FINANCIAL SERVICES • MINISTRY OF FINANCE</div>
+      <h1 class="js-hero-title" style="font-size:2.4rem; margin-bottom:0.5rem;">
+        Grievance & Feedback Redressal Portal
+      </h1>
+      <p class="js-hero-subtext" style="font-size:0.95rem; margin-bottom:0; max-width:780px;">
+        Official Government Portal for lodging complaints, requesting bank branch escalations, tracking ticket status, and receiving direct nodal officer assistance regarding Credit Schemes.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main style="max-width:1280px; margin:0 auto 2.5rem auto; padding:0 1.5rem;">
+
+    <!-- 3 Quick Contact Info Cards -->
+    <div class="grv-quick-cards-grid">
+      <div class="grv-quick-card">
+        <div class="grv-quick-icon">📞</div>
+        <div>
+          <div style="font-size:0.75rem; color:#64748b; font-weight:700;">TOLL-FREE SUPPORT HELPLINE</div>
+          <div style="font-size:1.1rem; font-weight:900; color:#1e3a8a;">1800-11-3456</div>
+          <div style="font-size:0.7rem; color:#059669;">Mon to Sat • 9:30 AM - 6:00 PM IST</div>
+        </div>
+      </div>
+
+      <div class="grv-quick-card">
+        <div class="grv-quick-icon">✉️</div>
+        <div>
+          <div style="font-size:0.75rem; color:#64748b; font-weight:700;">NODAL OFFICER EMAIL</div>
+          <div style="font-size:1rem; font-weight:900; color:#1e3a8a;">grievance@creditsamarth.gov.in</div>
+          <div style="font-size:0.7rem; color:#0284c7;">Direct Ministry Escalation</div>
+        </div>
+      </div>
+
+      <div class="grv-quick-card">
+        <div class="grv-quick-icon">⏱</div>
+        <div>
+          <div style="font-size:0.75rem; color:#64748b; font-weight:700;">GUARANTEED RESOLUTION SLA</div>
+          <div style="font-size:1.1rem; font-weight:900; color:#ff6b00;">7 Working Days</div>
+          <div style="font-size:0.7rem; color:#475569;">Tracked by Lead District Manager</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Grid Layout -->
+    <div class="grv-layout-grid" style="display:grid; grid-template-columns: 1.5fr 1fr; gap:2rem; align-items:start;">
+      
+      <!-- LEFT COLUMN: FORMS & TABS -->
+      <div>
+        
+        <!-- Tab Header Buttons -->
+        <div class="grv-tab-btn-row">
+          <button class="grv-tab-btn active" id="grv-tab-register-btn" onclick="switchGrvTab('register')">✍️ Register Grievance / Feedback</button>
+          <button class="grv-tab-btn" id="grv-tab-track-btn" onclick="switchGrvTab('track')">🔍 Track Grievance Status</button>
+        </div>
+
+        <!-- TAB 1: REGISTER GRIEVANCE FORM -->
+        <div id="grv-content-register" class="gov-card" style="background:#ffffff;">
+          <form onsubmit="handleGrievanceFormSubmit(event)">
+            
+            <div style="margin-bottom:1.25rem;">
+              <label class="form-label">I am registering as *</label>
+              <div class="user-type-pill-group">
+                <div class="user-type-pill active" id="pill-utype-applicant" onclick="selectGrvUserType('applicant')">👨‍💼 Borrower / Entrepreneur</div>
+                <div class="user-type-pill" id="pill-utype-banker" onclick="selectGrvUserType('banker')">🏦 Bank Officer</div>
+                <div class="user-type-pill" id="pill-utype-public" onclick="selectGrvUserType('public')">🌐 General Public</div>
+              </div>
+            </div>
+
+            <div class="form-grid-2col" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Application Ref. No. (Optional)</label>
+                <input type="text" id="grv-app-ref" class="form-input" placeholder="e.g. MUDRA-2026-08421" value="MUDRA-2026-08421">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" id="grv-fullname" class="form-input" value="Rahul Kumar" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2col" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Mobile Number *</label>
+                <div style="display:flex; gap:0.5rem;">
+                  <input type="text" id="grv-mobile" class="form-input" value="9876543210" maxlength="10" required>
+                  <button type="button" class="btn-gov-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem; white-space:nowrap;" onclick="sendGrvOtp()">⚡ Send OTP</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" id="grv-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+              </div>
+            </div>
+
+            <!-- OTP Verification Box -->
+            <div id="grv-otp-box" style="display:none; background:#ecfdf5; border:1px solid #a7f3d0; padding:0.75rem 1rem; border-radius:8px; margin-bottom:1.15rem; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="font-size:0.8rem; font-weight:800; color:#047857;">Enter 4-Digit OTP:</span>
+                <input type="text" id="grv-otp-input" class="form-input" value="4921" style="width:90px; text-align:center; font-weight:900; font-family:monospace;" maxlength="4">
+              </div>
+              <span class="gov-badge gov-badge-green" id="grv-otp-status">✓ OTP Verified</span>
+            </div>
+
+            <div class="form-grid-2col" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">State</label>
+                <select id="grv-state" class="form-select">
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Delhi">Delhi NCR</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">District</label>
+                <select id="grv-district" class="form-select">
+                  <option value="Ranchi">Ranchi</option>
+                  <option value="Dhanbad">Dhanbad</option>
+                  <option value="Jamshedpur">Jamshedpur</option>
+                  <option value="Patna">Patna</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2col" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Grievance Category *</label>
+                <select id="grv-category" class="form-select" required>
+                  <option value="Loan Disbursement Delay">Loan Disbursement Delay</option>
+                  <option value="Bank Branch Documentation Query">Bank Branch Documentation Query</option>
+                  <option value="Subsidy / Margin Money Discrepancy">Subsidy / Margin Money Discrepancy</option>
+                  <option value="CreditSamarth Technical Portal Issue">CreditSamarth Technical Portal Issue</option>
+                  <option value="Bank Officer Escalation">Bank Officer Escalation</option>
+                  <option value="General Feedback / Suggestion">General Feedback / Suggestion</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Select Concerned Bank *</label>
+                <select id="grv-bank" class="form-select" required>
+                  <option value="State Bank of India">State Bank of India (SBI)</option>
+                  <option value="Punjab National Bank">Punjab National Bank (PNB)</option>
+                  <option value="Bank of Baroda">Bank of Baroda (BOB)</option>
+                  <option value="Canara Bank">Canara Bank</option>
+                  <option value="HDFC Bank">HDFC Bank</option>
+                  <option value="ICICI Bank">ICICI Bank</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subject / Brief Summary *</label>
+              <input type="text" id="grv-subject" class="form-input" value="Delay in MUDRA Loan Disbursement from Ranchi Main Branch" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Detailed Grievance Description *</label>
+              <textarea id="grv-desc" class="form-textarea" rows="4" required>My loan application (ID: MUDRA-2026-08421) was approved on 12-Aug-2026. Bank branch requires assistance regarding final disbursement clearance.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Upload Supporting Document (Optional, Max 5MB)</label>
+              <input type="file" id="grv-file" class="form-input" accept=".pdf,.png,.jpg,.jpeg">
+            </div>
+
+            <!-- Captcha Security Box -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:1rem; border-radius:8px; margin-bottom:1.5rem; display:flex; align-items:center; gap:1.5rem;">
+              <div>
+                <div style="font-size:0.72rem; color:#64748b; font-weight:700; margin-bottom:0.25rem;">Security Code:</div>
+                <div class="captcha-box" id="captcha-disp-val">8 4 9 2</div>
+              </div>
+              <div style="flex:1;">
+                <label class="form-label">Enter Security Captcha *</label>
+                <input type="text" id="grv-captcha-input" class="form-input" value="8492" required placeholder="Type 4 digits above">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.85rem; font-size:0.95rem;">
+              Submit Grievance Ticket ➔
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 2: TRACK GRIEVANCE STATUS FORM -->
+        <div id="grv-content-track" class="gov-card" style="display:none; background:#ffffff;">
+          <h3 style="font-size:1.4rem; font-weight:800; color:#1e3a8a; margin-bottom:0.5rem;">Track Grievance Ticket Status</h3>
+          <p style="font-size:0.85rem; color:#64748b; margin-bottom:1.5rem;">Enter your Grievance Ticket ID (e.g. GRV-2026-98412) or Mobile Number</p>
+
+          <form onsubmit="handleTrackGrievanceSearch(event)">
+            <div style="display:flex; gap:0.75rem; margin-bottom:1.5rem;">
+              <input type="text" id="track-grv-input" class="form-input" value="GRV-2026-98412" required placeholder="Enter Ticket No. or Mobile">
+              <button type="submit" class="btn-gov-primary">Search Ticket</button>
+            </div>
+          </form>
+
+          <!-- Live Grievance Ticket Result Card -->
+          <div id="grv-ticket-result-box" style="background:#f0f7ff; border:2px solid #bfdbfe; border-radius:12px; padding:1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; border-bottom:1px solid #bfdbfe; padding-bottom:0.75rem;">
+              <div>
+                <div style="font-size:0.75rem; color:#64748b; font-weight:700;">TICKET REFERENCE NUMBER</div>
+                <div style="font-size:1.4rem; font-weight:900; color:#1e3a8a;" id="res-grv-id">GRV-2026-98412</div>
+              </div>
+              <span class="gov-badge gov-badge-orange" style="font-size:0.85rem; padding:4px 12px;" id="res-grv-status">IN PROGRESS</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.85rem; font-size:0.85rem; margin-bottom:1.25rem;">
+              <div><span style="color:#64748b;">Complainant Name:</span> <strong id="res-grv-name">Rahul Kumar</strong></div>
+              <div><span style="color:#64748b;">Category:</span> <strong id="res-grv-cat">Loan Disbursement Delay</strong></div>
+              <div><span style="color:#64748b;">Date Logged:</span> <strong id="res-grv-date">18 Aug 2026, 11:20 AM</strong></div>
+              <div><span style="color:#64748b;">Concerned Bank:</span> <strong id="res-grv-bank">State Bank of India (Ranchi Main)</strong></div>
+              <div><span style="color:#64748b;">Escalation Tier:</span> <strong style="color:#ff6b00;">Level 2 (District Nodal Officer)</strong></div>
+              <div><span style="color:#64748b;">Assigned Officer:</span> <strong>Shri V. K. Sharma (LDM)</strong></div>
+            </div>
+
+            <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; padding:1rem;">
+              <div style="font-size:0.75rem; font-weight:800; color:#1e3a8a; text-transform:uppercase; margin-bottom:0.35rem;">Latest Nodal Officer Action Note:</div>
+              <p style="font-size:0.82rem; color:#334155; line-height:1.5; font-style:italic;" id="res-grv-note">
+                "Lead District Manager contacted SBI Ranchi Main Branch Manager. Application documentation verified. Branch officer confirmed credit disbursal scheduled within 24 hours."
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: ESCALATION MATRIX & DIRECTORY -->
+      <div>
+        
+        <!-- Escalation Matrix Card -->
+        <div class="gov-card" style="margin-bottom:1.5rem; background:#ffffff;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:#1e3a8a; margin-bottom:0.35rem;">Official Grievance Escalation Matrix</h3>
+          <p style="font-size:0.78rem; color:#64748b; margin-bottom:1.25rem;">3-Tier Redressal Mechanism under Ministry of Finance Guidelines</p>
+
+          <div class="escalation-step-card">
+            <div style="font-size:0.7rem; font-weight:800; color:#1e3a8a; text-transform:uppercase;">LEVEL 1 • BRANCH LEVEL</div>
+            <div style="font-size:0.92rem; font-weight:800; color:#0f172a; margin:0.2rem 0;">Concerned Bank Branch Manager</div>
+            <div style="font-size:0.75rem; color:#059669; font-weight:700;">Target Resolution SLA: 3 Working Days</div>
+          </div>
+
+          <div class="escalation-step-card level-2">
+            <div style="font-size:0.7rem; font-weight:800; color:#ff6b00; text-transform:uppercase;">LEVEL 2 • DISTRICT LEVEL</div>
+            <div style="font-size:0.92rem; font-weight:800; color:#0f172a; margin:0.2rem 0;">Lead District Manager (LDM) / Nodal Officer</div>
+            <div style="font-size:0.75rem; color:#ff6b00; font-weight:700;">Target Resolution SLA: 7 Working Days</div>
+          </div>
+
+          <div class="escalation-step-card level-3">
+            <div style="font-size:0.7rem; font-weight:800; color:#059669; text-transform:uppercase;">LEVEL 3 • APEX MINISTRY LEVEL</div>
+            <div style="font-size:0.92rem; font-weight:800; color:#0f172a; margin:0.2rem 0;">Department of Financial Services (DFS) Appeals</div>
+            <div style="font-size:0.75rem; color:#0284c7; font-weight:700;">Target Resolution SLA: 14 Working Days</div>
+          </div>
+        </div>
+
+        <!-- District Nodal Officer Quick Directory -->
+        <div class="gov-card" style="background:#ffffff;">
+          <h4 style="font-size:1.05rem; font-weight:800; color:#1e3a8a; margin-bottom:0.5rem;">Find Your District Nodal Officer</h4>
+          <div class="form-group" style="margin-bottom:0.75rem;">
+            <select class="form-select" onchange="showToast('Showing Nodal Officer for selected district')">
+              <option value="">-- Select District --</option>
+              <option value="Ranchi">Ranchi, Jharkhand (Shri V.K. Sharma)</option>
+              <option value="Patna">Patna, Bihar (Shri A.K. Sinha)</option>
+              <option value="Lucknow">Lucknow, UP (Shri R.P. Verma)</option>
+              <option value="Mumbai">Mumbai Suburban, MH (Smt. S. Kulkarni)</option>
+            </select>
+          </div>
+          <div style="font-size:0.75rem; color:#64748b; line-height:1.5;">
+            All 766 districts in India have designated Lead District Managers (LDM) monitoring CreditSamarth applications.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeAuthModal(event)">
+    <div class="auth-modal-card" onclick="event.stopPropagation()">
+      <div class="auth-tab-row">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <form id="form-auth-login" onsubmit="handleAuthLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address / Mobile</label>
+          <input type="text" id="auth-login-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-login-password" class="form-input" value="password123" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">User Role</label>
+          <select id="auth-login-role" class="form-select">
+            <option value="APPLICANT">Borrower / Micro Entrepreneur</option>
+            <option value="ADMIN">Nodal Officer (Admin Desk)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Login to Account ➔</button>
+      </form>
+
+      <form id="form-auth-register" onsubmit="handleAuthRegister(event)" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-reg-name" class="form-input" value="Rahul Kumar" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-reg-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="auth-reg-pass" class="form-input" value="password123" required>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Register New Account ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
+        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="schemes.html">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="schemes.html">Prime Minister's Employment Generation (PMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="apply.html?step=1">Check Loan Eligibility</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
+      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

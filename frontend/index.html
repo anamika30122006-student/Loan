@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreditSamarth | National Digital Loan Platform for Micro Entrepreneurs</title>
+  <meta name="description" content="National Portal for Credit Linked Government Schemes. Department of Financial Services, Ministry of Finance, Govt of India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 Government of India</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Ministry of Finance • Department of Financial Services</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="toggleVoiceModal()">🎙 Voice Guide</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Helpline: 1800-11-3456</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls (Login + Hamburger) -->
+      <div class="mobile-navbar-right-controls">
+        <button class="btn-js-login mobile-nav-login-btn" onclick="openAuthModal('login')">🔑 Login</button>
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links with Interactive Schemes Dropdown -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item active">Home</a></li>
+        
+        <li class="nav-dropdown-wrapper">
+          <a href="schemes.html" class="gov-nav-item">Schemes ▾</a>
+          <div class="dropdown-menu-box">
+            <a href="scheme-detail.html?id=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏭</div>
+              <div>
+                <div class="dropdown-item-title">Prime Minister's Employment Generation (PMEGP)</div>
+                <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
+              <div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMAY" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏠</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri Awas Yojana (PMAY-U 2.0)</div>
+                <div class="dropdown-item-sub">Interest Subsidy up to 6.5% for Home Loans</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=KCC" class="dropdown-item">
+              <div class="dropdown-icon-badge">🌾</div>
+              <div>
+                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
+                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+              </div>
+            </a>
+            <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
+            <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
+              <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
+              <div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 17 Government Schemes</div>
+                <div class="dropdown-item-sub">Explore full catalog & criteria</div>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="process.html" class="gov-nav-item">The Process</a></li>
+        <li><a href="grievances.html" class="gov-nav-item">Grievances</a></li>
+        <li><a href="#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
+
+        <li class="mobile-nav-actions-item">
+          <div class="mobile-nav-actions-box">
+            <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
+            <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <select onchange="changeLanguage(this.value)">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions" id="nav-actions-box">
+        <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+          <option value="en">English ▾</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- EXECUTIVE BANNER HERO SECTION (EXECUTIVE CLEAN DESIGN) -->
+  <section class="js-hero-fullwidth-section">
+    <div class="hero-executive-container">
+      
+      <div class="hero-govt-tag">
+        🏛 Official National Portal • Govt. of India
+      </div>
+
+      <h1 class="js-hero-title">
+        National Portal for Credit Linked Government Schemes
+      </h1>
+
+      <p class="js-hero-subtext">
+        One-stop digital portal linking Central & State Government Schemes. Check your eligibility, apply online, and get digital approval across 300+ partner commercial banks.
+      </p>
+
+      <div class="hero-btn-row">
+        <a href="apply.html?step=1" class="btn-gov-saffron" style="padding:0.85rem 1.8rem; font-size:0.95rem; font-weight:800;">
+          Check Loan Eligibility Now ➔
+        </a>
+        <a href="schemes.html" class="btn-gov-outline" style="padding:0.85rem 1.5rem; font-size:0.95rem; font-weight:800; background:rgba(255,255,255,0.1); color:#ffffff; border-color:rgba(255,255,255,0.3);">
+          Explore All 17 Schemes
+        </a>
+      </div>
+
+      <div class="js-hero-metrics-row">
+        <div class="js-hero-metric-item">
+          <div class="js-hero-metric-num">17</div>
+          <div class="js-hero-metric-label">Credit Schemes</div>
+        </div>
+
+        <div class="js-metric-divider"></div>
+
+        <div class="js-hero-metric-item">
+          <div class="js-hero-metric-num">5</div>
+          <div class="js-hero-metric-label">Loan Categories</div>
+        </div>
+
+        <div class="js-metric-divider"></div>
+
+        <div class="js-hero-metric-item">
+          <div class="js-hero-metric-num">300+</div>
+          <div class="js-hero-metric-label">Lenders on Platform</div>
+        </div>
+
+        <div class="js-metric-divider"></div>
+
+        <div class="js-hero-metric-item">
+          <div class="js-hero-metric-num" style="color:#a7f3d0;">100%</div>
+          <div class="js-hero-metric-label">Digital Disbursal</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEDICATED WIDE HORIZONTAL FLOATING QUICK-ELIGIBILITY WIDGET BAR -->
+  <div class="hero-floating-eligibility-wrapper">
+    <div class="hero-horizontal-eligibility-card">
+      
+      <div class="eligibility-widget-header">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.2rem;">⚡</span>
+          <div>
+            <div style="font-weight:900; font-size:1.05rem; color:#0f172a;">Instant Digital Subsidy Eligibility & Finder</div>
+            <div style="font-size:0.75rem; color:#64748b;">Select your loan details to calculate pre-approved government subsidy offers</div>
+          </div>
+        </div>
+        <span class="gov-badge gov-badge-green">🔒 100% Official Govt Portal</span>
+      </div>
+
+      <div class="eligibility-grid-form">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Select Loan Category *</label>
+          <select class="form-select" id="hero-quick-cat">
+            <option value="MUDRA">Business Activity Loan (MUDRA / PMEGP)</option>
+            <option value="PMAY">Home Loan Subsidy (PMAY-U 2.0)</option>
+            <option value="KCC">Agri Loan – Kisan Credit Card (KCC)</option>
+            <option value="Solar">Renewable Energy (PM-Surya Ghar)</option>
+            <option value="NRLM">Rural Livelihood Credit (DAY-NRLM)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Required Loan Amount (₹) *</label>
+          <input type="text" class="form-input" value="₹ 5,00,000" style="font-weight:800; color:#1e3a8a;">
+        </div>
+
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Select State *</label>
+          <select class="form-select" id="hero-quick-state">
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Delhi">Delhi NCR</option>
+          </select>
+        </div>
+
+        <div>
+          <a href="apply.html?step=1" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.7rem; font-size:0.9rem; font-weight:800;">
+            Check Pre-Approved Offer ➔
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Announcements Marquee Ticker Bar -->
+  <div class="announcements-ticker-bar">
+    <span class="announcements-tag">Announcements</span>
+    <span>• Scheme available for Livelihood loans i.e. National Rural Livelihood Mission (DAY-NRLM) • To onboard on CreditSamarth as partner bank/ Financial Institutes (FI), Click here for details</span>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main style="max-width:100%; padding:0;">
+    
+    <!-- 1. "YOU ARE LOOKING FOR" SCHEME CATEGORIES SECTION -->
+    <section class="you-are-looking-for-wrapper">
+      <div style="max-width:1280px; margin:0 auto;">
+        
+        <div class="looking-for-header-box">
+          <div class="looking-for-icon-phone">📱</div>
+          <div>
+            <h2 class="looking-for-title">You are looking for</h2>
+            <p class="looking-for-subtitle">Select loan category and check your eligibility for multiple schemes at once</p>
+          </div>
+        </div>
+
+        <div class="looking-for-cards-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem;">
+          
+          <div class="js-cat-card">
+            <div class="js-diagonal-ribbon">NEW</div>
+            <div class="js-top-right-badge-icon">🏢</div>
+            <div>
+              <h3 class="js-cat-card-title">Emergency Credit Line Scheme</h3>
+              <div class="js-cat-card-avail">1 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">An initiative of Government of India, to provide credit guarantee coverage of 100% for MSMEs to tide over liquidity mismatches.</p>
+            </div>
+            <a href="apply.html?step=1" class="btn-gov-outline" style="width:100%; justify-content:center;">Apply Now</a>
+          </div>
+
+          <div class="js-cat-card">
+            <div class="js-top-right-badge-icon">🚜</div>
+            <div>
+              <h3 class="js-cat-card-title">e-Kisan Upaj Nidhi</h3>
+              <div class="js-cat-card-avail">1 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">Use your electronic Negotiable Warehouse Receipts (e-NWR) to apply for secured credit from banks registered with WDRA warehouses.</p>
+            </div>
+            <a href="apply.html?step=1" class="btn-gov-outline" style="width:100%; justify-content:center;">Apply Now</a>
+          </div>
+
+          <div class="js-cat-card">
+            <div class="js-top-right-badge-icon">🏠</div>
+            <div>
+              <h3 class="js-cat-card-title">Home Loan (PMAY-U 2.0)</h3>
+              <div class="js-cat-card-avail">1 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">An initiative of Department of Financial Services (DFS), Govt of India to provide home loans to micro entrepreneurs with interest subsidy.</p>
+            </div>
+            <a href="scheme-detail.html?id=PMAY" class="btn-gov-outline" style="width:100%; justify-content:center;">Check Details</a>
+          </div>
+
+          <div class="js-cat-card">
+            <div class="js-top-right-badge-icon">🌾</div>
+            <div>
+              <h3 class="js-cat-card-title">Agri Loan – Kisan Credit Card</h3>
+              <div class="js-cat-card-avail">4 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">KCC Crop Loan and KCC Fisheries aims to provide farmers with timely credit to meet short-term harvest requirements.</p>
+            </div>
+            <a href="scheme-detail.html?id=KCC" class="btn-gov-outline" style="width:100%; justify-content:center;">Check Details</a>
+          </div>
+
+          <div class="js-cat-card">
+            <div class="js-top-right-badge-icon">☀️</div>
+            <div>
+              <h3 class="js-cat-card-title">Renewable Energy Solar</h3>
+              <div class="js-cat-card-avail">3 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">Install your own Solar power system under PM-Surya Ghar to reduce high electricity tariffs in your micro enterprise.</p>
+            </div>
+            <a href="scheme-detail.html?id=Solar" class="btn-gov-outline" style="width:100%; justify-content:center;">Check Details</a>
+          </div>
+
+          <div class="js-cat-card">
+            <div class="js-top-right-badge-icon">💼</div>
+            <div>
+              <h3 class="js-cat-card-title">Business Loan (MUDRA / PMEGP)</h3>
+              <div class="js-cat-card-avail">7 Scheme(s) Available ℹ️</div>
+              <p class="js-cat-card-desc">Loans for setting up new business or expanding an existing business with up to 35% margin subsidy support.</p>
+            </div>
+            <a href="apply.html?step=2" class="btn-gov-saffron" style="width:100%; justify-content:center;">Start 8-Step Application ➔</a>
+          </div>
+
+        </div>
+
+        <div class="bottom-schemes-banner">
+          <div>
+            <div style="font-size:0.95rem; font-weight:800; color:#1e3a8a;">Want to know more about the schemes?</div>
+            <div style="font-size:0.78rem; color:#64748b;">Total 17 Central Government Subsidy Schemes are available on CreditSamarth Portal</div>
+          </div>
+          <a href="schemes.html" class="btn-gov-primary">View all 17 schemes</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. "THE PROCESS" SECTION -->
+    <section id="section-the-process" class="jansamarth-process-wrapper" style="max-width:1280px; margin:0 auto 3.5rem auto;">
+      <h2 class="process-title-heading">The Process</h2>
+
+      <div class="process-stage-container">
+        <svg class="process-sine-svg" viewBox="0 0 1000 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="60" r="4" fill="#93c5fd" />
+          <path d="M 15 60 C 150 110, 350 10, 500 60 C 650 110, 850 10, 985 60" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="6 6" />
+          <circle cx="985" cy="60" r="4" fill="#93c5fd" />
+        </svg>
+
+        <div class="process-grid-cards">
+          <a href="apply.html?step=1" class="process-egg-card">
+            <div class="process-vector-icon">💰</div>
+            <h3 class="process-egg-title">1. Journey Start</h3>
+            <p class="process-egg-desc">Entrepreneur lands on platform and begins loan application.</p>
+          </a>
+
+          <a href="apply.html?step=2" class="process-egg-card">
+            <div class="process-vector-icon">📜</div>
+            <h3 class="process-egg-title">2. Scheme Select</h3>
+            <p class="process-egg-desc">Choose best suitable scheme (MUDRA, PMEGP, PMFME, CMEGP).</p>
+          </a>
+
+          <a href="apply.html?step=3" class="process-egg-card">
+            <div class="process-vector-icon">🔍</div>
+            <h3 class="process-egg-title">3. Eligibility Check</h3>
+            <p class="process-egg-desc">AI evaluates eligibility score and matches pre-approval likelihood.</p>
+          </a>
+
+          <a href="apply.html?step=4" class="process-egg-card">
+            <div class="process-vector-icon">📁</div>
+            <h3 class="process-egg-title">4. Document Upload</h3>
+            <p class="process-egg-desc">Upload required Aadhaar, PAN, Bank Statement, Udyam & GST files.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PARTNER BANKS AND KEY STAKEHOLDERS SECTION -->
+    <section class="partner-stakeholders-section">
+      <div class="partner-stakeholders-container">
+        
+        <div>
+          <h2 class="partner-title-heading">
+            Partner Banks and Key<br>Stakeholders
+          </h2>
+          <p class="partner-sub-desc">
+            Various Ministries, Nodal Agencies and Lenders came together on a single Platform to ensure fast, smooth and secure subsidy availing process for beneficiaries.
+          </p>
+
+          <div class="partner-stats-row">
+            <div>
+              <div class="partner-stat-num">8+</div>
+              <div class="partner-stat-lbl">Ministries</div>
+            </div>
+
+            <div>
+              <div class="partner-stat-num">10+</div>
+              <div class="partner-stat-lbl">Nodal Agencies</div>
+            </div>
+
+            <div>
+              <div class="partner-stat-num" style="color:#0284c7;">300+</div>
+              <div class="partner-stat-lbl">Lenders on Platform</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bank-badge-grid">
+          <div class="bank-logo-card"><div class="bank-logo-text">🔵 SBI</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">☀️ Bank of Baroda</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🔴 PNB</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🔴 Union Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">⭐ Bank of India</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🏛 Central Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🏛 Maharashtra</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟡 Indian Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🏛 IOB Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟢 Punjab & Sind</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🔵 UCO Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">✳️ SIDBI</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🌿 NABARD</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟦 HDFC BANK</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟥 Kotak Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟧 ICICI Bank</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🔺 AXIS BANK</div></div>
+          <div class="bank-logo-card"><div class="bank-logo-text">🟢 IDBI BANK</div></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. EMI CALCULATOR SECTION -->
+    <section style="max-width:1280px; margin:0 auto 3.5rem auto; padding:0 1.5rem;">
+      <div id="section-calculator" class="gov-card" style="background: #ffffff;">
+        <h3 style="font-size:1.5rem; font-weight:800; color:#1e3a8a; margin-bottom:0.25rem;">Financial EMI & Repayment Calculator</h3>
+        <p style="font-size:0.85rem; color:#64748b; margin-bottom:1.5rem">Calculate exact monthly installment and interest schedule</p>
+
+        <div class="emi-calc-layout-grid" style="display:grid; grid-template-columns: 1.2fr 1fr; gap:2rem; align-items:center;">
+          <div>
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.85rem; margin-bottom:0.4rem;">
+                <span>Loan Amount (₹):</span>
+                <span style="color:#ff6b00; font-size:1.1rem;" id="calc-disp-amount">₹ 5,00,000</span>
+              </div>
+              <input type="range" class="range-slider" min="50000" max="5000000" step="25000" value="500000" id="calc-range-amount" oninput="updateEmiCalculator()">
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.85rem; margin-bottom:0.4rem;">
+                <span>Tenure (Months):</span>
+                <span style="color:#1e3a8a; font-size:1.1rem;" id="calc-disp-tenure">36 Months</span>
+              </div>
+              <input type="range" class="range-slider" min="12" max="84" step="6" value="36" id="calc-range-tenure" oninput="updateEmiCalculator()">
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.85rem; margin-bottom:0.4rem;">
+                <span>Interest Rate (p.a.):</span>
+                <span style="color:#059669; font-size:1.1rem;" id="calc-disp-rate">9.50%</span>
+              </div>
+              <input type="range" class="range-slider" min="7.0" max="14.0" step="0.25" value="9.5" id="calc-range-rate" oninput="updateEmiCalculator()">
+            </div>
+          </div>
+
+          <div style="background:#1e3a8a; color:white; padding:1.75rem; border-radius:10px; text-align:center;">
+            <div style="font-size:0.75rem; color:#94a3b8; font-weight:700">ESTIMATED MONTHLY EMI</div>
+            <div style="font-size:2.4rem; font-weight:900; color:#facc15; margin:0.4rem 0;" id="calc-result-emi">₹ 16,209</div>
+            <div style="font-size:0.72rem; color:#cbd5e1; margin-bottom:1.25rem;">Per month for selected tenure</div>
+
+            <div class="emi-result-breakdown-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem;">
+              <div>
+                <div style="font-size:0.68rem; color:#94a3b8">Total Interest</div>
+                <div style="font-size:1rem; font-weight:800; color:#a7f3d0" id="calc-result-interest">₹ 76,864</div>
+              </div>
+              <div>
+                <div style="font-size:0.68rem; color:#94a3b8">Total Repayment</div>
+                <div style="font-size:1rem; font-weight:800; color:#ffffff" id="calc-result-total">₹ 5,76,864</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. REAL-TIME APPLICATION TRACKER QUICK SEARCH -->
+    <section style="max-width:1280px; margin:0 auto 3.5rem auto; padding:0 1.5rem;">
+      <div style="background:linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); border-radius:14px; padding:2rem; color:#ffffff; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <h3 style="font-size:1.4rem; font-weight:900; color:#ffffff; margin-bottom:0.35rem;">Track Your Application</h3>
+          <p style="font-size:0.85rem; color:#cbd5e1;">Enter your Application Reference ID to check real-time sanction status</p>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex:1; max-width:500px; min-width:280px;">
+          <input type="text" id="home-track-input" class="form-input" value="MUDRA-2026-08421" placeholder="Enter Application ID e.g. MUDRA-2026-08421" style="background:#ffffff; font-weight:700; flex:1;">
+          <button class="btn-gov-saffron" style="white-space:nowrap; padding:0.65rem 1.25rem;" onclick="trackFromHomeInput()">Track Status ➔</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FREQUENTLY ASKED QUESTIONS (FAQS) ACCORDION -->
+    <section style="max-width:1280px; margin:0 auto 3.5rem auto; padding:0 1.5rem;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <h2 style="font-size:1.8rem; font-weight:900; color:#1e3a8a; margin-bottom:0.25rem;">Frequently Asked Questions (FAQs)</h2>
+        <p style="font-size:0.85rem; color:#64748b;">Get answers to common queries regarding CreditSamarth scheme applications</p>
+      </div>
+
+      <div style="max-width:900px; margin:0 auto;">
+        
+        <div class="faq-card-item" onclick="toggleFaqAccordion(1)">
+          <div class="faq-question-title">
+            <span>1. What is CreditSamarth Portal?</span>
+            <span id="faq-icon-1">➕</span>
+          </div>
+          <div class="faq-answer-body" id="faq-ans-1" style="display:none;">
+            CreditSamarth is a digital one-stop portal connecting Government Credit Schemes directly to borrowers and 300+ partner commercial banks for online eligibility checking, application, and instant in-principle approval.
+          </div>
+        </div>
+
+        <div class="faq-card-item" onclick="toggleFaqAccordion(2)">
+          <div class="faq-question-title">
+            <span>2. How do I check eligibility for government schemes?</span>
+            <span id="faq-icon-2">➕</span>
+          </div>
+          <div class="faq-answer-body" id="faq-ans-2" style="display:none;">
+            Click on "Check Eligibility" on any scheme card, answer a few basic details about your business type, income, and location. Our AI engine automatically matches you with the best government subsidy scheme.
+          </div>
+        </div>
+
+        <div class="faq-card-item" onclick="toggleFaqAccordion(3)">
+          <div class="faq-question-title">
+            <span>3. Are loans on CreditSamarth collateral-free?</span>
+            <span id="faq-icon-3">➕</span>
+          </div>
+          <div class="faq-answer-body" id="faq-ans-3" style="display:none;">
+            Yes! Schemes like Pradhan Mantri MUDRA Yojana (PMMY) up to ₹10 Lakhs and PMEGP up to ₹25 Lakhs provide 100% collateral-free credit guarantees under Govt. of India credit guarantee trusts (CGTMSE).
+          </div>
+        </div>
+
+        <div class="faq-card-item" onclick="toggleFaqAccordion(4)">
+          <div class="faq-question-title">
+            <span>4. How long does digital sanction take?</span>
+            <span id="faq-icon-4">➕</span>
+          </div>
+          <div class="faq-answer-body" id="faq-ans-4" style="display:none;">
+            In-Principle Sanction Letters are generated digitally within 5 to 10 minutes upon successful Aadhaar e-KYC, PAN validation, and document upload verification.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. BENEFICIARY SUCCESS STORIES -->
+    <section style="max-width:1280px; margin:0 auto 3.5rem auto; padding:0 1.5rem;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <h2 style="font-size:1.8rem; font-weight:900; color:#1e3a8a; margin-bottom:0.25rem;">Empowering Micro Entrepreneurs Across India</h2>
+        <p style="font-size:0.85rem; color:#64748b;">Real stories of transformation backed by Central Government credit assistance</p>
+      </div>
+
+      <div class="testimonials-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem;">
+        
+        <div class="testimonial-card">
+          <p style="font-size:0.85rem; color:#475569; font-style:italic; line-height:1.6; margin-bottom:1.25rem;">
+            "Got my ₹5 Lakh MUDRA loan in-principle approval within 10 minutes on CreditSamarth! Expanded my retail store in Ranchi seamlessly."
+          </p>
+          <div style="display:flex; align-items:center; gap:0.85rem; border-top:1px solid #e2e8f0; padding-top:0.85rem;">
+            <div style="font-size:2rem;">👨‍💼</div>
+            <div>
+              <div style="font-weight:900; font-size:0.9rem; color:#1e3a8a;">Rahul Kumar</div>
+              <div style="font-size:0.72rem; color:#059669; font-weight:700;">Shree General Store • Ranchi, JH</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p style="font-size:0.85rem; color:#475569; font-style:italic; line-height:1.6; margin-bottom:1.25rem;">
+            "PMFME Food processing subsidy of 35% helped me setup my pickle manufacturing unit with State Bank of India credit link."
+          </p>
+          <div style="display:flex; align-items:center; gap:0.85rem; border-top:1px solid #e2e8f0; padding-top:0.85rem;">
+            <div style="font-size:2rem;">👩‍🍳</div>
+            <div>
+              <div style="font-weight:900; font-size:0.9rem; color:#1e3a8a;">Sunita Devi</div>
+              <div style="font-size:0.72rem; color:#059669; font-weight:700;">Annapurna Food Products • Lucknow, UP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p style="font-size:0.85rem; color:#475569; font-style:italic; line-height:1.6; margin-bottom:1.25rem;">
+            "Kisan Credit Card (KCC) approval through CreditSamarth provided timely harvest funds for my fish farming venture."
+          </p>
+          <div style="display:flex; align-items:center; gap:0.85rem; border-top:1px solid #e2e8f0; padding-top:0.85rem;">
+            <div style="font-size:2rem;">👨‍🌾</div>
+            <div>
+              <div style="font-weight:900; font-size:0.9rem; color:#1e3a8a;">Ramesh Singh</div>
+              <div style="font-size:0.72rem; color:#059669; font-weight:700;">Agri Fisheries Unit • Patna, BR</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeAuthModal(event)">
+    <div class="auth-modal-card" onclick="event.stopPropagation()">
+      <div class="auth-tab-row">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <form id="form-auth-login" onsubmit="handleAuthLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address / Mobile</label>
+          <input type="text" id="auth-login-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-login-password" class="form-input" value="password123" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">User Role</label>
+          <select id="auth-login-role" class="form-select">
+            <option value="APPLICANT">Borrower / Micro Entrepreneur</option>
+            <option value="ADMIN">Nodal Officer (Admin Desk)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Login to Account ➔</button>
+      </form>
+
+      <form id="form-auth-register" onsubmit="handleAuthRegister(event)" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-reg-name" class="form-input" value="Rahul Kumar" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-reg-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="auth-reg-pass" class="form-input" value="password123" required>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Register New Account ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
+        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="scheme-detail.html?id=MUDRA">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="scheme-detail.html?id=PMEGP">Prime Minister's Employment Generation (PMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="apply.html?step=1">Check Loan Eligibility</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
+      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

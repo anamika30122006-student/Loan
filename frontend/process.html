@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Process | CreditSamarth</title>
+  <meta name="description" content="Step-by-step walkthrough of CreditSamarth digital loan application and sanction process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 Government of India</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Ministry of Finance • Department of Financial Services</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="toggleVoiceModal()">🎙 Voice Guide</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Helpline: 1800-11-3456</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls (Login + Hamburger) -->
+      <div class="mobile-navbar-right-controls">
+        <button class="btn-js-login mobile-nav-login-btn" onclick="openAuthModal('login')">🔑 Login</button>
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links with Interactive Schemes Dropdown -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item">Home</a></li>
+        
+        <li class="nav-dropdown-wrapper">
+          <a href="schemes.html" class="gov-nav-item">Schemes ▾</a>
+          <div class="dropdown-menu-box">
+            <a href="apply.html?step=2&scheme=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=PMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏭</div>
+              <div>
+                <div class="dropdown-item-title">Prime Minister's Employment Generation (PMEGP)</div>
+                <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
+              <div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+              </div>
+            </a>
+            <a href="apply.html?step=2&scheme=CMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏛</div>
+              <div>
+                <div class="dropdown-item-title">Chief Minister Employment Generation (CMEGP)</div>
+                <div class="dropdown-item-sub">State Soft Loan & Seed Capital</div>
+              </div>
+            </a>
+            <a href="apply.html?step=3&scheme=KCC" class="dropdown-item">
+              <div class="dropdown-icon-badge">🌾</div>
+              <div>
+                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
+                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+              </div>
+            </a>
+            <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
+            <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
+              <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
+              <div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 16 Government Schemes</div>
+                <div class="dropdown-item-sub">Explore full catalog & criteria</div>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="process.html" class="gov-nav-item active">The Process</a></li>
+        <li><a href="grievances.html" class="gov-nav-item">Grievances</a></li>
+        <li><a href="index.html#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
+
+        <li class="mobile-nav-actions-item">
+          <div class="mobile-nav-actions-box">
+            <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
+            <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <select onchange="changeLanguage(this.value)">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions" id="nav-actions-box">
+        <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+          <option value="en">English ▾</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- PROCESS PAGE EXECUTIVE HERO BANNER -->
+  <section class="js-hero-fullwidth-section" style="padding: 3.5rem 1.5rem; text-align: center;">
+    <div class="hero-executive-container">
+      <div class="hero-govt-tag">📖 STEP-BY-STEP APPLICATION WORKFLOW</div>
+      <h1 class="js-hero-title" style="font-size:2.4rem; margin-bottom:0.5rem;">
+        The End-to-End Digital Process
+      </h1>
+      <p class="js-hero-subtext" style="font-size:0.95rem; margin-bottom:0; max-width:760px;">
+        Simple 4-stage digital workflow linking micro entrepreneurs to 300+ partner commercial banks with 100% transparency and tracking.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main style="max-width:1280px; margin:3rem auto; padding:0 1.5rem;">
+    
+    <section class="jansamarth-process-wrapper">
+      <div class="process-stage-container">
+        <svg class="process-sine-svg" viewBox="0 0 1000 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="60" r="4" fill="#93c5fd" />
+          <path d="M 15 60 C 150 110, 350 10, 500 60 C 650 110, 850 10, 985 60" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="6 6" />
+          <circle cx="985" cy="60" r="4" fill="#93c5fd" />
+        </svg>
+
+        <div class="process-grid-cards">
+          <a href="apply.html?step=1" class="process-egg-card">
+            <div class="process-vector-icon">💰</div>
+            <h3 class="process-egg-title">1. Journey Start</h3>
+            <p class="process-egg-desc">Entrepreneur lands on platform and begins loan application.</p>
+          </a>
+
+          <a href="apply.html?step=2" class="process-egg-card">
+            <div class="process-vector-icon">📜</div>
+            <h3 class="process-egg-title">2. Scheme Select</h3>
+            <p class="process-egg-desc">Choose best suitable scheme (MUDRA, PMEGP, PMFME, CMEGP).</p>
+          </a>
+
+          <a href="apply.html?step=3" class="process-egg-card">
+            <div class="process-vector-icon">🔍</div>
+            <h3 class="process-egg-title">3. Eligibility Check</h3>
+            <p class="process-egg-desc">AI evaluates eligibility score and matches pre-approval likelihood.</p>
+          </a>
+
+          <a href="apply.html?step=4" class="process-egg-card">
+            <div class="process-vector-icon">📁</div>
+            <h3 class="process-egg-title">4. Document Upload</h3>
+            <p class="process-egg-desc">Upload required Aadhaar, PAN, Bank Statement, Udyam & GST files.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep Walkthrough Content Cards -->
+    <div class="process-two-col-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-top:3rem;">
+      <div class="gov-card">
+        <h3 style="font-size:1.2rem; font-weight:800; color:#1e3a8a; margin-bottom:0.5rem;">⚡ Stage 1 & 2: Instant Scheme Selection</h3>
+        <p style="font-size:0.85rem; color:#475569; line-height:1.6;">
+          Applicants specify their business activity (Retail, Food Processing, Manufacturing, Agriculture) and turnover. Our AI engine recommends exact subsidy schemes with maximum margin money benefits.
+        </p>
+      </div>
+
+      <div class="gov-card">
+        <h3 style="font-size:1.2rem; font-weight:800; color:#1e3a8a; margin-bottom:0.5rem;">🤖 Stage 3 & 4: AI Risk Audit & Sanction</h3>
+        <p style="font-size:0.85rem; color:#475569; line-height:1.6;">
+          Real-time OCR extraction verifies uploaded Aadhaar, PAN, and Bank Statements. In-Principle Sanction Letter is issued digitally within minutes across 300+ partner lenders.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeAuthModal(event)">
+    <div class="auth-modal-card" onclick="event.stopPropagation()">
+      <div class="auth-tab-row">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <form id="form-auth-login" onsubmit="handleAuthLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address / Mobile</label>
+          <input type="text" id="auth-login-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-login-password" class="form-input" value="password123" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">User Role</label>
+          <select id="auth-login-role" class="form-select">
+            <option value="APPLICANT">Borrower / Micro Entrepreneur</option>
+            <option value="ADMIN">Nodal Officer (Admin Desk)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Login to Account ➔</button>
+      </form>
+
+      <form id="form-auth-register" onsubmit="handleAuthRegister(event)" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-reg-name" class="form-input" value="Rahul Kumar" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-reg-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="auth-reg-pass" class="form-input" value="password123" required>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Register New Account ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
+        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="schemes.html">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="schemes.html">Prime Minister's Employment Generation (PMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="apply.html?step=1">Check Loan Eligibility</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
+      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

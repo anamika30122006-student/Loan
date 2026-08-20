@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Government Credit Schemes Catalog | CreditSamarth</title>
+  <meta name="description" content="Explore Central & State Government Sponsored Credit Subsidy Schemes for Micro Enterprises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 Government of India</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Ministry of Finance • Department of Financial Services</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="toggleVoiceModal()">🎙 Voice Guide</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Helpline: 1800-11-3456</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls (Login + Hamburger) -->
+      <div class="mobile-navbar-right-controls">
+        <button class="btn-js-login mobile-nav-login-btn" onclick="openAuthModal('login')">🔑 Login</button>
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links with Interactive Schemes Dropdown -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item">Home</a></li>
+        
+        <li class="nav-dropdown-wrapper">
+          <a href="schemes.html" class="gov-nav-item active">Schemes ▾</a>
+          <div class="dropdown-menu-box">
+            <a href="scheme-detail.html?id=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏭</div>
+              <div>
+                <div class="dropdown-item-title">Prime Minister's Employment Generation (PMEGP)</div>
+                <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
+              <div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMAY" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏠</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri Awas Yojana (PMAY-U 2.0)</div>
+                <div class="dropdown-item-sub">Interest Subsidy up to 6.5% for Home Loans</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=KCC" class="dropdown-item">
+              <div class="dropdown-icon-badge">🌾</div>
+              <div>
+                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
+                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+              </div>
+            </a>
+            <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
+            <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
+              <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
+              <div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 17 Government Schemes</div>
+                <div class="dropdown-item-sub">Explore full catalog & criteria</div>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="process.html" class="gov-nav-item">The Process</a></li>
+        <li><a href="grievances.html" class="gov-nav-item">Grievances</a></li>
+        <li><a href="index.html#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
+
+        <li class="mobile-nav-actions-item">
+          <div class="mobile-nav-actions-box">
+            <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
+            <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <select onchange="changeLanguage(this.value)">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions" id="nav-actions-box">
+        <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+          <option value="en">English ▾</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SCHEMES PAGE EXECUTIVE HERO BANNER -->
+  <section class="js-hero-fullwidth-section" style="padding: 3.5rem 1.5rem; text-align: left;">
+    <div style="max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;">
+      <div style="flex:1; min-width:290px;">
+        <div class="hero-govt-tag">🏛 Official Government Catalog • DFS</div>
+        <h1 class="js-hero-title" style="font-size:2.4rem; margin-bottom:0.6rem;">
+          Government Sponsored Credit Schemes Catalog
+        </h1>
+        <p class="js-hero-subtext" style="font-size:1rem; color:#cbd5e1; margin-bottom:0; max-width:760px;">
+          Explore 17 Central & State Government Credit Schemes offering collateral-free loans up to ₹50 Lakhs, margin money subsidies up to 35%, and interest subventions for Micro Entrepreneurs.
+        </p>
+      </div>
+      <div style="flex:0 0 320px; max-width:100%; width:100%;">
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); padding:1.25rem; border-radius:12px; backdrop-filter:blur(4px);">
+          <label style="color:#facc15; font-size:0.75rem; font-weight:800; text-transform:uppercase; margin-bottom:0.5rem; display:block;">🔍 Instant Scheme Finder</label>
+          <input type="text" id="scheme-search-input" class="form-input" placeholder="Search scheme name, subsidy, or limit..." onkeyup="filterSchemesList(this.value)" style="padding:0.75rem 1rem; border-radius:8px; font-weight:600; background:#ffffff; color:#0f172a; width:100%;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main style="max-width:1280px; margin:2.5rem auto; padding:0 1.5rem;">
+    
+    <!-- Category Filter Pills -->
+    <div class="scheme-filter-tab-bar">
+      <div class="scheme-filter-pill active" onclick="filterSchemeCategory('all', this)">All Schemes (17)</div>
+      <div class="scheme-filter-pill" onclick="filterSchemeCategory('business', this)">💼 Business Activity (7)</div>
+      <div class="scheme-filter-pill" onclick="filterSchemeCategory('agriculture', this)">🌾 Agriculture & Allied (4)</div>
+      <div class="scheme-filter-pill" onclick="filterSchemeCategory('solar', this)">☀️ Infrastructure & Solar (3)</div>
+      <div class="scheme-filter-pill" onclick="filterSchemeCategory('livelihood', this)">👨‍💼 Livelihood & MSME (2)</div>
+      <div class="scheme-filter-pill" onclick="filterSchemeCategory('housing', this)">🏠 Housing Loan (1)</div>
+    </div>
+
+    <!-- Active Result Count Status Badge -->
+    <div style="margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <span id="scheme-count-status" style="font-size:0.85rem; font-weight:800; color:#1e3a8a; background:#eff6ff; border:1px solid #bfdbfe; padding:4px 12px; border-radius:6px;">
+        Showing 17 of 17 Schemes
+      </span>
+      <span style="font-size:0.78rem; color:#64748b;">Filtered by Department of Financial Services</span>
+    </div>
+
+    <!-- Clean & Professional Cards Grid -->
+    <div class="card-grid" id="scheme-cards-container">
+      
+      <!-- 1. MUDRA -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#1e3a8a;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PMMY MUDRA</span>
+            <span style="font-size:1.1rem; color:#64748b;">💼</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=MUDRA">Pradhan Mantri MUDRA Yojana</a></h3>
+          <p class="scheme-card-description">
+            Collateral-free business loans up to ₹10 Lakhs for micro manufacturing & trading units under Shishu, Kishor, and Tarun categories.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 10,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">GUARANTEE COVER</div>
+              <div class="metric-value-sub">100% Collateral-Free</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=MUDRA" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=2&scheme=MUDRA" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. PMEGP -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#059669;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PMEGP SUBSIDY</span>
+            <span style="font-size:1.1rem; color:#64748b;">🏭</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=PMEGP">PM Employment Generation</a></h3>
+          <p class="scheme-card-description">
+            Margin money subsidy scheme administered by KVIC for establishing new micro-enterprises in manufacturing & service sectors.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 50,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">MARGIN SUBSIDY</div>
+              <div class="metric-value-sub">Up to 35% Capital</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=PMEGP" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=2&scheme=PMEGP" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PMFME -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#0284c7;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PMFME FOOD</span>
+            <span style="font-size:1.1rem; color:#64748b;">🍲</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=PMFME">PM Food Processing (PMFME)</a></h3>
+          <p class="scheme-card-description">
+            Financial and technical support for formalisation & expansion of micro food processing enterprises under ODOP framework.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 10,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">CAPITAL SUBSIDY</div>
+              <div class="metric-value-sub">35% Credit-Linked</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=PMFME" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=2&scheme=PMFME" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. CMEGP -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#d97706;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">CMEGP STATE</span>
+            <span style="font-size:1.1rem; color:#64748b;">🏛</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=CMEGP">CM Employment Generation</a></h3>
+          <p class="scheme-card-description">
+            State-sponsored self-employment scheme offering seed capital and interest subvention for local rural & urban youth.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 25,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">SEED CAPITAL</div>
+              <div class="metric-value-sub">Soft State Loan</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=CMEGP" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=2&scheme=CMEGP" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. PM SVANidhi -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#7c3aed;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PM SVANIDHI</span>
+            <span style="font-size:1.1rem; color:#64748b;">🛒</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=SVANidhi">PM Street Vendor's AtmaNirbhar</a></h3>
+          <p class="scheme-card-description">
+            Special micro-credit facility for urban street vendors offering 7% interest subsidy & digital transaction cashbacks.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 50,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBSIDY</div>
+              <div class="metric-value-sub">7% Subvention</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=SVANidhi" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Stand Up India -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#e11d48;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">STAND UP INDIA</span>
+            <span style="font-size:1.1rem; color:#64748b;">👩‍💼</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=StandUp">Stand Up India Scheme</a></h3>
+          <p class="scheme-card-description">
+            Bank loans between ₹10 Lakh and ₹1 Crore to SC/ST and Women borrowers for setting up greenfield enterprises.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 1,00,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">BENEFICIARY</div>
+              <div class="metric-value-sub">SC/ST & Women</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=StandUp" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. SRMS -->
+      <div class="scheme-clean-card" data-cat="business" style="border-top-color:#475569;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">SRMS SCHEME</span>
+            <span style="font-size:1.1rem; color:#64748b;">🛠</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=SRMS">Self Employment Rehabilitation</a></h3>
+          <p class="scheme-card-description">
+            Capital subsidy and credit for rehabilitation of beneficiaries into dignified alternative self-employment occupations.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 15,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">CAPITAL SUBSIDY</div>
+              <div class="metric-value-sub">Up to ₹3.25 Lakh</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=SRMS" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. KCC Agri -->
+      <div class="scheme-clean-card" data-cat="agriculture" style="border-top-color:#15803d;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">KCC AGRI</span>
+            <span style="font-size:1.1rem; color:#64748b;">🌾</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=KCC">Kisan Credit Card (KCC)</a></h3>
+          <p class="scheme-card-description">
+            Timely credit support for farmers to meet harvest expenses, animal husbandry & fisheries operating requirements.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 3,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBVENTION</div>
+              <div class="metric-value-sub">3% Prompt Rebate</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=KCC" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=3&scheme=KCC" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. AIF -->
+      <div class="scheme-clean-card" data-cat="agriculture" style="border-top-color:#16a34a;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">AIF AGRI INFRA</span>
+            <span style="font-size:1.1rem; color:#64748b;">🚜</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=AIF">Agriculture Infrastructure Fund</a></h3>
+          <p class="scheme-card-description">
+            Medium-long term debt financing for post-harvest management infrastructure & community farming assets.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 2,00,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBVENTION</div>
+              <div class="metric-value-sub">3% p.a. Subvention</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=AIF" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. PMMSY -->
+      <div class="scheme-clean-card" data-cat="agriculture" style="border-top-color:#0284c7;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PMMSY FISHERIES</span>
+            <span style="font-size:1.1rem; color:#64748b;">🐟</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=PMMSY">PM Matsya Sampada Yojana</a></h3>
+          <p class="scheme-card-description">
+            Holistic development of fisheries sector including aquaculture, fish processing & cold chain units.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 50,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">GOVT SUBSIDY</div>
+              <div class="metric-value-sub">Up to 60% Cover</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=PMMSY" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. AHIDF -->
+      <div class="scheme-clean-card" data-cat="agriculture" style="border-top-color:#059669;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">AHIDF DAIRY</span>
+            <span style="font-size:1.1rem; color:#64748b;">🥛</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=AHIDF">Animal Husbandry Infra Fund</a></h3>
+          <p class="scheme-card-description">
+            Financial support for establishing dairy processing, meat processing & animal feed manufacturing plants.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 10,00,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBVENTION</div>
+              <div class="metric-value-sub">3% Interest Rebate</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=AHIDF" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. PM-Surya Ghar Solar -->
+      <div class="scheme-clean-card" data-cat="solar" style="border-top-color:#7c3aed;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PM-SURYA GHAR</span>
+            <span style="font-size:1.1rem; color:#64748b;">☀️</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=Solar">PM-Surya Ghar Solar</a></h3>
+          <p class="scheme-card-description">
+            Install rooftop solar power systems for micro enterprises to cut electricity tariffs with Central financial support.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 6,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">CENTRAL SUBSIDY</div>
+              <div class="metric-value-sub">Up to ₹ 78,000</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=Solar" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. PM-KUSUM -->
+      <div class="scheme-clean-card" data-cat="solar" style="border-top-color:#d97706;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PM-KUSUM</span>
+            <span style="font-size:1.1rem; color:#64748b;">⚡</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=KUSUM">PM-KUSUM Solar Pumps</a></h3>
+          <p class="scheme-card-description">
+            Solarisation of agricultural pumps & setting up grid-connected solar power plants on barren farm lands.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 15,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">SUBSIDY SHARE</div>
+              <div class="metric-value-sub">60% Govt Subsidy</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=KUSUM" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. SATAT Bio-Gas -->
+      <div class="scheme-clean-card" data-cat="solar" style="border-top-color:#059669;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">SATAT CBG</span>
+            <span style="font-size:1.1rem; color:#64748b;">🌱</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=SATAT">Compressed Bio-Gas SATAT</a></h3>
+          <p class="scheme-card-description">
+            Establishment of Compressed Bio-Gas (CBG) production plants from agricultural waste with off-take guarantee.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 5,00,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">OFFTAKE GUARANTEE</div>
+              <div class="metric-value-sub">PSU Oil Companies</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=SATAT" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. DAY-NRLM -->
+      <div class="scheme-clean-card" data-cat="livelihood" style="border-top-color:#e11d48;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">DAY-NRLM</span>
+            <span style="font-size:1.1rem; color:#64748b;">👩‍🤝‍👩</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=NRLM">Rural Livelihood Mission</a></h3>
+          <p class="scheme-card-description">
+            Credit linkage for rural women self-help groups (SHG) & individual micro-entrepreneurs.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 20,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST RATE</div>
+              <div class="metric-value-sub">7% Concessional</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=NRLM" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. DAY-NULM -->
+      <div class="scheme-clean-card" data-cat="livelihood" style="border-top-color:#0284c7;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">DAY-NULM</span>
+            <span style="font-size:1.1rem; color:#64748b;">🏙</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=NULM">Urban Livelihood Mission</a></h3>
+          <p class="scheme-card-description">
+            Financial support for setting up urban micro-enterprises and group micro-enterprises.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">LOAN CEILING</div>
+              <div class="metric-value-num">₹ 10,00,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBVENTION</div>
+              <div class="metric-value-sub">Over & Above 7%</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=NULM" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=1" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 17. PMAY-U 2.0 HOUSING SCHEME -->
+      <div class="scheme-clean-card" data-cat="housing" style="border-top-color:#1e3a8a;">
+        <div>
+          <div class="scheme-card-tag-row">
+            <span class="scheme-pill-tag">PMAY-U 2.0</span>
+            <span style="font-size:1.1rem; color:#64748b;">🏠</span>
+          </div>
+          <h3 class="scheme-card-header-title"><a href="scheme-detail.html?id=PMAY">Pradhan Mantri Awas Yojana (Urban 2.0)</a></h3>
+          <p class="scheme-card-description">
+            Credit-Linked Subsidy Scheme (CLSS) offering upfront interest subvention for EWS, LIG & MIG home buyers.
+          </p>
+        </div>
+
+        <div>
+          <div class="scheme-card-metrics-box">
+            <div>
+              <div class="metric-label-txt">SUBSIDY CEILING</div>
+              <div class="metric-value-num">₹ 2,67,000</div>
+            </div>
+            <div>
+              <div class="metric-label-txt">INTEREST SUBVENTION</div>
+              <div class="metric-value-sub">Up to 6.5% Subsidy</div>
+            </div>
+          </div>
+          <div class="scheme-card-actions">
+            <a href="scheme-detail.html?id=PMAY" class="btn-card-secondary">View Details</a>
+            <a href="apply.html?step=3&scheme=PMAY" class="btn-card-primary">Apply Now ➔</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeAuthModal(event)">
+    <div class="auth-modal-card" onclick="event.stopPropagation()">
+      <div class="auth-tab-row">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <form id="form-auth-login" onsubmit="handleAuthLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address / Mobile</label>
+          <input type="text" id="auth-login-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-login-password" class="form-input" value="password123" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">User Role</label>
+          <select id="auth-login-role" class="form-select">
+            <option value="APPLICANT">Borrower / Micro Entrepreneur</option>
+            <option value="ADMIN">Nodal Officer (Admin Desk)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Login to Account ➔</button>
+      </form>
+
+      <form id="form-auth-register" onsubmit="handleAuthRegister(event)" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-reg-name" class="form-input" value="Rahul Kumar" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-reg-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="auth-reg-pass" class="form-input" value="password123" required>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Register New Account ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
+        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="scheme-detail.html?id=MUDRA">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="scheme-detail.html?id=PMEGP">Prime Minister's Employment Generation (PMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="apply.html?step=1">Check Loan Eligibility</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
+      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

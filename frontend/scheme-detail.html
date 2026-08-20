@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheme Details | CreditSamarth</title>
+  <meta name="description" content="Official Government Scheme Detailed Information, Eligibility Criteria, Subsidies, and Application Guidelines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 Government of India</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Ministry of Finance • Department of Financial Services</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="toggleVoiceModal()">🎙 Voice Guide</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Helpline: 1800-11-3456</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls (Login + Hamburger) -->
+      <div class="mobile-navbar-right-controls">
+        <button class="btn-js-login mobile-nav-login-btn" onclick="openAuthModal('login')">🔑 Login</button>
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links with Interactive Schemes Dropdown -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item">Home</a></li>
+        
+        <li class="nav-dropdown-wrapper">
+          <a href="schemes.html" class="gov-nav-item active">Schemes ▾</a>
+          <div class="dropdown-menu-box">
+            <a href="scheme-detail.html?id=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏭</div>
+              <div>
+                <div class="dropdown-item-title">Prime Minister's Employment Generation (PMEGP)</div>
+                <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
+              <div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=PMAY" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏠</div>
+              <div>
+                <div class="dropdown-item-title">Pradhan Mantri Awas Yojana (PMAY-U 2.0)</div>
+                <div class="dropdown-item-sub">Interest Subsidy up to 6.5% for Home Loans</div>
+              </div>
+            </a>
+            <a href="scheme-detail.html?id=KCC" class="dropdown-item">
+              <div class="dropdown-icon-badge">🌾</div>
+              <div>
+                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
+                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+              </div>
+            </a>
+            <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
+            <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
+              <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
+              <div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 17 Government Schemes</div>
+                <div class="dropdown-item-sub">Explore full catalog & criteria</div>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li><a href="process.html" class="gov-nav-item">The Process</a></li>
+        <li><a href="grievances.html" class="gov-nav-item">Grievances</a></li>
+        <li><a href="index.html#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
+
+        <li class="mobile-nav-actions-item">
+          <div class="mobile-nav-actions-box">
+            <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
+            <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <select onchange="changeLanguage(this.value)">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions" id="nav-actions-box">
+        <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+          <option value="en">English ▾</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SCHEME DETAIL DYNAMIC HERO BANNER -->
+  <section class="js-hero-fullwidth-section" style="padding: 3rem 1.5rem; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);">
+    <div style="max-width:1280px; margin:0 auto;">
+      
+      <!-- Breadcrumb -->
+      <div style="font-size:0.82rem; color:#cbd5e1; margin-bottom:0.85rem; font-weight:700;">
+        <a href="index.html" style="color:#93c5fd;">Home</a> &nbsp;›&nbsp; 
+        <a href="schemes.html" style="color:#93c5fd;">Schemes Catalog</a> &nbsp;›&nbsp; 
+        <span id="detail-breadcrumb-title" style="color:#ffffff;">Pradhan Mantri MUDRA Yojana</span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:2rem; flex-wrap:wrap;">
+        <div>
+          <span class="gov-badge gov-badge-orange" id="detail-category-badge" style="font-size:0.85rem; padding:5px 12px; margin-bottom:0.75rem;">BUSINESS LOAN SCHEME</span>
+          <h1 style="font-size:2.5rem; font-weight:900; color:#ffffff; margin-bottom:0.5rem;" id="detail-scheme-title">
+            Pradhan Mantri MUDRA Yojana (PMMY)
+          </h1>
+          <p style="font-size:1rem; color:#e0f2fe; max-width:800px; line-height:1.6;" id="detail-scheme-ministry">
+            Nodal Ministry: Department of Financial Services, Ministry of Finance, Govt. of India
+          </p>
+        </div>
+
+        <div style="display:flex; gap:0.75rem;">
+          <a href="#" id="detail-apply-top-btn" class="btn-gov-saffron" style="padding:0.85rem 1.75rem; font-size:1rem; border-radius:8px;">
+            Apply for Scheme ➔
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main style="max-width:1280px; margin:2.5rem auto; padding:0 1.5rem;">
+    
+    <div class="detail-layout-grid" style="display:grid; grid-template-columns: 2fr 1fr; gap:2.5rem; align-items:start;">
+      
+      <!-- LEFT COLUMN: DEEP SCHEME INFORMATION -->
+      <div>
+        
+        <!-- Tab Navigation Buttons -->
+        <div class="grv-tab-btn-row" style="margin-bottom:2rem;">
+          <button class="grv-tab-btn active" onclick="switchDetailTab('overview', this)">📌 Overview & Benefits</button>
+          <button class="grv-tab-btn" onclick="switchDetailTab('eligibility', this)">🎯 Eligibility Criteria</button>
+          <button class="grv-tab-btn" onclick="switchDetailTab('documents', this)">📁 Required Documents</button>
+          <button class="grv-tab-btn" onclick="switchDetailTab('faqs', this)">❓ FAQs & Guidelines</button>
+        </div>
+
+        <!-- TAB 1: OVERVIEW & BENEFITS -->
+        <div id="detail-tab-overview" class="gov-card" style="background:#ffffff; margin-bottom:2rem;">
+          <h3 style="font-size:1.4rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;">About the Scheme</h3>
+          <p style="font-size:0.92rem; color:#334155; line-height:1.7; margin-bottom:1.5rem;" id="detail-full-overview">
+            Pradhan Mantri MUDRA Yojana (PMMY) is a flagship scheme of Government of India to enable a micro enterprise to secure credit up to ₹10 Lakhs without any collateral guarantee. Loans are provided by Banks, NBFCs, and MFIs.
+          </p>
+
+          <h4 style="font-size:1.15rem; font-weight:800; color:#1e3a8a; margin-bottom:1rem;">Key Highlights & Financial Assistance</h4>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem;" id="detail-highlights-grid">
+            <div style="background:#f0f7ff; border:1.5px solid #bfdbfe; padding:1.25rem; border-radius:10px;">
+              <div style="font-size:0.75rem; color:#64748b; font-weight:700;">MAXIMUM CREDIT LIMIT</div>
+              <div style="font-size:1.4rem; font-weight:900; color:#1e3a8a;" id="detail-max-limit">₹ 10,00,000</div>
+              <div style="font-size:0.75rem; color:#475569; margin-top:0.25rem;">Shishu (up to ₹50k), Kishor (₹50k-₹5L), Tarun (₹5L-₹10L)</div>
+            </div>
+
+            <div style="background:#ecfdf5; border:1.5px solid #a7f3d0; padding:1.25rem; border-radius:10px;">
+              <div style="font-size:0.75rem; color:#047857; font-weight:700;">SUBSIDY / GUARANTEE COVER</div>
+              <div style="font-size:1.3rem; font-weight:900; color:#059669;" id="detail-subsidy-cover">100% Collateral-Free</div>
+              <div style="font-size:0.75rem; color:#047857; margin-top:0.25rem;">Covered under CGTMSE Trust</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: ELIGIBILITY CRITERIA -->
+        <div id="detail-tab-eligibility" class="gov-card" style="display:none; background:#ffffff; margin-bottom:2rem;">
+          <h3 style="font-size:1.4rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;">Who Can Apply?</h3>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.9rem; color:#334155;" id="detail-eligibility-list">
+            <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="color:#059669; font-weight:900;">✓</span>
+              <span>Individual micro-entrepreneurs, proprietary firms, partnerships, or LLPs.</span>
+            </li>
+            <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="color:#059669; font-weight:900;">✓</span>
+              <span>Age of applicant must be minimum 18 years and maximum 65 years.</span>
+            </li>
+            <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="color:#059669; font-weight:900;">✓</span>
+              <span>Non-farm sector income generating activities in manufacturing, trading, or services.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- TAB 3: REQUIRED DOCUMENTS -->
+        <div id="detail-tab-documents" class="gov-card" style="display:none; background:#ffffff; margin-bottom:2rem;">
+          <h3 style="font-size:1.4rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;">Mandatory Documents Checklist</h3>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;" id="detail-docs-checklist">
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1rem; border-radius:8px; display:flex; align-items:center; gap:0.75rem;">
+              <span style="font-size:1.5rem;">🪪</span>
+              <div>
+                <div style="font-weight:800; font-size:0.88rem; color:#1e3a8a;">Aadhaar Card</div>
+                <div style="font-size:0.72rem; color:#64748b;">Identity & Address Proof</div>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1rem; border-radius:8px; display:flex; align-items:center; gap:0.75rem;">
+              <span style="font-size:1.5rem;">💳</span>
+              <div>
+                <div style="font-weight:800; font-size:0.88rem; color:#1e3a8a;">PAN Card</div>
+                <div style="font-size:0.72rem; color:#64748b;">Income Tax Identifier</div>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1rem; border-radius:8px; display:flex; align-items:center; gap:0.75rem;">
+              <span style="font-size:1.5rem;">🏦</span>
+              <div>
+                <div style="font-weight:800; font-size:0.88rem; color:#1e3a8a;">Bank Statement (6 Months)</div>
+                <div style="font-size:0.72rem; color:#64748b;">Financial Performance Proof</div>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1rem; border-radius:8px; display:flex; align-items:center; gap:0.75rem;">
+              <span style="font-size:1.5rem;">🏢</span>
+              <div>
+                <div style="font-weight:800; font-size:0.88rem; color:#1e3a8a;">Udyam Registration</div>
+                <div style="font-size:0.72rem; color:#64748b;">MSME Registration Certificate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: FAQS -->
+        <div id="detail-tab-faqs" class="gov-card" style="display:none; background:#ffffff; margin-bottom:2rem;">
+          <h3 style="font-size:1.4rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;">Frequently Asked Questions</h3>
+          
+          <div class="faq-card-item" onclick="toggleFaqAccordion(1)">
+            <div class="faq-question-title">
+              <span>Is collateral security required for this scheme?</span>
+              <span id="faq-icon-1">➕</span>
+            </div>
+            <div class="faq-answer-body" id="faq-ans-1" style="display:none;">
+              No. As per Reserve Bank of India (RBI) guidelines, banks do not demand collateral security for loans under this central government credit scheme.
+            </div>
+          </div>
+
+          <div class="faq-card-item" onclick="toggleFaqAccordion(2)">
+            <div class="faq-question-title">
+              <span>Which banks offer sanction for this scheme?</span>
+              <span id="faq-icon-2">➕</span>
+            </div>
+            <div class="faq-answer-body" id="faq-ans-2" style="display:none;">
+              All 300+ partner lenders registered on CreditSamarth — including State Bank of India, Punjab National Bank, Bank of Baroda, HDFC Bank, ICICI Bank, Regional Rural Banks & SIDBI.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY QUICK ACTION SUMMARY CARD -->
+      <div style="position:sticky; top:90px;">
+        
+        <div class="gov-card" style="background:#ffffff; box-shadow:0 8px 24px rgba(30,58,138,0.12); border:2px solid #93c5fd;">
+          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase; margin-bottom:0.25rem;">SCHEME SNAPSHOT</div>
+          <h4 style="font-size:1.25rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;" id="side-scheme-title">Pradhan Mantri MUDRA Yojana</h4>
+
+          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.85rem; margin-bottom:1.5rem; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0; padding:1rem 0;">
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:#64748b;">Loan Ceiling:</span>
+              <strong style="color:#1e3a8a;" id="side-max-limit">₹ 10,00,000</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:#64748b;">Subsidy / Cover:</span>
+              <strong style="color:#059669;" id="side-subsidy">100% Cover</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:#64748b;">Processing SLA:</span>
+              <strong style="color:#ff6b00;">10 Minutes Digital</strong>
+            </div>
+
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color:#64748b;">Partner Banks:</span>
+              <strong style="color:#1e3a8a;">300+ Lenders</strong>
+            </div>
+          </div>
+
+          <a href="#" id="side-apply-btn" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.85rem; font-size:0.95rem; margin-bottom:0.85rem;">
+            Start 8-Step Application ➔
+          </a>
+
+          <a href="schemes.html" class="btn-gov-outline" style="width:100%; justify-content:center; padding:0.65rem; font-size:0.82rem;">
+            ← Back to All Schemes
+          </a>
+        </div>
+
+        <!-- Helpdesk Box -->
+        <div class="gov-card" style="background:#eff6ff; border:1px solid #bfdbfe; margin-top:1.25rem;">
+          <div style="font-size:0.8rem; font-weight:800; color:#1e3a8a; margin-bottom:0.25rem;">Need Scheme Assistance?</div>
+          <div style="font-size:0.75rem; color:#475569; margin-bottom:0.75rem;">Call Toll-Free Helpline: <strong>1800-11-3456</strong></div>
+          <a href="grievances.html" style="font-size:0.78rem; font-weight:800; color:#2563eb;">Lodge Grievance / Escalation ➔</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeAuthModal(event)">
+    <div class="auth-modal-card" onclick="event.stopPropagation()">
+      <div class="auth-tab-row">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-register" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <form id="form-auth-login" onsubmit="handleAuthLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Email Address / Mobile</label>
+          <input type="text" id="auth-login-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="auth-login-password" class="form-input" value="password123" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">User Role</label>
+          <select id="auth-login-role" class="form-select">
+            <option value="APPLICANT">Borrower / Micro Entrepreneur</option>
+            <option value="ADMIN">Nodal Officer (Admin Desk)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Login to Account ➔</button>
+      </form>
+
+      <form id="form-auth-register" onsubmit="handleAuthRegister(event)" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-reg-name" class="form-input" value="Rahul Kumar" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="auth-reg-email" class="form-input" value="rahul.kumar@shreegeneral.in" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Create Password</label>
+          <input type="password" id="auth-reg-pass" class="form-input" value="password123" required>
+        </div>
+        <button type="submit" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem; margin-top:0.5rem;">Register New Account ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
+        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="schemes.html">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="schemes.html">Prime Minister's Employment Generation (PMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="apply.html?step=1">Check Loan Eligibility</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
+      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
