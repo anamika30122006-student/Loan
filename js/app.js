@@ -433,6 +433,8 @@ function loadSchemeDetailData() {
       </div>
     `).join('');
   }
+
+  if (appState.language === 'hi') applyTranslation('hi');
 }
 
 // SCHEME CATALOG PAGE FILTER & SEARCH FUNCTIONS
@@ -457,6 +459,7 @@ function filterSchemeCategory(category, el) {
   if (countBadge) {
     countBadge.innerText = `Showing ${visibleCount} of ${cards.length} Schemes`;
   }
+  if (appState.language === 'hi') applyTranslation('hi');
 }
 
 function filterSchemesList(query) {
@@ -478,6 +481,7 @@ function filterSchemesList(query) {
   if (countBadge) {
     countBadge.innerText = `Showing ${visibleCount} of ${cards.length} Schemes matching "${query}"`;
   }
+  if (appState.language === 'hi') applyTranslation('hi');
 }
 
 // HOMEPAGE TRACKING INPUT
@@ -1009,15 +1013,31 @@ const HINDI_TRANSLATIONS = {
   "Auto-Fill Demo Data": "⚡ डेमो डेटा भरें",
   "Voice Guide": "🎙 वॉयस गाइड",
   "Helpline: 1800-11-3456": "हेल्पलाइन: 1800-11-3456",
+  "Home": "होम",
+  "Schemes ▾": "योजनाएं ▾",
+  "Schemes": "योजनाएं",
+  "Schemes Catalog": "योजनाएं कैटलॉग",
   "Credit Schemes": "ऋण योजनाएं",
   "Check Loan Eligibility": "पात्रता जांचें",
   "The Process": "आवेदन प्रक्रिया",
+  "Grievances": "शिकायत निवारण",
   "Grievance Redressal": "शिकायत निवारण",
   "Track Application": "आवेदन ट्रैक करें",
   "Borrower Portal": "ऋणदाता पोर्टल",
   "Login": "लॉगिन",
   "Register": "पंजीकरण",
   "Search credit schemes...": "ऋण योजनाएं खोजें...",
+  "EMI Calculator": "ईएमआई कैलकुलेटर",
+  "All Credit Schemes Catalog": "सभी क्रेडिट योजनाएं कैटलॉग",
+  "Support & Grievance Portal": "सहायता और शिकायत पोर्टल",
+  "The Process Walkthrough": "प्रक्रिया निर्देशिका",
+  "View All 17 Government Schemes": "सभी 17 सरकारी योजनाएं देखें",
+  "Explore full catalog & criteria": "पूरा कैटलॉग और पात्रता देखें",
+  "Loans up to ₹10 Lakhs (100% Collateral Free)": "₹10 लाख तक का ऋण (100% बिना गारंटी)",
+  "Up to ₹50 Lakhs (15% to 35% Subsidy)": "₹50 लाख तक (15% से 35% सब्सिडी)",
+  "35% Credit-Linked Capital Subsidy": "35% क्रेडिट-लिंक्ड कैपिटल सब्सिडी",
+  "Interest Subsidy up to 6.5% for Home Loans": "होम लोन के लिए 6.5% तक ब्याज सब्सिडी",
+  "Crop Loan & Fisheries Credit": "फसल ऋण और मत्स्य पालन क्रेडिट",
 
   // Stepper Titles (apply.html)
   "Journey Start": "यात्रा शुरू",
@@ -1150,6 +1170,79 @@ const HINDI_TRANSLATIONS = {
   "Track Live Application Status": "लाइव आवेदन स्थिति ट्रैक करें",
   "Track Another Application": "दूसरा आवेदन ट्रैक करें",
 
+  // Schemes Catalog Page (schemes.html)
+  "Official Government Catalog • DFS": "🏛 आधिकारिक सरकारी कैटलॉग • वित्तीय सेवा विभाग",
+  "Government Sponsored Credit Schemes Catalog": "सरकार प्रायोजित क्रेडिट योजनाएं कैटलॉग",
+  "Explore 17 Central & State Government Credit Schemes offering collateral-free loans up to ₹50 Lakhs, margin money subsidies up to 35%, and interest subventions for Micro Entrepreneurs.": "सूक्ष्म उद्यमियों के लिए ₹50 लाख तक के गारंटी-मुक्त ऋण, 35% तक मार्जिन मनी सब्सिडी और ब्याज सब्सिडी देने वाली 17 सरकारी योजनाओं का अन्वेषण करें।",
+  "Instant Scheme Finder": "🔍 त्वरित योजना खोजें",
+  "Search scheme name, subsidy, or limit...": "योजना का नाम, सब्सिडी या सीमा खोजें...",
+  "All Schemes (17)": "सभी योजनाएं (17)",
+  "💼 Business Activity (7)": "💼 व्यवसाय गतिविधि (7)",
+  "🌾 Agriculture & Allied (4)": "🌾 कृषि और संबद्ध क्षेत्र (4)",
+  "☀️ Infrastructure & Solar (3)": "☀️ अवसंरचना और सौर ऊर्जा (3)",
+  "👨‍💼 Livelihood & MSME (2)": "👨‍💼 आजीविका और एमएसएमई (2)",
+  "🏠 Housing Loan (1)": "🏠 आवास ऋण (1)",
+  "Showing 17 of 17 Schemes": "17 में से 17 योजनाएं प्रदर्शित",
+  "Filtered by Department of Financial Services": "वित्तीय सेवा विभाग द्वारा फ़िल्टर किया गया",
+  "LOAN CEILING": "ऋण सीमा",
+  "GUARANTEE COVER": "गारंटी कवर",
+  "MARGIN SUBSIDY": "मार्जिन सब्सिडी",
+  "CAPITAL SUBSIDY": "कैपिटल सब्सिडी",
+  "SEED CAPITAL": "सीड कैपिटल",
+  "INTEREST SUBSIDY": "ब्याज सब्सिडी",
+  "BENEFICIARY": "लाभार्थी",
+  "View Details": "विवरण देखें",
+  "Apply Now ➔": "अब आवेदन करें ➔",
+  "100% Collateral-Free": "100% गारंटी-मुक्त",
+  "Up to 35% Capital": "35% तक कैपिटल",
+  "35% Credit-Linked": "35% क्रेडिट-लिंक्ड",
+  "Soft State Loan": "रियायती राज्य ऋण",
+  "7% Subvention": "7% सब्सिडी",
+  "SC/ST & Women": "एससी/एसटी और महिलाएं",
+  "Up to ₹3.25 Lakh": "₹3.25 लाख तक",
+
+  "Pradhan Mantri MUDRA Yojana": "प्रधानमंत्री मुद्रा योजना (PMMY)",
+  "Collateral-free business loans up to ₹10 Lakhs for micro manufacturing & trading units under Shishu, Kishor, and Tarun categories.": "शिशु, किशोर और तरुण श्रेणियों के तहत सूक्ष्म विनिर्माण और व्यापारिक इकाइयों के लिए ₹10 लाख तक का संपार्श्विक-मुक्त व्यवसाय ऋण।",
+  "PM Employment Generation": "प्रधानमंत्री रोजगार सृजन कार्यक्रम (PMEGP)",
+  "Margin money subsidy scheme administered by KVIC for establishing new micro-enterprises in manufacturing & service sectors.": "विनिर्माण और सेवा क्षेत्रों में नई सूक्ष्म इकाइयों की स्थापना के लिए केवीआईसी द्वारा संचालित मार्जिन मनी सब्सिडी योजना।",
+  "PM Food Processing (PMFME)": "पीएम खाद्य प्रसंस्करण योजना (PMFME)",
+  "Financial and technical support for formalisation & expansion of micro food processing enterprises under ODOP framework.": "ओडीओपी ढांचे के तहत सूक्ष्म खाद्य प्रसंस्करण उद्यमों के औपचारिकीकरण और विस्तार के लिए वित्तीय और तकनीकी सहायता।",
+  "CM Employment Generation": "मुख्यमंत्री रोजगार सृजन योजना (CMEGP)",
+  "State-sponsored self-employment scheme offering seed capital and interest subvention for local rural & urban youth.": "स्थानीय ग्रामीण और शहरी युवाओं के लिए सीड कैपिटल और ब्याज सब्सिडी देने वाली राज्य-प्रायोजित स्वरोजगार योजना।",
+  "PM Street Vendor's AtmaNirbhar": "पीएम स्ट्रीट वेंडर्स आत्मनिर्भर निधि (PM SVANidhi)",
+  "Special micro-credit facility for urban street vendors offering 7% interest subsidy & digital transaction cashbacks.": "शहरी स्ट्रीट वेंडरों के लिए 7% ब्याज सब्सिडी और डिजिटल लेनदेन कैशबैक देने वाली विशेष माइक्रो-क्रेडिट सुविधा।",
+  "Stand Up India Scheme": "स्टैंड अप इंडिया योजना",
+  "Bank loans between ₹10 Lakh and ₹1 Crore to SC/ST and Women borrowers for setting up greenfield enterprises.": "ग्रीनफील्ड उद्यम स्थापित करने के लिए एससी/एसटी और महिला उधारकर्ताओं को ₹10 लाख से ₹1 करोड़ के बीच बैंक ऋण।",
+  "Self Employment Rehabilitation": "स्वरोजगार पुनर्वास योजना (SRMS)",
+  "Capital subsidy and credit for rehabilitation of beneficiaries into dignified alternative self-employment occupations.": "लाभार्थियों को सम्मानजनक वैकल्पिक स्वरोजगार व्यवसायों में पुनर्वासित करने के लिए पूंजीगत सब्सिडी और ऋण।",
+  "Kisan Credit Card (KCC)": "किसान क्रेडिट कार्ड (KCC)",
+  "Timely short-term crop credit and fisheries/animal husbandry working capital loan at 4% concessional interest rate.": "4% रियायती ब्याज दर पर समय पर अल्पकालिक फसल ऋण और मत्स्य पालन/पशुपालन कार्यशील पूंजी ऋण।",
+
+  // Scheme Details Page
+  "BUSINESS LOAN SCHEME": "व्यवसाय ऋण योजना",
+  "Nodal Ministry: Department of Financial Services, Ministry of Finance, Govt. of India": "नोडल मंत्रालय: वित्तीय सेवा विभाग, वित्त मंत्रालय, भारत सरकार",
+  "Apply for Scheme ➔": "योजना के लिए आवेदन करें ➔",
+  "📌 Overview & Benefits": "📌 अवलोकन और लाभ",
+  "🎯 Eligibility Criteria": "🎯 पात्रता मापदंड",
+  "📁 Required Documents": "📁 आवश्यक दस्तावेज़",
+  "❓ FAQs & Guidelines": "❓ अक्सर पूछे जाने वाले प्रश्न और दिशानिर्देश",
+  "About the Scheme": "योजना के बारे में",
+  "Key Highlights & Financial Assistance": "मुख्य विशेषताएं और वित्तीय सहायता",
+  "MAXIMUM CREDIT LIMIT": "अधिकतम ऋण सीमा",
+  "SUBSIDY / GUARANTEE COVER": "सब्सिडी / गारंटी कवर",
+  "Shishu (up to ₹50k), Kishor (₹50k-₹5L), Tarun (₹5L-₹10L)": "शिशु (₹50 हजार तक), किशोर (₹50 हजार-₹5 लाख), तरुण (₹5 लाख-₹10 लाख)",
+  "Covered under CGTMSE Trust": "CGTMSE ट्रस्ट के तहत कवर",
+  "Who Can Apply?": "कौन आवेदन कर सकता है?",
+  "Mandatory Documents Checklist": "अनिवार्य दस्तावेज़ चेकलिस्ट",
+  "Aadhaar Card": "आधार कार्ड",
+  "Identity & Address Proof": "पहचान और पता प्रमाण",
+  "PAN Card": "पैन कार्ड",
+  "Income Tax Identifier": "आयकर पहचानकर्ता",
+  "Bank Statement (6 Months)": "बैंक विवरण (6 महीने)",
+  "Financial Performance Proof": "वित्तीय प्रदर्शन प्रमाण",
+  "Udyam Registration": "उद्यम पंजीकरण",
+  "MSME Registration Certificate": "एमएसएमई पंजीकरण प्रमाण पत्र",
+
   // Index Page (Home)
   "Empowering Micro Entrepreneurs Across India": "पूरे भारत में सूक्ष्म उद्यमियों का सशक्तिकरण",
   "Real stories of transformation backed by Central Government credit assistance": "केंद्र सरकार की क्रेडिट सहायता से समर्थित वास्तविक सफलता की कहानियां",
@@ -1172,11 +1265,29 @@ const HINDI_TRANSLATIONS = {
   "Monthly EMI:": "मासिक ईएमआई:",
   "Total Interest Payable:": "कुल देय ब्याज:",
 
+  // Process & Grievances Pages
+  "The 8-Step Application Process": "8-स्तरीय आवेदन प्रक्रिया",
+  "Official Grievance Redressal Portal": "आधिकारिक शिकायत निवारण पोर्टल",
+  "Lodge Grievance": "शिकायत दर्ज करें",
+  "Track Grievance": "शिकायत स्थिति ट्रैक करें",
+  "Search Grievance": "शिकायत खोजें",
+  "Grievance Category": "शिकायत श्रेणी",
+  "Select Grievance Category": "शिकायत श्रेणी चुनें",
+  "Loan Sanction Delay": "ऋण स्वीकृति में देरी",
+  "Bank Branch Refusal": "बैंक शाखा का इनकार",
+  "Subsidy Credit Issue": "सब्सिडी क्रेडिट समस्या",
+  "Documentation Problem": "दस्तावेज़ संबंधी समस्या",
+  "Other Issue": "अन्य समस्या",
+  "Grievance Description": "शिकायत का विवरण",
+  "Submit Grievance Complaint ➔": "शिकायत दर्ज करें ➔",
+  "Enter Grievance Reference Number": "शिकायत संदर्भ संख्या दर्ज करें",
+  "Track Grievance Status ➔": "शिकायत की स्थिति जांचें ➔",
+
   // Footer
   "National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.": "क्रेडिट लिंक सरकारी योजनाओं के लिए राष्ट्रीय पोर्टल, वित्तीय सेवा विभाग, वित्त मंत्रालय, भारत सरकार।",
   "Quick Links": "त्वरित लिंक",
   "Policies & Helpdesk": "नीतियां और सहायता केंद्र",
-  "All Rights Reserved.": "सर्वाधिकार सुरक्षित।",
+  "© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.": "© 2026 क्रेडिटसमर्थ क्रेडिट लिंक्ड योजनाओं के लिए राष्ट्रीय पोर्टल। सर्वाधिकार सुरक्षित।",
   "Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳": "वित्त मंत्रालय, भारत सरकार के लिए डिज़ाइन्ड और विकसित • डिजिटल इंडिया 🇮🇳"
 };
 
@@ -1194,7 +1305,7 @@ function applyTranslation(lang) {
   const translateElement = (el) => {
     if (!el) return;
 
-    // Check placeholders
+    // Check input placeholders
     if (el.placeholder) {
       if (!el.getAttribute('data-orig-placeholder')) {
         el.setAttribute('data-orig-placeholder', el.placeholder);
@@ -1207,31 +1318,26 @@ function applyTranslation(lang) {
       }
     }
 
-    // Check direct single text node
-    if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
-      const text = el.childNodes[0].nodeValue.trim();
-      if (text) {
-        if (!el.getAttribute('data-orig-text')) {
-          el.setAttribute('data-orig-text', text);
-        }
-        const orig = el.getAttribute('data-orig-text');
-        if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
-          el.childNodes[0].nodeValue = el.childNodes[0].nodeValue.replace(orig, HINDI_TRANSLATIONS[orig]);
-        } else if (lang === 'en' && orig) {
-          el.childNodes[0].nodeValue = el.childNodes[0].nodeValue.replace(el.childNodes[0].nodeValue.trim(), orig);
-        }
-      }
-    }
-
-    // Walk child text nodes for complex elements
+    // Process text nodes inside element
     el.childNodes.forEach(node => {
       if (node.nodeType === Node.TEXT_NODE) {
         const txt = node.nodeValue.trim();
         if (txt) {
-          if (!node._origText) node._origText = txt;
+          if (!node._origText) {
+            node._origText = txt;
+          }
           const orig = node._origText;
-          if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
-            node.nodeValue = node.nodeValue.replace(txt, HINDI_TRANSLATIONS[orig]);
+          if (lang === 'hi') {
+            if (HINDI_TRANSLATIONS[orig]) {
+              node.nodeValue = node.nodeValue.replace(txt, HINDI_TRANSLATIONS[orig]);
+            } else {
+              for (const [enKey, hiVal] of Object.entries(HINDI_TRANSLATIONS)) {
+                if (orig === enKey || txt === enKey) {
+                  node.nodeValue = node.nodeValue.replace(txt, hiVal);
+                  break;
+                }
+              }
+            }
           } else if (lang === 'en' && orig) {
             node.nodeValue = node.nodeValue.replace(txt, orig);
           }
@@ -1240,7 +1346,7 @@ function applyTranslation(lang) {
     });
   };
 
-  const selectors = 'h1, h2, h3, h4, h5, h6, p, label, button, a, span, option, div.flow-step-title, div.hero-govt-tag, div.form-label, .btn-gov-saffron, .btn-gov-blue, .btn-gov-outline, input[placeholder]';
+  const selectors = 'h1, h2, h3, h4, h5, h6, p, label, button, a, span, option, li, th, td, div, input[placeholder]';
   document.querySelectorAll(selectors).forEach(el => translateElement(el));
 }
 
