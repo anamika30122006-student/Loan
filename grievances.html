@@ -96,13 +96,13 @@
 
         <li><a href="process.html" class="gov-nav-item">The Process</a></li>
         <li><a href="grievances.html" class="gov-nav-item active">Grievances</a></li>
-        <li><a href="admin.html" class="gov-nav-item">Admin Desk</a></li>
         <li><a href="index.html#section-calculator" class="gov-nav-item">EMI Calculator</a></li>
 
         <li class="mobile-nav-actions-item">
           <div class="mobile-nav-actions-box">
             <button class="btn-js-login" onclick="openAuthModal('login')">🔑 Login</button>
             <button class="btn-js-register" onclick="openAuthModal('register')">📝 Register</button>
+            <button class="btn-js-login" style="background:#eff6ff; color:#1e3a8a; border:1px solid #bfdbfe;" onclick="window.location.href='admin.html'">🔒 Admin Portal</button>
             <select onchange="changeLanguage(this.value)">
               <option value="en">🌐 English</option>
               <option value="hi">हिन्दी</option>
@@ -115,6 +115,7 @@
       <div class="gov-nav-actions" id="nav-actions-box">
         <button class="btn-js-login" onclick="openAuthModal('login')">Login</button>
         <button class="btn-js-register" onclick="openAuthModal('register')">Register</button>
+        <button class="btn-js-login" style="background:#eff6ff; color:#1e3a8a; border:1px solid #bfdbfe;" onclick="window.location.href='admin.html'">🔒 Admin Portal</button>
         <select id="lang-select" onchange="changeLanguage(this.value)" style="background:transparent; color:#1e3a8a; border:1.5px solid #cbd5e1; padding:4px 8px; border-radius:6px; font-size:0.82rem; font-weight:700; cursor:pointer;">
           <option value="en">English ▾</option>
           <option value="hi">हिन्दी</option>
