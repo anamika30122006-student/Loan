@@ -2060,14 +2060,63 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   .bank-badge-grid {
     grid-template-columns: 1fr;
   }
-  
-  .top-gov-strip {
-    font-size: 0.7rem;
-  }
 
   .scheme-card-metrics-box {
     grid-template-columns: 1fr !important;
     gap: 0.5rem;
+  }
+}
+
+/* RESPONSIVE TOP GOVERNMENT STRIP & MOBILE HEADER */
+@media (max-width: 768px) {
+  .top-gov-strip {
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.72rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.25rem !important;
+  }
+  
+  .top-gov-strip-left,
+  .top-gov-strip-right {
+    justify-content: center !important;
+    gap: 0.35rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .gov-strip-sep {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-gov-strip {
+    font-size: 0.68rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  .gov-strip-action {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+  }
+
+  .top-strip-hide-mobile {
+    display: none !important;
+  }
+
+  .gov-navbar-container {
+    padding: 0.5rem 0.85rem !important;
+  }
+
+  .js-logo-text {
+    font-size: 1.15rem !important;
+  }
+
+  .js-logo-box {
+    padding: 3px 8px !important;
   }
 }
 
