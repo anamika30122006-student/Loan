@@ -42,10 +42,11 @@ def health_check():
         "version": "1.0.0"
     }
 
-# Mount Pure HTML/CSS/JS Frontend Directory
-frontend_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "frontend")
-if os.path.exists(frontend_dir):
-    app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+# Mount Pure HTML/CSS/JS Frontend Directory (Fallback to root if frontend folder removed)
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+frontend_dir = os.path.join(root_dir, "frontend")
+static_dir = frontend_dir if os.path.exists(frontend_dir) else root_dir
+app.mount("/", StaticFiles(directory=static_dir, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
