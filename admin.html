@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodal Officer Admin Portal | DC Dhanbad</title>
+  <meta name="description" content="District Administration Dhanbad Lead District Manager (LDM) Admin Dashboard for Monitoring and Processing Credit Applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Official Tricolor Accent Line -->
+  <div class="gov-tricolor-strip"></div>
+
+  <!-- Top Government Header Strip -->
+  <div class="top-gov-strip">
+    <div class="top-gov-strip-left">
+      <span>🇮🇳 District Administration, Dhanbad</span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span>Lead District Manager (LDM) Admin Desk</span>
+    </div>
+    <div class="top-gov-strip-right">
+      <span>Logged in as: <strong>Admin / Nodal Officer Dhanbad</strong></span>
+      <span class="gov-strip-sep" style="color:#475569">|</span>
+      <span class="gov-strip-action" onclick="window.location.href='index.html'">🌐 Public Portal</span>
+    </div>
+  </div>
+
+  <!-- Main Header Navbar -->
+  <header class="gov-navbar">
+    <div class="gov-navbar-container">
+      
+      <!-- Logo Box -->
+      <a href="index.html" class="js-logo-box">
+        <div class="js-logo-text">DC<span>Dhanbad</span><span class="js-logo-copy">©</span></div>
+      </a>
+
+      <!-- Mobile Header Controls -->
+      <div class="mobile-navbar-right-controls">
+        <button class="gov-hamburger-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="gov-nav-menu">
+        <li><a href="index.html" class="gov-nav-item">Home</a></li>
+        <li><a href="schemes.html" class="gov-nav-item">Schemes</a></li>
+        <li><a href="admin.html" class="gov-nav-item active">Admin Portal</a></li>
+        <li><a href="grievances.html" class="gov-nav-item">Grievances Desk</a></li>
+        <li><a href="process.html" class="gov-nav-item">Process</a></li>
+      </ul>
+
+      <!-- Right Action Buttons -->
+      <div class="gov-nav-actions">
+        <span style="font-size:0.8rem; font-weight:800; color:#1e3a8a; background:#e0f2fe; padding:4px 10px; border-radius:20px;">🔒 LDM Access</span>
+        <button class="btn-js-login" onclick="window.location.href='index.html'">Logout ➔</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ADMIN HERO BANNER -->
+  <section class="js-hero-fullwidth-section scheme-hero-section" style="padding: 2rem 0; background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);">
+    <div class="schemes-main-container" style="padding-top:0; padding-bottom:0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div class="hero-govt-tag" style="background:rgba(255,255,255,0.15); color:#ffffff; border-color:rgba(255,255,255,0.3);">
+            🏛 District Credit Monitoring Cell • Dhanbad
+          </div>
+          <h1 class="js-hero-title" style="font-size:1.8rem; margin-bottom:0.25rem;">
+            Nodal Officer Applications & Sanction Dashboard
+          </h1>
+          <p class="js-hero-subtext" style="font-size:0.88rem; max-width:750px;">
+            Real-time management of PMFME, PMEGP, MUDRA & CMEGP credit applications, AI risk scorecards, and bank disbursement tracking for Dhanbad district.
+          </p>
+        </div>
+        <div style="display:flex; gap:0.75rem;">
+          <button class="btn-gov-saffron" onclick="exportApplicationsCSV()" style="padding:0.65rem 1.25rem; font-size:0.85rem;">
+            📥 Export CSV Report
+          </button>
+          <button class="btn-gov-outline" onclick="loadAdminDashboardData()" style="padding:0.65rem 1.25rem; font-size:0.85rem; background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.4);">
+            🔄 Refresh Data
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ADMIN DASHBOARD CONTENT -->
+  <main class="schemes-main-container">
+    
+    <!-- EXECUTIVE KPI METRICS GRID -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card" style="border-left: 4px solid #1e3a8a;">
+        <div class="admin-stat-icon" style="background:#eff6ff; color:#1e3a8a;">📝</div>
+        <div>
+          <div class="admin-stat-lbl">TOTAL APPLICATIONS</div>
+          <div class="admin-stat-val" id="stat-total-apps">1,482</div>
+          <div style="font-size:0.72rem; color:#059669; font-weight:700; margin-top:2px;">↑ 12.4% vs last month</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card" style="border-left: 4px solid #059669;">
+        <div class="admin-stat-icon" style="background:#ecfdf5; color:#059669;">💰</div>
+        <div>
+          <div class="admin-stat-lbl">SANCTIONED CREDIT</div>
+          <div class="admin-stat-val" id="stat-total-amount">₹24.8 Cr</div>
+          <div style="font-size:0.72rem; color:#059669; font-weight:700; margin-top:2px;">In-Principle Approved</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card" style="border-left: 4px solid #f59e0b;">
+        <div class="admin-stat-icon" style="background:#fffbeb; color:#f59e0b;">⏳</div>
+        <div>
+          <div class="admin-stat-lbl">PENDING NODAL REVIEW</div>
+          <div class="admin-stat-val" id="stat-pending-apps">142</div>
+          <div style="font-size:0.72rem; color:#d97706; font-weight:700; margin-top:2px;">Requires Inspection</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card" style="border-left: 4px solid #8b5cf6;">
+        <div class="admin-stat-icon" style="background:#f5f3ff; color:#8b5cf6;">🏦</div>
+        <div>
+          <div class="admin-stat-lbl">DISBURSED AMOUNT</div>
+          <div class="admin-stat-val" id="stat-disbursed-amount">₹18.4 Cr</div>
+          <div style="font-size:0.72rem; color:#7c3aed; font-weight:700; margin-top:2px;">NEFT Credit Complete</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD TAB CONTROL -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+      <div class="grv-tab-btn-row" style="margin:0;">
+        <button class="grv-tab-btn active" id="tab-btn-apps" onclick="switchAdminTab('apps')">📋 Loan Applications Desk (1,482)</button>
+        <button class="grv-tab-btn" id="tab-btn-grv" onclick="switchAdminTab('grv')">🎫 Grievances & Support Desk (18)</button>
+      </div>
+
+      <div style="font-size:0.8rem; color:#64748b; font-weight:700;">
+        District: <strong>Dhanbad, JH</strong> • Lead Bank: <strong>State Bank of India</strong>
+      </div>
+    </div>
+
+    <!-- VIEW 1: LOAN APPLICATIONS TABLE CARD -->
+    <div id="admin-view-apps" class="admin-table-card">
+      
+      <!-- Table Filters & Search Toolbar -->
+      <div class="admin-table-toolbar">
+        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; flex:1;">
+          <input type="text" id="admin-search-query" class="form-input admin-search-input" placeholder="🔍 Search Applicant, App ID, Mobile..." onkeyup="filterAdminApplications()">
+          
+          <select id="admin-filter-scheme" class="form-select" style="max-width:180px; font-size:0.82rem; padding:0.5rem;" onchange="filterAdminApplications()">
+            <option value="ALL">All 4 Schemes</option>
+            <option value="PMFME">PMFME (Food)</option>
+            <option value="PMEGP">PMEGP (Subsidy)</option>
+            <option value="MUDRA">MUDRA (PMMY)</option>
+            <option value="CMEGP">CMEGP (State)</option>
+          </select>
+
+          <select id="admin-filter-status" class="form-select" style="max-width:170px; font-size:0.82rem; padding:0.5rem;" onchange="filterAdminApplications()">
+            <option value="ALL">All Statuses</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Approved">Approved</option>
+            <option value="Disbursed">Disbursed</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div style="font-size:0.82rem; color:#475569; font-weight:700;" id="admin-results-count">
+          Showing 6 Applications
+        </div>
+      </div>
+
+      <!-- Applications Data Table -->
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Application Ref ID</th>
+              <th>Applicant Name & KYC</th>
+              <th>Enterprise & Location</th>
+              <th>Scheme</th>
+              <th>Loan Amount</th>
+              <th>AI Risk Score</th>
+              <th>Status</th>
+              <th style="text-align:right;">Nodal Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-apps-tbody">
+            <!-- Dynamic rows populated via JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- VIEW 2: GRIEVANCES & SUPPORT DESK -->
+    <div id="admin-view-grv" class="admin-table-card" style="display:none;">
+      <div class="admin-table-toolbar">
+        <div style="font-weight:800; color:#1e3a8a;">
+          🎫 District Grievances & Bank Escalation Monitoring
+        </div>
+        <div style="font-size:0.8rem; color:#64748b;">
+          Lead District Manager Desk, Dhanbad
+        </div>
+      </div>
+
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Complainant Name</th>
+              <th>Grievance Category</th>
+              <th>Related Scheme / Ref ID</th>
+              <th>Submission Date</th>
+              <th>Status</th>
+              <th style="text-align:right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-grv-tbody">
+            <tr>
+              <td><strong>GRV-DHN-88421</strong></td>
+              <td>
+                <div style="font-weight:800; color:#1e3a8a;">Vikram Kumar</div>
+                <div style="font-size:0.75rem; color:#64748b;">📞 9835123490</div>
+              </td>
+              <td>Loan Disbursement Delay</td>
+              <td>MUDRA (JLS-MUDRA-2026-08421)</td>
+              <td>18 Aug 2026</td>
+              <td><span class="status-pill status-under-review">● Under Investigation</span></td>
+              <td style="text-align:right;">
+                <button class="btn-admin-action btn-admin-approve" onclick="resolveGrievance('GRV-DHN-88421')">Resolve & Notify ➔</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>GRV-DHN-88422</strong></td>
+              <td>
+                <div style="font-weight:800; color:#1e3a8a;">Sunita Devi</div>
+                <div style="font-size:0.75rem; color:#64748b;">📞 9431109823</div>
+              </td>
+              <td>Subsidy Claim Clarification</td>
+              <td>PMFME (DC-PMFME-2026-09142)</td>
+              <td>17 Aug 2026</td>
+              <td><span class="status-pill status-approved">✓ Resolved</span></td>
+              <td style="text-align:right;">
+                <span style="font-size:0.75rem; color:#059669; font-weight:700;">Closed by LDM</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- APPLICANT DOSSIER MODAL -->
+  <div id="dossier-modal" class="auth-modal-backdrop" style="display:none;" onclick="closeDossierModal(event)">
+    <div class="auth-modal-card" style="max-width:850px; width:92%;" onclick="event.stopPropagation()">
+      
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1.5px solid #e2e8f0; padding-bottom:1rem; margin-bottom:1.25rem;">
+        <div>
+          <span class="gov-badge gov-badge-blue" id="dos-scheme-badge">PMFME</span>
+          <h2 style="font-size:1.5rem; font-weight:900; color:#1e3a8a; margin-top:0.25rem;" id="dos-app-id">
+            Application Dossier: JLS-MUDRA-2026-08421
+          </h2>
+          <div style="font-size:0.78rem; color:#64748b;" id="dos-sub-date">Submitted on 19 Aug 2026</div>
+        </div>
+        <button onclick="closeDossierModalDirect()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:#64748b;">✕</button>
+      </div>
+
+      <div style="max-height:70vh; overflow-y:auto; padding-right:0.5rem;">
+        
+        <!-- APPLICANT & BUSINESS PROFILE GRID -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
+          
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1.25rem; border-radius:10px;">
+            <div style="font-size:0.75rem; font-weight:800; color:#1e3a8a; text-transform:uppercase; margin-bottom:0.75rem;">👤 APPLICANT KYC DETAILS</div>
+            <div style="display:flex; flex-direction:column; gap:0.4rem; font-size:0.85rem;">
+              <div><strong>Name:</strong> <span id="dos-name">Rahul Kumar</span></div>
+              <div><strong>Father/Spouse:</strong> Ramesh Kumar</div>
+              <div><strong>Mobile:</strong> <span id="dos-mobile">9876543210</span></div>
+              <div><strong>Email:</strong> rahul.kumar@shreegeneral.in</div>
+              <div><strong>Address:</strong> Plot 42, Main Road, Dhanbad, JH</div>
+              <div><strong>Aadhaar:</strong> XXXX-XXXX-0984 <span style="color:#059669; font-weight:800;">(✓ Verified)</span></div>
+              <div><strong>PAN:</strong> ABCPK9876F <span style="color:#059669; font-weight:800;">(✓ Verified)</span></div>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:1.25rem; border-radius:10px;">
+            <div style="font-size:0.75rem; font-weight:800; color:#1e3a8a; text-transform:uppercase; margin-bottom:0.75rem;">🏬 ENTERPRISE & FINANCIALS</div>
+            <div style="display:flex; flex-direction:column; gap:0.4rem; font-size:0.85rem;">
+              <div><strong>Enterprise Name:</strong> <span id="dos-bizname">Shree General Store</span></div>
+              <div><strong>Activity Type:</strong> Retail / Trading Unit</div>
+              <div><strong>Vintage:</strong> 3 Years Operating</div>
+              <div><strong>Annual Turnover:</strong> ₹ 12,00,000</div>
+              <div><strong>Requested Loan:</strong> <strong style="color:#ff6b00; font-size:1rem;" id="dos-loan-amount">₹ 5,00,000</strong></div>
+              <div><strong>Tenure / EMI:</strong> 36 Months (₹ 16,209/mo)</div>
+              <div><strong>Udyam Reg:</strong> UDYAM-JH-04-001294 <span style="color:#059669; font-weight:800;">(✓ Active)</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- AI CREDIT RISK ENGINE SCORECARD -->
+        <div style="background:#f0f7ff; border:1.5px solid #bfdbfe; border-radius:10px; padding:1.25rem; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <div style="font-weight:900; color:#1e3a8a; font-size:0.95rem;">🤖 AI Credit Risk & Integrity Scorecard</div>
+            <div style="background:#059669; color:#fff; font-weight:900; padding:4px 12px; border-radius:20px; font-size:0.82rem;" id="dos-risk-badge">
+              LOW RISK (84/100)
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:0.75rem; font-size:0.78rem;">
+            <div style="background:#fff; padding:0.65rem; border-radius:6px; border:1px solid #cbd5e1;">
+              <span style="color:#64748b;">Bank Statement Velocity:</span>
+              <div style="font-weight:800; color:#059669; margin-top:2px;">Strong Cash Inflow</div>
+            </div>
+            <div style="background:#fff; padding:0.65rem; border-radius:6px; border:1px solid #cbd5e1;">
+              <span style="color:#64748b;">GST / Tax Integrity:</span>
+              <div style="font-weight:800; color:#059669; margin-top:2px;">100% Tax Compliant</div>
+            </div>
+            <div style="background:#fff; padding:0.65rem; border-radius:6px; border:1px solid #cbd5e1;">
+              <span style="color:#64748b;">CIBIL Equivalent:</span>
+              <div style="font-weight:800; color:#1e3a8a; margin-top:2px;">785 Score</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPLOADED DOCUMENTS CHECKLIST -->
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-weight:800; color:#1e3a8a; font-size:0.9rem; margin-bottom:0.75rem;">📁 Verified Application Documents</div>
+          <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:0.75rem;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:0.75rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:800; font-size:0.82rem; color:#1e3a8a;">📄 Aadhaar_Card_Rahul.pdf</div>
+                <div style="font-size:0.7rem; color:#64748b;">UIDAI Biometric Verified</div>
+              </div>
+              <button class="btn-admin-action btn-admin-view" onclick="showToast('📄 Displaying Aadhaar PDF preview...')">View PDF</button>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:0.75rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div style="font-weight:800; font-size:0.82rem; color:#1e3a8a;">📄 Bank_Statement_6M.pdf</div>
+                <div style="font-size:0.7rem; color:#64748b;">SBI Branch Account</div>
+              </div>
+              <button class="btn-admin-action btn-admin-view" onclick="showToast('📄 Displaying Bank Statement PDF...')">View PDF</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div style="border-top:1.5px solid #e2e8f0; padding-top:1rem; margin-top:1rem; display:flex; justify-content:flex-end; gap:0.75rem;" id="dos-action-row">
+        <button class="btn-admin-action btn-admin-reject" style="padding:0.65rem 1.25rem; font-size:0.85rem;" onclick="rejectDossierApp()">
+          ❌ Reject Application
+        </button>
+        <button class="btn-admin-action btn-admin-approve" style="padding:0.65rem 1.25rem; font-size:0.85rem;" onclick="approveDossierApp()">
+          ✅ Approve & Issue In-Principle Sanction
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">🏛 DC Dhanbad<span>©</span></div>
+        <p class="footer-desc">District Administration Dhanbad • Government Credit Schemes Portal for Micro Entrepreneurs.</p>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Credit Schemes</div>
+        <ul class="footer-link-list">
+          <li><a href="scheme-detail.html?id=PMFME">PM Food Processing (PMFME)</a></li>
+          <li><a href="scheme-detail.html?id=PMEGP">PM Employment Generation (PMEGP)</a></li>
+          <li><a href="scheme-detail.html?id=MUDRA">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="scheme-detail.html?id=CMEGP">CM Employment Generation (CMEGP)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="admin.html">Admin Dashboard</a></li>
+          <li><a href="schemes.html">All Credit Schemes Catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-column-title">Policies & Helpdesk</div>
+        <ul class="footer-link-list">
+          <li><a href="grievances.html">Support & Grievance Portal</a></li>
+          <li><a href="process.html">The Process Walkthrough</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 DC Dhanbad Loan Portal. All Rights Reserved.</div>
+      <div>District Administration, Dhanbad • Government of Jharkhand 🇮🇳</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Local Admin Applications State
+    let adminApplications = [
+      { id: "JLS-MUDRA-2026-08421", applicant: "Rahul Kumar", mobile: "9876543210", business: "Shree General Store", district: "Dhanbad", scheme: "MUDRA", amount: "₹ 5,00,000", riskScore: "84 (Low Risk)", status: "Under Review", date: "19 Aug 2026" },
+      { id: "DC-PMFME-2026-09142", applicant: "Sunita Devi", mobile: "9431109823", business: "Annapurna Food Products", district: "Dhanbad", scheme: "PMFME", amount: "₹ 7,50,000", riskScore: "91 (Low Risk)", status: "Approved", date: "19 Aug 2026" },
+      { id: "DC-PMEGP-2026-04281", applicant: "Ramesh Singh", mobile: "9835123490", business: "Singh Engineering Works", district: "Dhanbad", scheme: "PMEGP", amount: "₹ 25,00,000", riskScore: "76 (Moderate)", status: "Disbursed", date: "18 Aug 2026" },
+      { id: "DC-CMEGP-2026-03112", applicant: "Anita Mahato", mobile: "9123456789", business: "Mahato Garments & Tailoring", district: "Dhanbad", scheme: "CMEGP", amount: "₹ 12,00,000", riskScore: "88 (Low Risk)", status: "Approved", date: "18 Aug 2026" },
+      { id: "JLS-MUDRA-2026-01294", applicant: "Vikram Sharma", mobile: "9771234567", business: "Sharma Mobile & Electronics", district: "Dhanbad", scheme: "MUDRA", amount: "₹ 8,00,000", riskScore: "42 (High Risk)", status: "Rejected", date: "17 Aug 2026" },
+      { id: "DC-PMFME-2026-05621", applicant: "Pooja Verma", mobile: "9470123890", business: "Verma Bakery & Snacks", district: "Dhanbad", scheme: "PMFME", amount: "₹ 10,00,000", riskScore: "82 (Low Risk)", status: "Under Review", date: "17 Aug 2026" }
+    ];
+
+    let currentSelectedAppId = null;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderAdminTable(adminApplications);
+      loadAdminDashboardData();
+    });
+
+    async function loadAdminDashboardData() {
+      const res = await apiCall('/admin/dashboard');
+      if (res && res.recentApplications) {
+        // Merge API applications
+        showToast("🔄 Loaded latest dashboard data from Nodal Server");
+      }
+    }
+
+    function renderAdminTable(data) {
+      const tbody = document.getElementById('admin-apps-tbody');
+      if (!tbody) return;
+
+      tbody.innerHTML = data.map(app => {
+        let statusClass = 'status-under-review';
+        let statusIcon = '●';
+        if (app.status === 'Approved') { statusClass = 'status-approved'; statusIcon = '✓'; }
+        else if (app.status === 'Disbursed') { statusClass = 'status-disbursed'; statusIcon = '💰'; }
+        else if (app.status === 'Rejected') { statusClass = 'status-rejected'; statusIcon = '✕'; }
+
+        let riskColor = '#059669';
+        if (app.riskScore.includes('Moderate')) riskColor = '#d97706';
+        if (app.riskScore.includes('High')) riskColor = '#dc2626';
+
+        return `
+          <tr>
+            <td>
+              <strong style="color:#1e3a8a;">${app.id}</strong>
+              <div style="font-size:0.72rem; color:#64748b;">Submitted: ${app.date}</div>
+            </td>
+            <td>
+              <div style="font-weight:800; color:#1e3a8a;">${app.applicant}</div>
+              <div style="font-size:0.75rem; color:#64748b;">📞 ${app.mobile}</div>
+            </td>
+            <td>
+              <div style="font-weight:700; color:#334155;">${app.business}</div>
+              <div style="font-size:0.72rem; color:#64748b;">📍 ${app.district}, JH</div>
+            </td>
+            <td><span class="gov-badge gov-badge-blue">${app.scheme}</span></td>
+            <td><strong style="color:#1e3a8a; font-size:0.95rem;">${app.amount}</strong></td>
+            <td><strong style="color:${riskColor}; font-size:0.82rem;">${app.riskScore}</strong></td>
+            <td><span class="status-pill ${statusClass}">${statusIcon} ${app.status}</span></td>
+            <td style="text-align:right;">
+              <div style="display:flex; justify-content:flex-end; gap:0.4rem; flex-wrap:wrap;">
+                <button class="btn-admin-action btn-admin-view" onclick="openDossierModal('${app.id}')">👁 Dossier</button>
+                ${app.status === 'Under Review' ? `<button class="btn-admin-action btn-admin-approve" onclick="quickApproveApp('${app.id}')">✅ Approve</button>` : ''}
+                ${app.status === 'Approved' ? `<button class="btn-admin-action btn-admin-disburse" onclick="quickDisburseApp('${app.id}')">💰 Disburse</button>` : ''}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('admin-results-count').innerText = `Showing ${data.length} Applications`;
+    }
+
+    function filterAdminApplications() {
+      const q = document.getElementById('admin-search-query').value.toLowerCase().trim();
+      const scheme = document.getElementById('admin-filter-scheme').value;
+      const status = document.getElementById('admin-filter-status').value;
+
+      const filtered = adminApplications.filter(app => {
+        const matchesQ = !q || app.id.toLowerCase().includes(q) || app.applicant.toLowerCase().includes(q) || app.business.toLowerCase().includes(q) || app.mobile.includes(q);
+        const matchesScheme = scheme === 'ALL' || app.scheme === scheme;
+        const matchesStatus = status === 'ALL' || app.status === status;
+        return matchesQ && matchesScheme && matchesStatus;
+      });
+
+      renderAdminTable(filtered);
+    }
+
+    function openDossierModal(appId) {
+      currentSelectedAppId = appId;
+      const app = adminApplications.find(a => a.id === appId) || adminApplications[0];
+
+      document.getElementById('dos-app-id').innerText = `Application Dossier: ${app.id}`;
+      document.getElementById('dos-scheme-badge').innerText = app.scheme;
+      document.getElementById('dos-name').innerText = app.applicant;
+      document.getElementById('dos-mobile').innerText = app.mobile;
+      document.getElementById('dos-bizname').innerText = app.business;
+      document.getElementById('dos-loan-amount').innerText = app.amount;
+      document.getElementById('dos-risk-badge').innerText = app.riskScore.toUpperCase();
+
+      document.getElementById('dossier-modal').style.display = 'flex';
+    }
+
+    function closeDossierModalDirect() {
+      document.getElementById('dossier-modal').style.display = 'none';
+    }
+
+    function closeDossierModal(e) {
+      if (e.target.id === 'dossier-modal') closeDossierModalDirect();
+    }
+
+    async function quickApproveApp(appId) {
+      const app = adminApplications.find(a => a.id === appId);
+      if (app) {
+        app.status = 'Approved';
+        renderAdminTable(adminApplications);
+        showToast(`✅ Application ${appId} Approved! In-Principle Sanction Letter Generated.`);
+        await apiCall(`/admin/applications/${appId}/approve`, 'POST');
+      }
+    }
+
+    async function quickDisburseApp(appId) {
+      const app = adminApplications.find(a => a.id === appId);
+      if (app) {
+        app.status = 'Disbursed';
+        renderAdminTable(adminApplications);
+        showToast(`💰 Loan Amount for ${appId} Disbursed via NEFT!`);
+        await apiCall(`/admin/applications/${appId}/disburse`, 'POST');
+      }
+    }
+
+    function approveDossierApp() {
+      if (currentSelectedAppId) {
+        quickApproveApp(currentSelectedAppId);
+        closeDossierModalDirect();
+      }
+    }
+
+    function rejectDossierApp() {
+      if (currentSelectedAppId) {
+        const app = adminApplications.find(a => a.id === currentSelectedAppId);
+        if (app) {
+          app.status = 'Rejected';
+          renderAdminTable(adminApplications);
+          showToast(`❌ Application ${currentSelectedAppId} Rejected.`);
+          closeDossierModalDirect();
+        }
+      }
+    }
+
+    function switchAdminTab(tab) {
+      document.getElementById('tab-btn-apps').classList.toggle('active', tab === 'apps');
+      document.getElementById('tab-btn-grv').classList.toggle('active', tab === 'grv');
+      document.getElementById('admin-view-apps').style.display = tab === 'apps' ? 'block' : 'none';
+      document.getElementById('admin-view-grv').style.display = tab === 'grv' ? 'block' : 'none';
+    }
+
+    function resolveGrievance(ticketId) {
+      showToast(`✓ Ticket ${ticketId} resolved & update sent to applicant.`);
+    }
+
+    function exportApplicationsCSV() {
+      let csv = "Application ID,Applicant Name,Mobile,Business,District,Scheme,Loan Amount,Risk Score,Status,Date\n";
+      adminApplications.forEach(a => {
+        csv += `"${a.id}","${a.applicant}","${a.mobile}","${a.business}","${a.district}","${a.scheme}","${a.amount}","${a.riskScore}","${a.status}","${a.date}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DC_Dhanbad_Loan_Applications_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+      showToast("📥 Exported Applications CSV Report!");
+    }
+  </script>
+</body>
+</html>
