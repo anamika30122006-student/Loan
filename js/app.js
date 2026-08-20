@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CreditSamarth National Credit Portal - Multi-Page Engine & Utilities
+   DC Dhanbad Digital Loan Portal - Multi-Page Engine & Utilities
    ========================================================================== */
 
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
@@ -42,45 +42,25 @@ let appState = {
   ]
 };
 
-// SCHEMES DATABASE DICTIONARY FOR SCHEME-DETAIL.HTML (FULL 17 SCHEMES)
+/// SCHEMES DATABASE DICTIONARY FOR SCHEME-DETAIL.HTML (4 OFFICIAL SCHEMES)
 const SCHEMES_DATABASE = {
-  "PMAY": {
-    name: "Pradhan Mantri Awas Yojana (Urban 2.0)",
-    categoryBadge: "HOUSING LOAN SUBSIDY SCHEME",
-    ministry: "Ministry of Housing and Urban Affairs (MoHUA), Govt. of India",
-    overview: "Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0) is a flagship Central Credit-Linked Subsidy Scheme (CLSS) providing upfront interest subvention on home loans for Economically Weaker Section (EWS), Low Income Group (LIG), and Middle Income Group (MIG) families constructing or purchasing their first permanent (pucca) house.",
-    maxLimit: "₹ 2,67,000 Subsidy",
-    subsidyCover: "Up to 6.5% Interest Subvention",
-    eligibility: [
-      "Beneficiary family should not own a pucca house in any part of India.",
-      "Annual household income limit: EWS (up to ₹3 Lakh), LIG (₹3 Lakh to ₹6 Lakh), MIG (₹6 Lakh to ₹18 Lakh).",
-      "Female ownership or co-ownership is mandatory for EWS/LIG categories.",
-      "Loan tenure up to 20 years with upfront interest subsidy credited directly to beneficiary bank loan account."
-    ],
-    documents: [
-      { name: "Aadhaar Card", desc: "For all family members" },
-      { name: "Income Certificate / Salary Slip", desc: "Proof of annual household income" },
-      { name: "Property Documents", desc: "Sale deed / Approved building plan" },
-      { name: "Bank Passbook", desc: "For direct subsidy credit" }
-    ]
-  },
-  "MUDRA": {
-    name: "Pradhan Mantri MUDRA Yojana (PMMY)",
-    categoryBadge: "BUSINESS LOAN SCHEME",
-    ministry: "Department of Financial Services, Ministry of Finance, Govt. of India",
-    overview: "Pradhan Mantri MUDRA Yojana (PMMY) enables non-corporate, non-farm micro and small enterprises to access credit up to ₹10 Lakhs with 100% collateral-free guarantee under CGTMSE. Loans are categorized into Shishu (up to ₹50k), Kishor (₹50k to ₹5L), and Tarun (₹5L to ₹10L).",
+  "PMFME": {
+    name: "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
+    categoryBadge: "FOOD PROCESSING SCHEME",
+    ministry: "Ministry of Food Processing Industries (MoFPI), Govt. of India",
+    overview: "PMFME provides financial, technical, and business support for micro food processing units under the One District One Product (ODOP) framework with 35% credit-linked capital subsidy up to ₹10 Lakhs.",
     maxLimit: "₹ 10,00,000",
-    subsidyCover: "100% Collateral-Free Cover",
+    subsidyCover: "35% Credit-Linked Capital Subsidy",
     eligibility: [
-      "Any Indian citizen having a viable business plan for non-farm income generating activity.",
-      "Micro units engaged in manufacturing, processing, trading, or service sector.",
-      "Applicant should not be a defaulter to any bank or financial institution."
+      "Existing micro food processing units or new food enterprises.",
+      "Individual entrepreneurs, Farmer Producer Organizations (FPOs), SHGs, and Co-operatives.",
+      "Applicant must contribute minimum 10% of project cost."
     ],
     documents: [
-      { name: "Aadhaar Card", desc: "Identity & Residence Proof" },
-      { name: "PAN Card", desc: "Income Tax Identifier" },
+      { name: "Food License (FSSAI)", desc: "FSSAI Registration / License" },
+      { name: "Aadhaar & PAN", desc: "Personal KYC" },
       { name: "Bank Statement", desc: "Last 6 Months Bank Statement" },
-      { name: "Udyam Registration", desc: "MSME Registration Certificate" }
+      { name: "Business Location Proof", desc: "Rent Agreement / Electricity Bill" }
     ]
   },
   "PMEGP": {
@@ -102,23 +82,23 @@ const SCHEMES_DATABASE = {
       { name: "Caste / Special Category Certificate", desc: "For higher subsidy claim" }
     ]
   },
-  "PMFME": {
-    name: "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
-    categoryBadge: "FOOD PROCESSING SCHEME",
-    ministry: "Ministry of Food Processing Industries (MoFPI), Govt. of India",
-    overview: "PMFME provides financial, technical, and business support for micro food processing units under the One District One Product (ODOP) framework with 35% credit-linked capital subsidy up to ₹10 Lakhs.",
+  "MUDRA": {
+    name: "Pradhan Mantri MUDRA Yojana (PMMY)",
+    categoryBadge: "BUSINESS LOAN SCHEME",
+    ministry: "Department of Financial Services, Ministry of Finance, Govt. of India",
+    overview: "Pradhan Mantri MUDRA Yojana (PMMY) enables non-corporate, non-farm micro and small enterprises to access credit up to ₹10 Lakhs with 100% collateral-free guarantee under CGTMSE. Loans are categorized into Shishu (up to ₹50k), Kishor (₹50k to ₹5L), and Tarun (₹5L to ₹10L).",
     maxLimit: "₹ 10,00,000",
-    subsidyCover: "35% Credit-Linked Capital Subsidy",
+    subsidyCover: "100% Collateral-Free Cover",
     eligibility: [
-      "Existing micro food processing units or new food enterprises.",
-      "Individual entrepreneurs, Farmer Producer Organizations (FPOs), SHGs, and Co-operatives.",
-      "Applicant must contribute minimum 10% of project cost."
+      "Any Indian citizen having a viable business plan for non-farm income generating activity.",
+      "Micro units engaged in manufacturing, processing, trading, or service sector.",
+      "Applicant should not be a defaulter to any bank or financial institution."
     ],
     documents: [
-      { name: "Food License (FSSAI)", desc: "FSSAI Registration / License" },
-      { name: "Aadhaar & PAN", desc: "Personal KYC" },
+      { name: "Aadhaar Card", desc: "Identity & Residence Proof" },
+      { name: "PAN Card", desc: "Income Tax Identifier" },
       { name: "Bank Statement", desc: "Last 6 Months Bank Statement" },
-      { name: "Business Location Proof", desc: "Rent Agreement / Electricity Bill" }
+      { name: "Udyam Registration", desc: "MSME Registration Certificate" }
     ]
   },
   "CMEGP": {
@@ -137,196 +117,6 @@ const SCHEMES_DATABASE = {
       { name: "Domicile Certificate", desc: "State Resident Proof" },
       { name: "Aadhaar Card", desc: "Biometric KYC" },
       { name: "Project Outline", desc: "Simple Business Proposal" }
-    ]
-  },
-  "SVANidhi": {
-    name: "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)",
-    categoryBadge: "URBAN MICRO CREDIT SCHEME",
-    ministry: "Ministry of Housing and Urban Affairs (MoHUA), Govt. of India",
-    overview: "PM SVANidhi provides working capital credit up to ₹50,000 for urban street vendors with 7% interest subsidy upon timely repayment and monthly digital transaction cashback rewards.",
-    maxLimit: "₹ 50,000",
-    subsidyCover: "7% Interest Subsidy + Cashbacks",
-    eligibility: [
-      "Street vendors vending in urban areas on or before March 24, 2020.",
-      "Vendors possessing Certificate of Vending / Identity Card issued by Urban Local Bodies (ULB)."
-    ],
-    documents: [
-      { name: "Vendor ID Card", desc: "Issued by Municipal Corporation" },
-      { name: "Aadhaar Card", desc: "KYC Identifier" },
-      { name: "Bank Passbook", desc: "For direct cashback credit" }
-    ]
-  },
-  "StandUp": {
-    name: "Stand Up India Scheme",
-    categoryBadge: "SC/ST & WOMEN ENTREPRENEUR SCHEME",
-    ministry: "Department of Financial Services, Ministry of Finance, Govt. of India",
-    overview: "Stand Up India facilitates bank loans between ₹10 Lakh and ₹1 Crore to at least one SC/ST borrower and at least one woman borrower per bank branch for setting up a greenfield enterprise.",
-    maxLimit: "₹ 1,00,00,000",
-    subsidyCover: "Credit Guarantee Cover & Concessional Rate",
-    eligibility: [
-      "SC/ST and/or woman entrepreneur above 18 years of age.",
-      "Loans under the scheme are available for greenfield projects only (first time venture).",
-      "In non-individual enterprises, 51% shareholding must be held by SC/ST or Woman."
-    ],
-    documents: [
-      { name: "Caste Certificate", desc: "SC/ST Certificate (if applicable)" },
-      { name: "Aadhaar & PAN Card", desc: "Identity Proof" },
-      { name: "Detailed Project Report", desc: "Technical & Financial Viability Plan" }
-    ]
-  },
-  "SRMS": {
-    name: "Self Employment Scheme for Rehabilitation of Manual Scavengers (SRMS)",
-    categoryBadge: "REHABILITATION CREDIT SCHEME",
-    ministry: "Ministry of Social Justice and Empowerment, Govt. of India",
-    overview: "SRMS provides capital subsidy up to ₹3.25 Lakhs and soft credit for the financial rehabilitation of identified manual scavengers and their dependents into alternative dignified livelihoods.",
-    maxLimit: "₹ 15,00,000",
-    subsidyCover: "Capital Subsidy up to ₹ 3,25,000",
-    eligibility: [
-      "Identified manual scavengers and their dependents.",
-      "Age of beneficiary must be 18 years or above."
-    ],
-    documents: [
-      { name: "Target Group Certificate", desc: "Identification Certificate" },
-      { name: "Aadhaar Card", desc: "Identity Proof" }
-    ]
-  },
-  "KCC": {
-    name: "Agri Loan – Kisan Credit Card (KCC)",
-    categoryBadge: "AGRICULTURAL CREDIT SCHEME",
-    ministry: "Ministry of Agriculture & Farmers Welfare, Govt. of India",
-    overview: "Kisan Credit Card (KCC) provides farmers, animal husbandry rearers, and fisheries farmers with timely short-term credit at concessional interest rates of 4% (with prompt repayment subvention of 3%).",
-    maxLimit: "₹ 3,00,000",
-    subsidyCover: "3% Prompt Repayment Interest Subvention",
-    eligibility: [
-      "Owner cultivators, tenant farmers, sharecroppers, and SHGs of farmers.",
-      "Fisheries farmers and animal husbandry owners.",
-      "Collateral-free credit limit up to ₹1.60 Lakhs (extended up to ₹3 Lakhs)."
-    ],
-    documents: [
-      { name: "Land Record Document", desc: "Parcha / Khatian / Land Receipt" },
-      { name: "Aadhaar Card", desc: "Biometric KYC Proof" },
-      { name: "Cropping Pattern Declaration", desc: "Details of crops cultivated" }
-    ]
-  },
-  "AIF": {
-    name: "Agriculture Infrastructure Fund (AIF)",
-    categoryBadge: "AGRI INFRASTRUCTURE SCHEME",
-    ministry: "Ministry of Agriculture & Farmers Welfare, Govt. of India",
-    overview: "Agriculture Infrastructure Fund (AIF) provides medium to long-term debt financing for post-harvest management infrastructure and community farming assets with 3% annual interest subvention up to ₹2 Crore.",
-    maxLimit: "₹ 2,00,00,000",
-    subsidyCover: "3% Interest Subvention + CGTMSE Guarantee",
-    eligibility: [
-      "Farmers, Agri-Entrepreneurs, FPOs, SHGs, Joint Liability Groups, and Primary Agricultural Credit Societies (PACS)."
-    ],
-    documents: [
-      { name: "DPR for Post-Harvest Infra", desc: "Warehouse / Cold Storage Plan" },
-      { name: "Entity KYC", desc: "PAN / Registration" }
-    ]
-  },
-  "PMMSY": {
-    name: "Pradhan Mantri Matsya Sampada Yojana (PMMSY)",
-    categoryBadge: "FISHERIES INFRASTRUCTURE SCHEME",
-    ministry: "Department of Fisheries, Ministry of Fisheries, Animal Husbandry, Govt. of India",
-    overview: "PMMSY is designed to address critical gaps in fish production, productivity, quality, technology, post-harvest infrastructure, and management modernization with financial support up to 60%.",
-    maxLimit: "₹ 50,00,000",
-    subsidyCover: "Up to 60% Govt Subsidy Cover",
-    eligibility: [
-      "Fishers, Fish Farmers, Fish Workers, Fish Vendors, FPOs, and Fisheries Cooperatives."
-    ],
-    documents: [
-      { name: "Waterbody / Land Proof", desc: "Pond Lease / Land Deed" },
-      { name: "Aadhaar & Bank Passbook", desc: "Direct Subsidy Credit" }
-    ]
-  },
-  "AHIDF": {
-    name: "Animal Husbandry Infrastructure Development Fund (AHIDF)",
-    categoryBadge: "DAIRY & LIVESTOCK INFRA SCHEME",
-    ministry: "Department of Animal Husbandry and Dairying, Govt. of India",
-    overview: "AHIDF incentivizes investments by individual entrepreneurs, private companies, MSMEs, and FPOs to establish dairy processing, meat processing, and animal feed plants with 3% interest subvention.",
-    maxLimit: "₹ 10,00,00,000",
-    subsidyCover: "3% Interest Subvention + 25% Credit Guarantee",
-    eligibility: [
-      "Individual Entrepreneurs, Private Companies, FPOs, and Section 8 Companies."
-    ],
-    documents: [
-      { name: "Project DPR", desc: "Plant Capacity & Financial DPR" },
-      { name: "Company KYC", desc: "GST & Incorporation Certificate" }
-    ]
-  },
-  "Solar": {
-    name: "PM-Surya Ghar: Muft Bijli Yojana (Rooftop Solar)",
-    categoryBadge: "RENEWABLE ENERGY SCHEME",
-    ministry: "Ministry of New and Renewable Energy (MNRE), Govt. of India",
-    overview: "PM-Surya Ghar provides financial assistance and collateral-free concessional bank loans for installing rooftop solar systems to generate free electricity up to 300 units per month.",
-    maxLimit: "₹ 6,00,000",
-    subsidyCover: "Central Financial Subsidy up to ₹ 78,000",
-    eligibility: [
-      "Residential households and micro business enterprise premises.",
-      "Premises must have suitable rooftop space for solar panel installation."
-    ],
-    documents: [
-      { name: "Electricity Bill", desc: "Recent Consumer Bill" },
-      { name: "Aadhaar Card", desc: "Applicant Identity" }
-    ]
-  },
-  "KUSUM": {
-    name: "PM-KUSUM Solar Scheme for Farmers",
-    categoryBadge: "SOLAR FARMING SCHEME",
-    ministry: "Ministry of New and Renewable Energy (MNRE), Govt. of India",
-    overview: "PM-KUSUM supports farmers to install solar water pumps and solarize existing grid-connected agricultural pumps with up to 60% government subsidy support.",
-    maxLimit: "₹ 15,00,000",
-    subsidyCover: "60% Combined Central & State Subsidy",
-    eligibility: [
-      "Individual farmers, Panchayats, Farmer Producer Organizations (FPOs)."
-    ],
-    documents: [
-      { name: "Khatian / Land Record", desc: "Farm Land Ownership" },
-      { name: "Aadhaar & Bank Details", desc: "KYC Files" }
-    ]
-  },
-  "SATAT": {
-    name: "Compressed Bio-Gas (CBG) SATAT Scheme",
-    categoryBadge: "BIO-GAS INFRASTRUCTURE SCHEME",
-    ministry: "Ministry of Petroleum and Natural Gas, Govt. of India",
-    overview: "SATAT encourages entrepreneurs to set up Compressed Bio-Gas (CBG) production plants from agricultural residual waste with assured commercial off-take by PSU Oil Marketing Companies.",
-    maxLimit: "₹ 5,00,00,000",
-    subsidyCover: "Commercial Off-take Guarantee + Subvention",
-    eligibility: [
-      "Entrepreneurs, Companies, and Cooperative Societies."
-    ],
-    documents: [
-      { name: "LOI from Oil Marketing Co.", desc: "Letter of Intent" },
-      { name: "Feasibility Project Report", desc: "Biomass Supply & Financial DPR" }
-    ]
-  },
-  "NRLM": {
-    name: "Deendayal Antyodaya Yojana - NRLM",
-    categoryBadge: "RURAL LIVELIHOOD SCHEME",
-    ministry: "Ministry of Rural Development (MoRD), Govt. of India",
-    overview: "DAY-NRLM provides interest subvention and collateral-free credit linkages for rural women Self Help Groups (SHGs) and individual micro-enterprises to promote sustainable livelihoods.",
-    maxLimit: "₹ 20,00,000",
-    subsidyCover: "Concessional 7% Interest Subvention",
-    eligibility: [
-      "Rural women Self Help Groups (SHGs) and micro entrepreneurs."
-    ],
-    documents: [
-      { name: "SHG Passbook", desc: "Group Bank Account Record" },
-      { name: "Aadhaar Cards", desc: "Group Member KYC" }
-    ]
-  },
-  "NULM": {
-    name: "Deendayal Antyodaya Yojana - NULM",
-    categoryBadge: "URBAN LIVELIHOOD SCHEME",
-    ministry: "Ministry of Housing and Urban Affairs (MoHUA), Govt. of India",
-    overview: "DAY-NULM addresses urban poverty by enabling urban poor entrepreneurs to access micro-credit for self-employment ventures with interest subvention over and above 7%.",
-    maxLimit: "₹ 10,00,000",
-    subsidyCover: "Interest Subvention over 7% p.a.",
-    eligibility: [
-      "Urban poor individuals, urban micro-enterprises, and SHGs."
-    ],
-    documents: [
-      { name: "Urban Identity Certificate", desc: "Resident Proof" },
-      { name: "Aadhaar Card", desc: "Biometric KYC" }
     ]
   }
 };
@@ -371,7 +161,7 @@ function loadSchemeDetailData() {
   const schemeId = urlParams.get('id') || 'MUDRA';
   const scheme = SCHEMES_DATABASE[schemeId] || SCHEMES_DATABASE['MUDRA'];
 
-  document.title = `${scheme.name} | CreditSamarth`;
+  document.title = `${scheme.name} | DC Dhanbad`;
 
   const breadTitle = document.getElementById('detail-breadcrumb-title');
   if (breadTitle) breadTitle.innerText = scheme.name;
@@ -1287,7 +1077,7 @@ const HINDI_TRANSLATIONS = {
   "National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.": "क्रेडिट लिंक सरकारी योजनाओं के लिए राष्ट्रीय पोर्टल, वित्तीय सेवा विभाग, वित्त मंत्रालय, भारत सरकार।",
   "Quick Links": "त्वरित लिंक",
   "Policies & Helpdesk": "नीतियां और सहायता केंद्र",
-  "© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.": "© 2026 क्रेडिटसमर्थ क्रेडिट लिंक्ड योजनाओं के लिए राष्ट्रीय पोर्टल। सर्वाधिकार सुरक्षित।",
+  "© 2026 DC Dhanbad Loan Portal. All Rights Reserved.": "© 2026 डीसी धनबाद लोन पोर्टल। सर्वाधिकार सुरक्षित।",
   "Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳": "वित्त मंत्रालय, भारत सरकार के लिए डिज़ाइन्ड और विकसित • डिजिटल इंडिया 🇮🇳"
 };
 

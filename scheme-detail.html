@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scheme Details | CreditSamarth</title>
+  <title>Scheme Details | DC Dhanbad</title>
   <meta name="description" content="Official Government Scheme Detailed Information, Eligibility Criteria, Subsidies, and Application Guidelines.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,9 @@
   <!-- Top Government Header Strip -->
   <div class="top-gov-strip">
     <div class="top-gov-strip-left">
-      <span>🇮🇳 Government of India</span>
+      <span>🇮🇳 District Administration, Dhanbad</span>
       <span class="gov-strip-sep" style="color:#475569">|</span>
-      <span>Ministry of Finance • Department of Financial Services</span>
+      <span>Government Credit Assistance Portal</span>
     </div>
     <div class="top-gov-strip-right">
       <span class="gov-strip-action" onclick="prefillRahulKumarData()">⚡ Auto-Fill Demo Data</span>
@@ -37,7 +37,7 @@
       
       <!-- Logo Box -->
       <a href="index.html" class="js-logo-box">
-        <div class="js-logo-text">Credit<span>Samarth</span><span class="js-logo-copy">©</span></div>
+        <div class="js-logo-text">DC<span>Dhanbad</span><span class="js-logo-copy">©</span></div>
       </a>
 
       <!-- Mobile Header Controls (Login + Hamburger) -->
@@ -53,11 +53,11 @@
         <li class="nav-dropdown-wrapper">
           <a href="schemes.html" class="gov-nav-item active">Schemes ▾</a>
           <div class="dropdown-menu-box">
-            <a href="scheme-detail.html?id=MUDRA" class="dropdown-item">
-              <div class="dropdown-icon-badge">💼</div>
+            <a href="scheme-detail.html?id=PMFME" class="dropdown-item">
+              <div class="dropdown-icon-badge">🍲</div>
               <div>
-                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
-                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
+                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
+                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
               </div>
             </a>
             <a href="scheme-detail.html?id=PMEGP" class="dropdown-item">
@@ -67,32 +67,25 @@
                 <div class="dropdown-item-sub">Up to ₹50 Lakhs (15% to 35% Subsidy)</div>
               </div>
             </a>
-            <a href="scheme-detail.html?id=PMFME" class="dropdown-item">
-              <div class="dropdown-icon-badge">🍲</div>
+            <a href="scheme-detail.html?id=MUDRA" class="dropdown-item">
+              <div class="dropdown-icon-badge">💼</div>
               <div>
-                <div class="dropdown-item-title">PM Formalisation of Micro Food Processing (PMFME)</div>
-                <div class="dropdown-item-sub">35% Credit-Linked Capital Subsidy</div>
+                <div class="dropdown-item-title">Pradhan Mantri MUDRA Yojana (PMMY)</div>
+                <div class="dropdown-item-sub">Loans up to ₹10 Lakhs (100% Collateral Free)</div>
               </div>
             </a>
-            <a href="scheme-detail.html?id=PMAY" class="dropdown-item">
-              <div class="dropdown-icon-badge">🏠</div>
+            <a href="scheme-detail.html?id=CMEGP" class="dropdown-item">
+              <div class="dropdown-icon-badge">🏛</div>
               <div>
-                <div class="dropdown-item-title">Pradhan Mantri Awas Yojana (PMAY-U 2.0)</div>
-                <div class="dropdown-item-sub">Interest Subsidy up to 6.5% for Home Loans</div>
-              </div>
-            </a>
-            <a href="scheme-detail.html?id=KCC" class="dropdown-item">
-              <div class="dropdown-icon-badge">🌾</div>
-              <div>
-                <div class="dropdown-item-title">Agri Loan – Kisan Credit Card (KCC)</div>
-                <div class="dropdown-item-sub">Crop Loan & Fisheries Credit</div>
+                <div class="dropdown-item-title">Chief Minister Employment Generation (CMEGP)</div>
+                <div class="dropdown-item-sub">Soft Loan & Capital Subsidy up to 35%</div>
               </div>
             </a>
             <div style="border-top:1px solid #e2e8f0; margin:0.35rem 0;"></div>
             <a href="schemes.html" class="dropdown-item" style="background:#eff6ff;">
               <div class="dropdown-icon-badge" style="background:#2563eb; color:#fff;">📜</div>
               <div>
-                <div class="dropdown-item-title" style="color:#2563eb;">View All 17 Government Schemes</div>
+                <div class="dropdown-item-title" style="color:#2563eb;">View All 4 Government Schemes</div>
                 <div class="dropdown-item-sub">Explore full catalog & criteria</div>
               </div>
             </a>
@@ -258,78 +251,55 @@
           </div>
         </div>
 
-        <!-- TAB 4: FAQS -->
+        <!-- TAB 4: FAQS & GUIDELINES -->
         <div id="detail-tab-faqs" class="gov-card" style="display:none; background:#ffffff; margin-bottom:2rem;">
           <h3 style="font-size:1.4rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;">Frequently Asked Questions</h3>
           
-          <div class="faq-card-item" onclick="toggleFaqAccordion(1)">
-            <div class="faq-question-title">
-              <span>Is collateral security required for this scheme?</span>
-              <span id="faq-icon-1">➕</span>
+          <div class="faq-item" style="border:1px solid #e2e8f0; border-radius:8px; padding:1rem; margin-bottom:0.75rem;">
+            <div style="font-weight:800; color:#1e3a8a; cursor:pointer;" onclick="toggleFaqAccordion(101)">
+              ❓ Is collateral security required for this scheme?
             </div>
-            <div class="faq-answer-body" id="faq-ans-1" style="display:none;">
-              No. As per Reserve Bank of India (RBI) guidelines, banks do not demand collateral security for loans under this central government credit scheme.
+            <div id="faq-ans-101" class="faq-answer-body" style="display:none;">
+              No collateral security is required. The loan is covered under Credit Guarantee Funds for Micro Units (CGFMU) / CGTMSE.
             </div>
           </div>
 
-          <div class="faq-card-item" onclick="toggleFaqAccordion(2)">
-            <div class="faq-question-title">
-              <span>Which banks offer sanction for this scheme?</span>
-              <span id="faq-icon-2">➕</span>
+          <div class="faq-item" style="border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+            <div style="font-weight:800; color:#1e3a8a; cursor:pointer;" onclick="toggleFaqAccordion(102)">
+              ❓ What is the repayment tenure?
             </div>
-            <div class="faq-answer-body" id="faq-ans-2" style="display:none;">
-              All 300+ partner lenders registered on CreditSamarth — including State Bank of India, Punjab National Bank, Bank of Baroda, HDFC Bank, ICICI Bank, Regional Rural Banks & SIDBI.
+            <div id="faq-ans-102" class="faq-answer-body" style="display:none;">
+              Repayment tenure ranges between 3 years to 7 years depending on loan size and business cash flows.
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- RIGHT COLUMN: STICKY QUICK ACTION SUMMARY CARD -->
-      <div style="position:sticky; top:90px;">
-        
-        <div class="gov-card" style="background:#ffffff; box-shadow:0 8px 24px rgba(30,58,138,0.12); border:2px solid #93c5fd;">
-          <div style="font-size:0.75rem; font-weight:800; color:#64748b; text-transform:uppercase; margin-bottom:0.25rem;">SCHEME SNAPSHOT</div>
-          <h4 style="font-size:1.25rem; font-weight:900; color:#1e3a8a; margin-bottom:1rem;" id="side-scheme-title">Pradhan Mantri MUDRA Yojana</h4>
-
-          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.85rem; margin-bottom:1.5rem; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0; padding:1rem 0;">
-            <div style="display:flex; justify-content:space-between;">
-              <span style="color:#64748b;">Loan Ceiling:</span>
+      <!-- RIGHT SIDEBAR: QUICK ACTION SUMMARY -->
+      <div>
+        <div class="gov-card" style="background:#ffffff; border-top:4px solid #1e3a8a; position:sticky; top:100px;">
+          <h4 style="font-size:1.1rem; font-weight:800; color:#1e3a8a; margin-bottom:1rem;">Quick Scheme Summary</h4>
+          
+          <div style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.85rem; margin-bottom:1.5rem;">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #f1f5f9; padding-bottom:0.4rem;">
+              <span style="color:#64748b;">Max Limit:</span>
               <strong style="color:#1e3a8a;" id="side-max-limit">₹ 10,00,000</strong>
             </div>
-
-            <div style="display:flex; justify-content:space-between;">
-              <span style="color:#64748b;">Subsidy / Cover:</span>
-              <strong style="color:#059669;" id="side-subsidy">100% Cover</strong>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #f1f5f9; padding-bottom:0.4rem;">
+              <span style="color:#64748b;">Subsidy/Cover:</span>
+              <strong style="color:#059669;" id="side-subsidy">100% Guarantee Cover</strong>
             </div>
-
-            <div style="display:flex; justify-content:space-between;">
-              <span style="color:#64748b;">Processing SLA:</span>
-              <strong style="color:#ff6b00;">10 Minutes Digital</strong>
-            </div>
-
-            <div style="display:flex; justify-content:space-between;">
-              <span style="color:#64748b;">Partner Banks:</span>
-              <strong style="color:#1e3a8a;">300+ Lenders</strong>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #f1f5f9; padding-bottom:0.4rem;">
+              <span style="color:#64748b;">Sanction Mode:</span>
+              <strong style="color:#0284c7;">Digital In-Principle</strong>
             </div>
           </div>
 
-          <a href="#" id="side-apply-btn" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.85rem; font-size:0.95rem; margin-bottom:0.85rem;">
-            Start 8-Step Application ➔
-          </a>
-
-          <a href="schemes.html" class="btn-gov-outline" style="width:100%; justify-content:center; padding:0.65rem; font-size:0.82rem;">
-            ← Back to All Schemes
+          <a href="#" id="side-apply-btn" class="btn-gov-saffron" style="width:100%; justify-content:center; padding:0.8rem;">
+            Proceed to Apply ➔
           </a>
         </div>
-
-        <!-- Helpdesk Box -->
-        <div class="gov-card" style="background:#eff6ff; border:1px solid #bfdbfe; margin-top:1.25rem;">
-          <div style="font-size:0.8rem; font-weight:800; color:#1e3a8a; margin-bottom:0.25rem;">Need Scheme Assistance?</div>
-          <div style="font-size:0.75rem; color:#475569; margin-bottom:0.75rem;">Call Toll-Free Helpline: <strong>1800-11-3456</strong></div>
-          <a href="grievances.html" style="font-size:0.78rem; font-weight:800; color:#2563eb;">Lodge Grievance / Escalation ➔</a>
-        </div>
-
       </div>
 
     </div>
@@ -387,15 +357,17 @@
   <footer>
     <div class="footer-container">
       <div>
-        <div class="footer-brand-title">🏛 CreditSamarth<span>©</span></div>
-        <p class="footer-desc">National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.</p>
+        <div class="footer-brand-title">🏛 DC Dhanbad<span>©</span></div>
+        <p class="footer-desc">District Administration Dhanbad • Government Credit Schemes Portal for Micro Entrepreneurs.</p>
       </div>
 
       <div>
         <div class="footer-column-title">Credit Schemes</div>
         <ul class="footer-link-list">
-          <li><a href="schemes.html">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
-          <li><a href="schemes.html">Prime Minister's Employment Generation (PMEGP)</a></li>
+          <li><a href="scheme-detail.html?id=PMFME">PM Food Processing (PMFME)</a></li>
+          <li><a href="scheme-detail.html?id=PMEGP">PM Employment Generation (PMEGP)</a></li>
+          <li><a href="scheme-detail.html?id=MUDRA">Pradhan Mantri MUDRA Yojana (PMMY)</a></li>
+          <li><a href="scheme-detail.html?id=CMEGP">CM Employment Generation (CMEGP)</a></li>
         </ul>
       </div>
 
@@ -417,8 +389,8 @@
     </div>
 
     <div class="footer-bottom-bar">
-      <div>© 2026 CreditSamarth National Portal for Credit Linked Schemes. All Rights Reserved.</div>
-      <div>Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳</div>
+      <div>© 2026 DC Dhanbad Loan Portal. All Rights Reserved.</div>
+      <div>District Administration, Dhanbad • Government of Jharkhand 🇮🇳</div>
     </div>
   </footer>
 
