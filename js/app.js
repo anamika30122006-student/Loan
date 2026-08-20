@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DC Dhanbad Digital Loan Portal - Multi-Page Engine & Utilities
+   Loan Management System - Multi-Page Engine & Utilities
    ========================================================================== */
 
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
@@ -161,7 +161,7 @@ function loadSchemeDetailData() {
   const schemeId = urlParams.get('id') || 'MUDRA';
   const scheme = SCHEMES_DATABASE[schemeId] || SCHEMES_DATABASE['MUDRA'];
 
-  document.title = `${scheme.name} | DC Dhanbad`;
+  document.title = `${scheme.name} | Loan Management System`;
 
   const breadTitle = document.getElementById('detail-breadcrumb-title');
   if (breadTitle) breadTitle.innerText = scheme.name;
@@ -1087,7 +1087,7 @@ const HINDI_TRANSLATIONS = {
   "National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.": "क्रेडिट लिंक सरकारी योजनाओं के लिए राष्ट्रीय पोर्टल, वित्तीय सेवा विभाग, वित्त मंत्रालय, भारत सरकार।",
   "Quick Links": "त्वरित लिंक",
   "Policies & Helpdesk": "नीतियां और सहायता केंद्र",
-  "© 2026 DC Dhanbad Loan Portal. All Rights Reserved.": "© 2026 डीसी धनबाद लोन पोर्टल। सर्वाधिकार सुरक्षित।",
+  "© 2026 Loan Management System. All Rights Reserved.": "© 2026 लोन मैनेजमेंट सिस्टम। सर्वाधिकार सुरक्षित।",
   "Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳": "वित्त मंत्रालय, भारत सरकार के लिए डिज़ाइन्ड और विकसित • डिजिटल इंडिया 🇮🇳"
 };
 
