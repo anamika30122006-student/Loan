@@ -2328,3 +2328,154 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   8. SCHEMES PAGE MOBILE RESPONSIVE STYLES
+   ========================================================================== */
+.scheme-hero-section {
+  width: 100% !important;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+  padding: 2.5rem 1.5rem !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+
+.scheme-hero-flex-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.scheme-hero-text-col {
+  flex: 1;
+  min-width: 280px;
+}
+
+.scheme-search-box-wrapper {
+  flex-shrink: 0;
+  width: 320px;
+  max-width: 100%;
+}
+
+.scheme-search-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1.25rem;
+  border-radius: 14px;
+}
+
+.scheme-search-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ff9933;
+  margin-bottom: 0.5rem;
+}
+
+.scheme-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.schemes-main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.scheme-filter-tab-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.scheme-filter-pill {
+  padding: 0.55rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.scheme-filter-pill:hover,
+.scheme-filter-pill.active {
+  background: #1e3a8a;
+  color: #ffffff;
+  border-color: #1e3a8a;
+}
+
+.scheme-count-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.scheme-count-badge {
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+}
+
+.scheme-count-subtext {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .scheme-hero-section {
+    padding: 1.75rem 1rem !important;
+  }
+
+  .scheme-hero-flex-wrapper {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;
+  }
+
+  .scheme-search-box-wrapper {
+    width: 100% !important;
+  }
+
+  .schemes-main-container {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .scheme-filter-tab-bar {
+    gap: 0.5rem !important;
+  }
+
+  .scheme-filter-pill {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.78rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .scheme-count-status-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.35rem !important;
+  }
+}
