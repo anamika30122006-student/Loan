@@ -210,8 +210,8 @@
             <div class="form-grid-2col" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
               <div class="form-group">
                 <label class="form-label">Mobile Number *</label>
-                <div style="display:flex; gap:0.5rem;">
-                  <input type="text" id="grv-mobile" class="form-input" value="9876543210" maxlength="10" required>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                  <input type="text" id="grv-mobile" class="form-input" value="9876543210" maxlength="10" required style="flex:1; min-width:140px;">
                   <button type="button" class="btn-gov-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem; white-space:nowrap;" onclick="sendGrvOtp()">⚡ Send OTP</button>
                 </div>
               </div>
@@ -222,7 +222,7 @@
             </div>
 
             <!-- OTP Verification Box -->
-            <div id="grv-otp-box" style="display:none; background:#ecfdf5; border:1px solid #a7f3d0; padding:0.75rem 1rem; border-radius:8px; margin-bottom:1.15rem; align-items:center; justify-content:space-between;">
+            <div id="grv-otp-box" style="display:none; background:#ecfdf5; border:1px solid #a7f3d0; padding:0.75rem 1rem; border-radius:8px; margin-bottom:1.15rem; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <span style="font-size:0.8rem; font-weight:800; color:#047857;">Enter 4-Digit OTP:</span>
                 <input type="text" id="grv-otp-input" class="form-input" value="4921" style="width:90px; text-align:center; font-weight:900; font-family:monospace;" maxlength="4">
@@ -294,12 +294,12 @@
             </div>
 
             <!-- Captcha Security Box -->
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:1rem; border-radius:8px; margin-bottom:1.5rem; display:flex; align-items:center; gap:1.5rem;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:1rem; border-radius:8px; margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
               <div>
                 <div style="font-size:0.72rem; color:#64748b; font-weight:700; margin-bottom:0.25rem;">Security Code:</div>
                 <div class="captcha-box" id="captcha-disp-val">8 4 9 2</div>
               </div>
-              <div style="flex:1;">
+              <div style="flex:1; min-width:140px;">
                 <label class="form-label">Enter Security Captcha *</label>
                 <input type="text" id="grv-captcha-input" class="form-input" value="8492" required placeholder="Type 4 digits above">
               </div>
@@ -317,15 +317,15 @@
           <p style="font-size:0.85rem; color:#64748b; margin-bottom:1.5rem;">Enter your Grievance Ticket ID (e.g. GRV-2026-98412) or Mobile Number</p>
 
           <form onsubmit="handleTrackGrievanceSearch(event)">
-            <div style="display:flex; gap:0.75rem; margin-bottom:1.5rem;">
-              <input type="text" id="track-grv-input" class="form-input" value="GRV-2026-98412" required placeholder="Enter Ticket No. or Mobile">
+            <div style="display:flex; gap:0.75rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+              <input type="text" id="track-grv-input" class="form-input" value="GRV-2026-98412" required placeholder="Enter Ticket No. or Mobile" style="flex:1; min-width:180px;">
               <button type="submit" class="btn-gov-primary">Search Ticket</button>
             </div>
           </form>
 
           <!-- Live Grievance Ticket Result Card -->
           <div id="grv-ticket-result-box" style="background:#f0f7ff; border:2px solid #bfdbfe; border-radius:12px; padding:1.5rem;">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; border-bottom:1px solid #bfdbfe; padding-bottom:0.75rem;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; border-bottom:1px solid #bfdbfe; padding-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
               <div>
                 <div style="font-size:0.75rem; color:#64748b; font-weight:700;">TICKET REFERENCE NUMBER</div>
                 <div style="font-size:1.4rem; font-weight:900; color:#1e3a8a;" id="res-grv-id">GRV-2026-98412</div>
@@ -333,7 +333,7 @@
               <span class="gov-badge gov-badge-orange" style="font-size:0.85rem; padding:4px 12px;" id="res-grv-status">IN PROGRESS</span>
             </div>
 
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.85rem; font-size:0.85rem; margin-bottom:1.25rem;">
+            <div class="grv-ticket-info-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:0.85rem; font-size:0.85rem; margin-bottom:1.25rem;">
               <div><span style="color:#64748b;">Complainant Name:</span> <strong id="res-grv-name">Rahul Kumar</strong></div>
               <div><span style="color:#64748b;">Category:</span> <strong id="res-grv-cat">Loan Disbursement Delay</strong></div>
               <div><span style="color:#64748b;">Date Logged:</span> <strong id="res-grv-date">18 Aug 2026, 11:20 AM</strong></div>
