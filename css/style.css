@@ -2070,53 +2070,54 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
 /* RESPONSIVE TOP GOVERNMENT STRIP & MOBILE HEADER */
 @media (max-width: 768px) {
   .top-gov-strip {
-    padding: 0.35rem 0.75rem !important;
+    padding: 0.4rem 0.85rem !important;
     font-size: 0.72rem !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    text-align: center !important;
-    gap: 0.25rem !important;
+    gap: 0.5rem !important;
   }
   
-  .top-gov-strip-left,
-  .top-gov-strip-right {
-    justify-content: center !important;
-    gap: 0.35rem !important;
-    flex-wrap: wrap !important;
+  .top-gov-strip-left span:nth-child(2),
+  .top-gov-strip-left span:nth-child(3) {
+    display: none !important;
   }
 
-  .gov-strip-sep {
+  .top-gov-strip-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+  }
+
+  .gov-strip-sep,
+  .top-gov-strip-right > span:not(.gov-strip-action) {
     display: none !important;
+  }
+
+  .gov-strip-action {
+    font-size: 0.68rem !important;
+    padding: 2px 6px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
   }
 }
 
 @media (max-width: 480px) {
-  .top-gov-strip {
-    font-size: 0.68rem !important;
-    padding: 0.25rem 0.5rem !important;
-  }
-
-  .gov-strip-action {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.68rem;
-  }
-
-  .top-strip-hide-mobile {
+  .top-gov-strip-right .gov-strip-action:not(:first-child) {
     display: none !important;
   }
 
   .gov-navbar-container {
-    padding: 0.5rem 0.85rem !important;
+    padding: 0.5rem 0.75rem !important;
   }
 
   .js-logo-text {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
   }
 
   .js-logo-box {
-    padding: 3px 8px !important;
+    padding: 3px 6px !important;
   }
 }
 
