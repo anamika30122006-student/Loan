@@ -129,28 +129,28 @@
   </header>
 
   <!-- SCHEMES PAGE EXECUTIVE HERO BANNER -->
-  <section class="js-hero-fullwidth-section" style="padding: 3.5rem 1.5rem; text-align: left;">
-    <div style="max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;">
-      <div style="flex:1; min-width:290px;">
+  <section class="js-hero-fullwidth-section scheme-hero-section">
+    <div class="scheme-hero-flex-wrapper">
+      <div class="scheme-hero-text-col">
         <div class="hero-govt-tag">🏛 Official Government Catalog • DFS</div>
-        <h1 class="js-hero-title" style="font-size:2.4rem; margin-bottom:0.6rem;">
+        <h1 class="js-hero-title scheme-hero-title">
           Government Sponsored Credit Schemes Catalog
         </h1>
-        <p class="js-hero-subtext" style="font-size:1rem; color:#cbd5e1; margin-bottom:0; max-width:760px;">
+        <p class="js-hero-subtext scheme-hero-subtext">
           Explore 17 Central & State Government Credit Schemes offering collateral-free loans up to ₹50 Lakhs, margin money subsidies up to 35%, and interest subventions for Micro Entrepreneurs.
         </p>
       </div>
-      <div style="flex:0 0 320px; max-width:100%; width:100%;">
-        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); padding:1.25rem; border-radius:12px; backdrop-filter:blur(4px);">
-          <label style="color:#facc15; font-size:0.75rem; font-weight:800; text-transform:uppercase; margin-bottom:0.5rem; display:block;">🔍 Instant Scheme Finder</label>
-          <input type="text" id="scheme-search-input" class="form-input" placeholder="Search scheme name, subsidy, or limit..." onkeyup="filterSchemesList(this.value)" style="padding:0.75rem 1rem; border-radius:8px; font-weight:600; background:#ffffff; color:#0f172a; width:100%;">
+      <div class="scheme-search-box-wrapper">
+        <div class="scheme-search-card">
+          <label class="scheme-search-label">🔍 Instant Scheme Finder</label>
+          <input type="text" id="scheme-search-input" class="form-input scheme-search-input" placeholder="Search scheme name, subsidy, or limit..." onkeyup="filterSchemesList(this.value)">
         </div>
       </div>
     </div>
   </section>
 
   <!-- MAIN CONTENT CONTAINER -->
-  <main style="max-width:1280px; margin:2.5rem auto; padding:0 1.5rem;">
+  <main class="schemes-main-container">
     
     <!-- Category Filter Pills -->
     <div class="scheme-filter-tab-bar">
@@ -163,11 +163,11 @@
     </div>
 
     <!-- Active Result Count Status Badge -->
-    <div style="margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
-      <span id="scheme-count-status" style="font-size:0.85rem; font-weight:800; color:#1e3a8a; background:#eff6ff; border:1px solid #bfdbfe; padding:4px 12px; border-radius:6px;">
+    <div class="scheme-count-status-row">
+      <span id="scheme-count-status" class="scheme-count-badge">
         Showing 17 of 17 Schemes
       </span>
-      <span style="font-size:0.78rem; color:#64748b;">Filtered by Department of Financial Services</span>
+      <span class="scheme-count-subtext">Filtered by Department of Financial Services</span>
     </div>
 
     <!-- Clean & Professional Cards Grid -->

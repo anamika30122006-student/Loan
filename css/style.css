@@ -1457,6 +1457,170 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
 .footer-link-list a:hover { color: var(--js-gold); }
 .footer-bottom-bar { max-width: 1280px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #94a3b8; }
 
+/* Schemes & Scheme Detail Component Classes */
+.scheme-hero-section {
+  padding: 3.5rem 1.5rem;
+  text-align: left;
+}
+
+.scheme-hero-flex-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.scheme-hero-text-col {
+  flex: 1;
+  min-width: 290px;
+}
+
+.scheme-hero-title {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.scheme-hero-subtext {
+  font-size: 1rem;
+  color: #cbd5e1;
+  margin-bottom: 0;
+  max-width: 760px;
+}
+
+.scheme-search-box-wrapper {
+  flex: 0 0 320px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.scheme-search-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.scheme-search-label {
+  color: var(--js-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.scheme-search-input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  background: #ffffff;
+  color: #0f172a;
+  width: 100%;
+}
+
+.schemes-main-container {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.scheme-count-status-row {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scheme-count-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.scheme-count-subtext {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+/* Scheme Detail Page Base Classes */
+.detail-hero-section {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+}
+
+.detail-hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.detail-breadcrumb {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+}
+
+.detail-breadcrumb a {
+  color: #93c5fd;
+}
+
+.detail-hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.detail-hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.detail-hero-subtext {
+  font-size: 1rem;
+  color: #e0f2fe;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.detail-hero-action-box {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.detail-apply-btn {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.detail-main-container {
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.detail-layout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
 /* ==========================================================================
    COMPREHENSIVE MOBILE RESPONSIVE MEDIA QUERIES (ALL PAGES & SECTIONS)
    ========================================================================== */
@@ -1624,7 +1788,7 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   }
 
   .js-hero-fullwidth-section {
-    padding: 3rem 1rem 5rem 1rem;
+    padding: 2.5rem 1rem 3.5rem 1rem;
   }
   
   .js-hero-title {
@@ -1655,14 +1819,40 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   }
 
   .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
   }
 }
 
 /* 3. MOBILE SMARTPHONES (<= 768px) */
 @media (max-width: 768px) {
-  .js-hero-title {
-    font-size: 1.85rem;
+  .js-hero-title,
+  .scheme-hero-title,
+  .detail-hero-title {
+    font-size: 1.75rem !important;
+  }
+
+  .scheme-hero-section,
+  .detail-hero-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .scheme-hero-flex-wrapper,
+  .detail-hero-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .scheme-search-box-wrapper {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .schemes-main-container,
+  .detail-main-container {
+    margin: 1.5rem auto !important;
+    padding: 0 1rem !important;
   }
   
   .hero-btn-row {
@@ -1699,7 +1889,8 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   }
   
   .card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
   
   .bank-badge-grid {
@@ -1722,23 +1913,43 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
     flex-wrap: nowrap;
     padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .grv-tab-btn-row::-webkit-scrollbar {
+    display: none;
   }
   
   .grv-tab-btn {
     white-space: nowrap;
     padding: 0.6rem 0.85rem;
     font-size: 0.82rem;
+    flex: 0 0 auto;
   }
   
   .scheme-filter-tab-bar {
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.25rem;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .scheme-filter-tab-bar::-webkit-scrollbar {
+    display: none;
   }
   
   .scheme-filter-pill {
     white-space: nowrap;
+    flex: 0 0 auto;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.8rem;
+  }
+
+  .scheme-count-status-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
   }
   
   /* 8-Step Stepper Mobile Responsiveness */
@@ -1759,13 +1970,28 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
     display: none;
   }
 
+  .scheme-clean-card {
+    padding: 1.2rem !important;
+    min-height: auto !important;
+  }
+
   .scheme-card-metrics-box {
     grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
   }
   
   .scheme-card-actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+  }
+
+  .detail-hero-action-box {
+    width: 100%;
+  }
+
+  .detail-apply-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .auth-modal-card {
@@ -1782,8 +2008,10 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
 
 /* 4. EXTRA SMALL PHONES (<= 576px) */
 @media (max-width: 576px) {
-  .js-hero-title {
-    font-size: 1.5rem;
+  .js-hero-title,
+  .scheme-hero-title,
+  .detail-hero-title {
+    font-size: 1.45rem !important;
   }
   
   .process-grid-cards {
@@ -1809,12 +2037,12 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   }
 
   .scheme-clean-card {
-    padding: 1.15rem;
+    padding: 1.1rem !important;
   }
 
-  .scheme-card-metrics-box {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+  .scheme-card-actions {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
   }
 }
 
@@ -1834,6 +2062,11 @@ footer { background: #0f172a; color: #cbd5e1; padding: 3.5rem 1.5rem 1.5rem 1.5r
   
   .top-gov-strip {
     font-size: 0.7rem;
+  }
+
+  .scheme-card-metrics-box {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem;
   }
 }
 
