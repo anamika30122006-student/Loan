@@ -2,7 +2,9 @@
    CreditSamarth National Credit Portal - Multi-Page Engine & Utilities
    ========================================================================== */
 
-const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? "http://localhost:8000/api"
+  : "/api";
 
 let appState = {
   wizardStep: 1,
@@ -998,13 +1000,263 @@ function toggleMobileMenu() {
   }
 }
 
-function changeLanguage(lang) {
+const HINDI_TRANSLATIONS = {
+  // Navigation & Header
+  "Government of India": "भारत सरकार",
+  "Ministry of Finance • Department of Financial Services": "वित्त मंत्रालय • वित्तीय सेवा विभाग",
+  "Ministry of Finance": "वित्त मंत्रालय",
+  "Department of Financial Services": "वित्तीय सेवा विभाग",
+  "Auto-Fill Demo Data": "⚡ डेमो डेटा भरें",
+  "Voice Guide": "🎙 वॉयस गाइड",
+  "Helpline: 1800-11-3456": "हेल्पलाइन: 1800-11-3456",
+  "Credit Schemes": "ऋण योजनाएं",
+  "Check Loan Eligibility": "पात्रता जांचें",
+  "The Process": "आवेदन प्रक्रिया",
+  "Grievance Redressal": "शिकायत निवारण",
+  "Track Application": "आवेदन ट्रैक करें",
+  "Borrower Portal": "ऋणदाता पोर्टल",
+  "Login": "लॉगिन",
+  "Register": "पंजीकरण",
+  "Search credit schemes...": "ऋण योजनाएं खोजें...",
+
+  // Stepper Titles (apply.html)
+  "Journey Start": "यात्रा शुरू",
+  "Scheme Select": "योजना चयन",
+  "AI Eligibility": "एआई पात्रता",
+  "Upload Docs": "दस्तावेज़ अपलोड",
+  "AI Verification": "एआई सत्यापन",
+  "Risk / Credit": "जोखिम / क्रेडिट",
+  "Submission": "आवेदन जमा करें",
+  "Tracking": "ट्रैकिंग",
+
+  // Apply Page Headers & Steps
+  "FAST-TRACK DIGITAL LOAN WIZARD": "फास्ट-ट्रैक डिजिटल लोन विजार्ड",
+  "National Credit Linked Loan Application Portal": "राष्ट्रीय क्रेडिट लिंक ऋण आवेदन पोर्टल",
+  "Complete your 8-step digital loan application with AI eligibility engine, instant document verification, and direct submission to 300+ partner banks.": "एआई पात्रता इंजन, त्वरित दस्तावेज सत्यापन और 300+ भागीदार बैंकों में प्रत्यक्ष आवेदन के साथ अपना 8-स्तरीय डिजिटल ऋण आवेदन पूरा करें।",
+  "STEP 1 OF 8": "चरण 1 / 8",
+  "STEP 2 OF 8": "चरण 2 / 8",
+  "STEP 3 OF 8": "चरण 3 / 8",
+  "STEP 4 OF 8": "चरण 4 / 8",
+  "STEP 5 OF 8": "चरण 5 / 8",
+  "STEP 6 OF 8": "चरण 6 / 8",
+  "STEP 7 OF 8": "चरण 7 / 8",
+  "STEP 8 OF 8": "चरण 8 / 8",
+  
+  "Entrepreneur & Business Registration": "उद्यमी और व्यवसाय पंजीकरण",
+  "Please provide key personal and enterprise credentials for government scheme eligibility matching": "सरकारी योजना पात्रता मिलान के लिए कृपया व्यक्तिगत और व्यावसायिक विवरण दर्ज करें",
+  
+  "Full Legal Name (as per Aadhaar)": "पूरा कानूनी नाम (आधार के अनुसार)",
+  "Father's / Spouse Name": "पिता / पति का नाम",
+  "Date of Birth": "जन्म तिथि",
+  "Gender": "लिंग",
+  "Select Gender": "लिंग चुनें",
+  "Male": "पुरुष",
+  "Female": "महिला",
+  "Transgender": "ट्रांसजेंडर",
+  "Social Category": "सामाजिक श्रेणी",
+  "Select Social Category": "सामाजिक श्रेणी चुनें",
+  "General": "सामान्य",
+  "OBC (Other Backward Classes)": "ओबीसी (अन्य पिछड़ा वर्ग)",
+  "SC (Scheduled Caste)": "एससी (अनुसूचित जाति)",
+  "ST (Scheduled Tribe)": "एसटी (अनुसूचित जनजाति)",
+  "Minority": "अल्पसंख्यक",
+  "Mobile Number (Aadhaar Linked)": "मोबाइल नंबर (आधार से लिंक)",
+  "Email Address": "ईमेल पता",
+  "Aadhaar Card Number": "आधार कार्ड नंबर",
+  "PAN Card Number": "पैन कार्ड नंबर",
+  "Business Enterprise Name": "व्यवसाय का नाम",
+  "Constitution of Enterprise": "व्यवसाय का प्रकार",
+  "Select Enterprise Type": "व्यवसाय प्रकार चुनें",
+  "Proprietorship": "प्रोप्राइटरशिप (एकल स्वामित्व)",
+  "Partnership": "पार्टनरशिप",
+  "LLP / Private Limited": "एलएलपी / प्राइवेट लिमिटेड",
+  "Self Help Group (SHG)": "स्वयं सहायता समूह (SHG)",
+  "Select Loan Scheme Category": "ऋण योजना श्रेणी चुनें",
+  "Business Loan (MUDRA / PMEGP)": "व्यवसाय ऋण (मुद्रा / पीएमईजीपी)",
+  "Food Processing Loan (PMFME)": "खाद्य प्रसंस्करण ऋण (पीएमएफएमई)",
+  "Street Vendor Loan (PM SVANidhi)": "स्ट्रीट वेंडर ऋण (पीएम स्वनिधि)",
+  "Agri Infrastructure Loan": "कृषि अवसंरचना ऋण",
+  "Required Loan Amount (₹)": "आवश्यक ऋण राशि (₹)",
+  
+  "Proceed to Scheme Selection ➔": "योजना चयन के लिए आगे बढ़ें ➔",
+  "Select Suitable Credit Scheme": "उपयुक्त क्रेडिट योजना चुनें",
+  "Choose from Central Govt credit guarantee schemes based on your business sector": "अपने क्षेत्र के अनुसार केंद्र सरकार की क्रेडिट गारंटी योजनाओं में से चुनें",
+  "Max Loan Limit:": "अधिकतम ऋण सीमा:",
+  "Govt Subsidy:": "सरकारी सब्सिडी:",
+  "Select Scheme": "योजना चुनें",
+  "Selected": "चयनित",
+  "Back": "पीछे जाएं",
+  "Proceed to AI Eligibility Check ➔": "एआई पात्रता जांच के लिए आगे बढ़ें ➔",
+  
+  "AI Pre-Eligibility & Risk Assessment": "एआई पूर्व-पात्रता और जोखिम मूल्यांकन",
+  "Our AI recommendation engine is analyzing your profile against Department of Financial Services norms": "हमारा एआई इंजन वित्तीय सेवा विभाग के नियमों के अनुसार आपकी प्रोफ़ाइल का विश्लेषण कर रहा है",
+  "Run AI Eligibility Engine": "एआई पात्रता इंजन चलाएं",
+  "AI Pre-Approval Score": "एआई पूर्व-स्वीकृति स्कोर",
+  "High Approval Probability": "उच्च स्वीकृति संभावना",
+  "Eligible Scheme Matched": "पात्र योजना का मिलान हुआ",
+  "Recommended Subsidy Linkage": "अनुशंसित सब्सिडी लिंक",
+  "Estimated In-Principle Sanction Time": "अनुमानित सैद्धांतिक मंजूरी समय",
+  "5 to 10 Minutes": "5 से 10 मिनट",
+  "Proceed to Document Upload ➔": "दस्तावेज़ अपलोड के लिए आगे बढ़ें ➔",
+  
+  "Upload Required Documents": "आवश्यक दस्तावेज़ अपलोड करें",
+  "Please upload the required documents as per selected scheme": "कृपया चयनित योजना के अनुसार आवश्यक दस्तावेज़ अपलोड करें",
+  "Identity Proof": "पहचान प्रमाण",
+  "Tax Identification": "कर पहचान",
+  "Income & Turnover": "आय और टर्नओवर",
+  "Business Proof": "व्यवसाय का प्रमाण",
+  "Cost Estimation": "परियोजना लागत अनुमान",
+  "Upload File": "फ़ाइल अपलोड करें",
+  "Verified": "सत्यापित",
+  "Proceed to AI Verification ➔": "एआई सत्यापन के लिए आगे बढ़ें ➔",
+  
+  "Automated Document OCR & Verification": "ऑटोमेटेड दस्तावेज़ ओसीआर और सत्यापन",
+  "AI engine is extracting data from uploaded PDF/Image documents and cross-verifying with UIDAI & NSDL": "एआई इंजन अपलोड किए गए दस्तावेजों से डेटा निकाल रहा है और यूआईडीएआई और एनएसडीएल से सत्यापन कर रहा है",
+  "Verify Documents with AI": "एआई के साथ दस्तावेज़ सत्यापित करें",
+  "Verification Status": "सत्यापन स्थिति",
+  "Aadhaar Identity Verification": "आधार पहचान सत्यापन",
+  "MATCHED (UIDAI e-KYC Successful)": "सत्यापित (UIDAI e-KYC सफल)",
+  "PAN Card Tax Registry Check": "पैन कार्ड टैक्स रजिस्ट्री जांच",
+  "VERIFIED (NSDL Active Status)": "सत्यापित (NSDL सक्रिय स्थिति)",
+  "Bank Statement Cash-Flow Analysis": "बैंक विवरण कैश-फ्लो विश्लेषण",
+  "HEALTHY CASH FLOW DETECTED": "सकारात्मक कैश-फ्लो पाया गया",
+  "Proceed to Risk & Credit Scoring ➔": "जोखिम और क्रेडिट स्कोरिंग के लिए आगे बढ़ें ➔",
+  
+  "Credit Bureau & Risk Score Assessment": "क्रेडिट ब्यूरो और जोखिम स्कोर मूल्यांकन",
+  "Algorithmic credit risk model evaluating creditworthiness & repayment capacity": "ऋण पात्रता और पुनर्भुगतान क्षमता का मूल्यांकन करने वाला एल्गोरिदमिक जोखिम मॉडल",
+  "Calculate Credit Score": "क्रेडिट स्कोर की गणना करें",
+  "Credit Score (CIBIL / Experian equivalent)": "क्रेडिट स्कोर (सिबिल / एक्युफैक्स के समकक्ष)",
+  "Risk Categorization": "जोखिम श्रेणी",
+  "LOW RISK (Prime Borrower)": "कम जोखिम (उत्कृष्ट उधारकर्ता)",
+  "Proceed to Final Submission ➔": "अंतिम आवेदन जमा करने के लिए आगे बढ़ें ➔",
+  
+  "Final Application Summary & Bank Submission": "अंतिम आवेदन सारांश और बैंक जमा",
+  "Review application summary and choose your preferred lending partner bank": "आवेदन सारांश की समीक्षा करें और अपना पसंदीदा भागीदार बैंक चुनें",
+  "Applicant Name": "आवेदक का नाम",
+  "Selected Scheme": "चयनित योजना",
+  "Requested Loan Amount": "अनुरोधित ऋण राशि",
+  "AI Credit Score": "एआई क्रेडिट स्कोर",
+  "KYC & Document Status": "केवाईसी और दस्तावेज़ स्थिति",
+  "Select Preferred Bank": "पसंदीदा बैंक चुनें",
+  "Submit Application to Banks ➔": "बैंकों को आवेदन जमा करें ➔",
+  
+  "Digital In-Principle Sanction Letter": "डिजिटल सैद्धांतिक मंजूरी पत्र",
+  "Congratulations! Your loan application has been In-Principle Approved digitally.": "बधाई हो! आपका ऋण आवेदन डिजिटल रूप से सैद्धांतिक रूप से स्वीकृत हो गया है।",
+  "Application Reference ID": "आवेदन संदर्भ आईडी",
+  "Sanctioned Amount": "स्वीकृत राशि",
+  "Servicing Nodal Bank": "सेवा प्रदाता नोडल बैंक",
+  "State Bank of India (Main Branch)": "भारतीय स्टेट बैंक (मुख्य शाखा)",
+  "Download Sanction Letter (PDF)": "मंजूरी पत्र डाउनलोड करें (PDF)",
+  "Track Live Application Status": "लाइव आवेदन स्थिति ट्रैक करें",
+  "Track Another Application": "दूसरा आवेदन ट्रैक करें",
+
+  // Index Page (Home)
+  "Empowering Micro Entrepreneurs Across India": "पूरे भारत में सूक्ष्म उद्यमियों का सशक्तिकरण",
+  "Real stories of transformation backed by Central Government credit assistance": "केंद्र सरकार की क्रेडिट सहायता से समर्थित वास्तविक सफलता की कहानियां",
+  "Frequently Asked Questions (FAQ)": "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+  "Credit Schemes Catalog": "सभी क्रेडिट योजनाएं",
+  "National Digital Loan Platform for Micro Entrepreneurs": "सूक्ष्म उद्यमियों के लिए राष्ट्रीय डिजिटल ऋण मंच",
+  "Empowering MSMEs, Street Vendors & Artisans with 100% Collateral-Free Credit & Interest Subventions": "100% संपार्श्विक-मुक्त ऋण और ब्याज सब्सिडी के साथ एमएसएमई, स्ट्रीट वेंडरों और कारीगरों का सशक्तिकरण",
+  "Apply for Loan Now ➔": "ऋण के लिए आवेदन करें ➔",
+  "Explore Credit Schemes": "क्रेडिट योजनाएं देखें",
+  "Instant Pre-Approval": "त्वरित पूर्व-स्वीकृति",
+  "Minutes Digital Sanction": "मिनटों में डिजिटल मंजूरी",
+  "Interest Subvention": "ब्याज सब्सिडी सहायता",
+  "Govt Backed Benefit": "सरकारी समर्थित लाभ",
+  "Collateral Free": "संपार्श्विक मुक्त (बिना गारंटी)",
+  "Under Guarantee Trust": "गारंटी ट्रस्ट के तहत",
+  "Calculate EMI": "ईएमआई की गणना करें",
+  "Loan Amount:": "ऋण राशि:",
+  "Interest Rate (% p.a.):": "ब्याज दर (% वार्षिक):",
+  "Tenure (Years):": "अवधि (वर्ष):",
+  "Monthly EMI:": "मासिक ईएमआई:",
+  "Total Interest Payable:": "कुल देय ब्याज:",
+
+  // Footer
+  "National Portal for Credit Linked Government Schemes, Department of Financial Services, Ministry of Finance, Government of India.": "क्रेडिट लिंक सरकारी योजनाओं के लिए राष्ट्रीय पोर्टल, वित्तीय सेवा विभाग, वित्त मंत्रालय, भारत सरकार।",
+  "Quick Links": "त्वरित लिंक",
+  "Policies & Helpdesk": "नीतियां और सहायता केंद्र",
+  "All Rights Reserved.": "सर्वाधिकार सुरक्षित।",
+  "Designed & Developed for Ministry of Finance, Government of India • Digital India 🇮🇳": "वित्त मंत्रालय, भारत सरकार के लिए डिज़ाइन्ड और विकसित • डिजिटल इंडिया 🇮🇳"
+};
+
+function applyTranslation(lang) {
   appState.language = lang;
+  try {
+    localStorage.setItem('js_lang', lang);
+  } catch(e){}
+
+  // Synchronize all language dropdowns on the page
+  document.querySelectorAll('select[onchange*="changeLanguage"], #lang-select').forEach(sel => {
+    sel.value = lang;
+  });
+
+  const translateElement = (el) => {
+    if (!el) return;
+
+    // Check placeholders
+    if (el.placeholder) {
+      if (!el.getAttribute('data-orig-placeholder')) {
+        el.setAttribute('data-orig-placeholder', el.placeholder);
+      }
+      const orig = el.getAttribute('data-orig-placeholder');
+      if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
+        el.placeholder = HINDI_TRANSLATIONS[orig];
+      } else if (lang === 'en' && orig) {
+        el.placeholder = orig;
+      }
+    }
+
+    // Check direct single text node
+    if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+      const text = el.childNodes[0].nodeValue.trim();
+      if (text) {
+        if (!el.getAttribute('data-orig-text')) {
+          el.setAttribute('data-orig-text', text);
+        }
+        const orig = el.getAttribute('data-orig-text');
+        if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
+          el.childNodes[0].nodeValue = el.childNodes[0].nodeValue.replace(orig, HINDI_TRANSLATIONS[orig]);
+        } else if (lang === 'en' && orig) {
+          el.childNodes[0].nodeValue = el.childNodes[0].nodeValue.replace(el.childNodes[0].nodeValue.trim(), orig);
+        }
+      }
+    }
+
+    // Walk child text nodes for complex elements
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const txt = node.nodeValue.trim();
+        if (txt) {
+          if (!node._origText) node._origText = txt;
+          const orig = node._origText;
+          if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
+            node.nodeValue = node.nodeValue.replace(txt, HINDI_TRANSLATIONS[orig]);
+          } else if (lang === 'en' && orig) {
+            node.nodeValue = node.nodeValue.replace(txt, orig);
+          }
+        }
+      }
+    });
+  };
+
+  const selectors = 'h1, h2, h3, h4, h5, h6, p, label, button, a, span, option, div.flow-step-title, div.hero-govt-tag, div.form-label, .btn-gov-saffron, .btn-gov-blue, .btn-gov-outline, input[placeholder]';
+  document.querySelectorAll(selectors).forEach(el => translateElement(el));
+}
+
+function changeLanguage(lang) {
+  applyTranslation(lang);
   showToast(lang === 'hi' ? "भाषा बदलकर हिन्दी की गई।" : "Language updated to English.");
 }
 
 // INITIALIZATION & URL QUERY PARSER
 document.addEventListener('DOMContentLoaded', () => {
+  // Restore saved language preference
+  const savedLang = localStorage.getItem('js_lang');
+  if (savedLang) {
+    applyTranslation(savedLang);
+  }
+
   // Mobile nav click listeners
   document.addEventListener('click', (e) => {
     const navMenu = document.querySelector('.gov-nav-menu');

@@ -638,22 +638,25 @@ a {
 .flow-8step-stepper-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 12px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1rem;
   margin-bottom: 2.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   position: relative;
+  overflow-x: auto;
+  gap: 0.5rem;
+  scrollbar-width: thin;
 }
 
 .flow-8step-stepper-container::before {
   content: '';
   position: absolute;
-  top: 36px;
-  left: 60px;
-  right: 60px;
+  top: 38px;
+  left: 45px;
+  right: 45px;
   height: 3px;
   background: #e2e8f0;
   z-index: 1;
@@ -667,7 +670,8 @@ a {
   z-index: 2;
   cursor: pointer;
   text-align: center;
-  flex: 1;
+  flex: 1 1 0px;
+  min-width: 90px;
 }
 
 .flow-step-badge {
@@ -682,8 +686,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .flow-step-unit.active .flow-step-badge {
@@ -700,11 +705,14 @@ a {
 }
 
 .flow-step-title {
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--slate-500);
-  max-width: 90px;
-  line-height: 1.2;
+  width: 100%;
+  max-width: 110px;
+  line-height: 1.25;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .flow-step-unit.active .flow-step-title {
@@ -814,24 +822,31 @@ a {
   position: absolute;
   left: -2.7rem;
   top: 0;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: #cbd5e1;
-  color: #ffffff;
+  background: #ffffff;
+  border: 2px solid #64748b;
+  color: #334155;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 900;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .tracking-timeline-node.active .tracking-node-dot {
   background: var(--js-blue-vibrant);
+  border-color: var(--js-blue-vibrant);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 
 .tracking-timeline-node.completed .tracking-node-dot {
   background: var(--js-green);
+  border-color: var(--js-green);
+  color: #ffffff;
 }
 
 /* ==========================================================================
