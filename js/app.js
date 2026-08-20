@@ -1043,20 +1043,33 @@ const HINDI_TRANSLATIONS = {
   "Udyam Registration": "उद्यम पंजीकरण",
   "MSME Registration Certificate": "एमएसएमई पंजीकरण प्रमाण पत्र",
 
-  // Index Page (Home)
+  // Index Page (Home) & Comprehensive Site Translations
+  "Official Loan Management System Portal": "आधिकारिक ऋण प्रबंधन प्रणाली पोर्टल",
   "Empowering Micro Entrepreneurs Across India": "पूरे भारत में सूक्ष्म उद्यमियों का सशक्तिकरण",
   "Real stories of transformation backed by Central Government credit assistance": "केंद्र सरकार की क्रेडिट सहायता से समर्थित वास्तविक सफलता की कहानियां",
   "Frequently Asked Questions (FAQ)": "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+  "Frequently Asked Questions (FAQs)": "अक्सर पूछे जाने वाले प्रश्न (FAQs)",
   "Credit Schemes Catalog": "सभी क्रेडिट योजनाएं",
   "National Digital Loan Platform for Micro Entrepreneurs": "सूक्ष्म उद्यमियों के लिए राष्ट्रीय डिजिटल ऋण मंच",
+  "Digital Loan Assistance Platform for Micro Entrepreneurs": "सूक्ष्म उद्यमियों के लिए डिजिटल ऋण सहायता मंच",
+  "Empowering MSMEs, Food Processors & Local Entrepreneurs under PMFME, PMEGP, MUDRA & CMEGP Schemes with Collateral-Free Credit & Subsidies.": "PMFME, PMEGP, MUDRA और CMEGP योजनाओं के तहत संपार्श्विक-मुक्त ऋण और सब्सिडी के साथ एमएसएमई, खाद्य प्रसंस्करणकर्ताओं और स्थानीय उद्यमियों का सशक्तिकरण।",
   "Empowering MSMEs, Street Vendors & Artisans with 100% Collateral-Free Credit & Interest Subventions": "100% संपार्श्विक-मुक्त ऋण और ब्याज सब्सिडी के साथ एमएसएमई, स्ट्रीट वेंडरों और कारीगरों का सशक्तिकरण",
+  "Check Eligibility & Apply Now": "पात्रता जांचें और आवेदन करें",
+  "🚀 Check Eligibility & Apply Now": "🚀 पात्रता जांचें और आवेदन करें",
+  "📖 Explore Credit Schemes": "📖 क्रेडिट योजनाएं देखें",
   "Apply for Loan Now ➔": "ऋण के लिए आवेदन करें ➔",
   "Explore Credit Schemes": "क्रेडिट योजनाएं देखें",
   "Instant Pre-Approval": "त्वरित पूर्व-स्वीकृति",
+  "Instant Approval": "त्वरित स्वीकृति",
   "Minutes Digital Sanction": "मिनटों में डिजिटल मंजूरी",
+  "Within 10 Minutes": "10 मिनट के भीतर",
   "Interest Subvention": "ब्याज सब्सिडी सहायता",
+  "Subsidies": "सब्सिडी",
+  "Up to 35% Capital": "35% तक कैपिटल",
   "Govt Backed Benefit": "सरकारी समर्थित लाभ",
   "Collateral Free": "संपार्श्विक मुक्त (बिना गारंटी)",
+  "100% Collateral-Free": "100% संपार्श्विक-मुक्त",
+  "Guarantee Cover": "गारंटी कवर",
   "Under Guarantee Trust": "गारंटी ट्रस्ट के तहत",
   "Calculate EMI": "ईएमआई की गणना करें",
   "Loan Amount:": "ऋण राशि:",
@@ -1064,6 +1077,91 @@ const HINDI_TRANSLATIONS = {
   "Tenure (Years):": "अवधि (वर्ष):",
   "Monthly EMI:": "मासिक ईएमआई:",
   "Total Interest Payable:": "कुल देय ब्याज:",
+
+  // Home Quick Eligibility Matcher Card
+  "⚡ Quick Loan Eligibility Matcher": "⚡ त्वरित ऋण पात्रता मिलानकर्ता",
+  "Quick Loan Eligibility Matcher": "त्वरित ऋण पात्रता मिलानकर्ता",
+  "Select Business Type *": "व्यवसाय का प्रकार चुनें *",
+  "Manufacturing / Factory": "विनिर्माण / फैक्टरी",
+  "Service Sector / Shop": "सेवा क्षेत्र / दुकान",
+  "Food Processing Unit": "खाद्य प्रसंस्करण इकाई",
+  "Street Vending / Trading": "स्ट्रीट वेंडिंग / व्यापार",
+  "Required Loan Amount (in ₹) *": "आवश्यक ऋण राशि (₹ में) *",
+  "Select Social Category *": "सामाजिक श्रेणी चुनें *",
+  "🎯 Find My Best Scheme ➔": "🎯 मेरी सबसे अच्छी योजना खोजें ➔",
+  "Find My Best Scheme ➔": "मेरी सबसे अच्छी योजना खोजें ➔",
+
+  // Announcements & Featured Schemes
+  "Announcements": "घोषणाएं",
+  "Featured Government Credit Subsidy Schemes": "विशेष रुप से प्रदर्शित सरकारी ऋण सब्सिडी योजनाएं",
+  "Explore Central & State Government sponsored credit options tailored for Micro Enterprises": "सूक्ष्म उद्यमों के लिए तैयार किए गए केंद्र और राज्य सरकार प्रायोजित क्रेडिट विकल्पों का अन्वेषण करें",
+  "PM Food Processing (PMFME)": "पीएम खाद्य प्रसंस्करण (PMFME)",
+  "35% Capital Subsidy": "35% कैपिटल सब्सिडी",
+  "Financial, technical & business support for micro food processing enterprises with up to ₹10 Lakh subsidy.": "₹10 लाख तक की सब्सिडी के साथ सूक्ष्म खाद्य प्रसंस्करण उद्यमों के लिए वित्तीय, तकनीकी और व्यावसायिक सहायता।",
+  "Max Limit: ₹10 Lakhs": "अधिकतम सीमा: ₹10 लाख",
+  "Subsidy: Up to 35%": "सब्सिडी: 35% तक",
+  "Apply Now ➔": "अब आवेदन करें ➔",
+  "Details": "विवरण",
+  "PM Employment Generation (PMEGP)": "पीएम रोजगार सृजन (PMEGP)",
+  "35% Margin Money": "35% मार्जिन मनी",
+  "Credit-linked subsidy scheme for setting up new micro-enterprises in manufacturing (up to ₹50L) & service (up to ₹20L).": "विनिर्माण (₹50 लाख तक) और सेवा (₹20 लाख तक) में नए सूक्ष्म उद्यमों की स्थापना के लिए क्रेडिट-लिंक्ड सब्सिडी योजना।",
+  "Max Limit: ₹50 Lakhs": "अधिकतम सीमा: ₹50 लाख",
+  "Subsidy: 15% - 35%": "सब्सिडी: 15% - 35%",
+  "Pradhan Mantri MUDRA (PMMY)": "प्रधानमंत्री मुद्रा (PMMY)",
+  "Collateral-free business loans up to ₹10 Lakhs for micro enterprises under Shishu, Kishor, and Tarun categories.": "शिशु, किशोर और तरुण श्रेणियों के तहत सूक्ष्म उद्यमों के लिए ₹10 लाख तक का गारंटी-मुक्त व्यवसाय ऋण।",
+  "Guarantee: CGTMSE Cover": "गारंटी: CGTMSE कवर",
+  "CM Employment Generation (CMEGP)": "मुख्यमंत्री रोजगार सृजन (CMEGP)",
+  "State Subsidy Scheme": "राज्य सब्सिडी योजना",
+  "State government self-employment scheme providing soft loans and subsidy for local youth & entrepreneurs.": "स्थानीय युवाओं और उद्यमियों के लिए रियायती ऋण और सब्सिडी प्रदान करने वाली राज्य सरकार की स्वरोजगार योजना।",
+  "Max Limit: ₹25 Lakhs": "अधिकतम सीमा: ₹25 लाख",
+  "Subsidy: Up to 25%": "सब्सिडी: 25% तक",
+  "Want to know more about the schemes?": "क्या आप योजनाओं के बारे में अधिक जानना चाहते हैं?",
+  "Total 4 Central & State Government Subsidy Schemes (PMFME, PMEGP, MUDRA, CMEGP) are available on Loan Management System Portal": "ऋण प्रबंधन प्रणाली पोर्टल पर कुल 4 केंद्र और राज्य सरकार की सब्सिडी योजनाएं (PMFME, PMEGP, MUDRA, CMEGP) उपलब्ध हैं",
+  "View all 4 schemes": "सभी 4 योजनाएं देखें",
+
+  // EMI Calculator
+  "🧮 Interactive Loan EMI Calculator": "🧮 इंटरैक्टिव लोन ईएमआई कैलकुलेटर",
+  "Calculate your monthly EMI, total interest payable, and repayment schedule instantly": "अपनी मासिक ईएमआई, कुल देय ब्याज और पुनर्भुगतान अनुसूची की तुरंत गणना करें",
+  "Calculate Your Estimated EMI": "अपनी अनुमानित ईएमआई की गणना करें",
+  "Select Scheme Pre-Set": "योजना प्री-सेट चुनें",
+  "Custom Calculation": "कस्टम गणना",
+  "Loan Amount (₹)": "ऋण राशि (₹)",
+  "Interest Rate (% p.a.)": "ब्याज दर (% वार्षिक)",
+  "Tenure (Years)": "अवधि (वर्ष)",
+  "Calculated Monthly EMI": "अनुमानित मासिक ईएमआई",
+  "Principal Amount": "मूलधन राशि",
+  "Total Interest Payable": "कुल देय ब्याज",
+  "Total Repayment Amount": "कुल पुनर्भुगतान राशि",
+  "Apply for this Loan Amount ➔": "इस ऋण राशि के लिए आवेदन करें ➔",
+
+  // Stakeholders & FAQs
+  "Partner Banks and Key Stakeholders": "भागीदार बैंक और प्रमुख हितधारक",
+  "Top public sector and commercial banks processing applications directly on Loan Management System Portal": "ऋण प्रबंधन प्रणाली पोर्टल पर सीधे आवेदनों को संसाधित करने वाले प्रमुख सार्वजनिक क्षेत्र और वाणिज्यिक बैंक",
+  "Get answers to common queries regarding Loan Management System scheme applications": "ऋण प्रबंधन प्रणाली योजना आवेदनों के संबंध में सामान्य प्रश्नों के उत्तर प्राप्त करें",
+  "1. What is Loan Management System Portal?": "1. ऋण प्रबंधन प्रणाली पोर्टल क्या है?",
+  "Loan Management System Portal is a digital one-stop platform connecting Government Credit Schemes (PMFME, PMEGP, MUDRA, CMEGP) directly to borrowers and partner commercial banks for online eligibility checking, application, and instant in-principle approval.": "ऋण प्रबंधन प्रणाली पोर्टल एक डिजिटल वन-स्टॉप प्लेटफॉर्म है जो ऑनलाइन पात्रता जांच, आवेदन और तत्काल सैद्धांतिक मंजूरी के लिए सरकारी ऋण योजनाओं (PMFME, PMEGP, MUDRA, CMEGP) को सीधे उधारकर्ताओं और भागीदार वाणिज्यिक बैंकों से जोड़ता है।",
+  "2. How do I check eligibility for government schemes?": "2. मैं सरकारी योजनाओं के लिए पात्रता कैसे जांचूं?",
+  "Click on \"Check Eligibility\" on any scheme card, answer a few basic details about your business type, income, and location. Our AI engine automatically matches you with the best government subsidy scheme.": "किसी भी योजना कार्ड पर \"पात्रता जांचें\" पर क्लिक करें, अपने व्यवसाय के प्रकार, आय और स्थान के बारे में कुछ मूल विवरणों का उत्तर दें। हमारा एआई इंजन स्वचालित रूप से आपका सर्वश्रेष्ठ सरकारी सब्सिडी योजना से मिलान करता है।",
+  "3. Are loans on Loan Management System collateral-free?": "3. क्या ऋण प्रबंधन प्रणाली पर ऋण संपार्श्विक-मुक्त (बिना गारंटी) हैं?",
+  "Yes! Schemes like Pradhan Mantri MUDRA Yojana (PMMY) up to ₹10 Lakhs and PMEGP up to ₹25 Lakhs provide 100% collateral-free credit guarantees under Govt. of India credit guarantee trusts (CGTMSE).": "हाँ! ₹10 लाख तक की प्रधानमंत्री मुद्रा योजना (PMMY) और ₹25 लाख तक की PMEGP जैसी योजनाएं भारत सरकार के क्रेडिट गारंटी ट्रस्ट (CGTMSE) के तहत 100% गारंटी-मुक्त क्रेडिट गारंटी प्रदान करती हैं।",
+  "4. How long does digital sanction take?": "4. डिजिटल मंजूरी में कितना समय लगता है?",
+  "In-Principle Sanction Letters are generated digitally within 5 to 10 minutes upon successful Aadhaar e-KYC, PAN validation, and document upload verification.": "सफल आधार ई-केवाईसी, पैन सत्यापन और दस्तावेज अपलोड सत्यापन पर 5 से 10 मिनट के भीतर डिजिटल रूप से सैद्धांतिक मंजूरी पत्र उत्पन्न होते हैं।",
+
+  // Beneficiary Stories
+  "Empowering Micro Entrepreneurs": "सूक्ष्म उद्यमियों का सशक्तिकरण",
+  "\"Got my ₹5 Lakh MUDRA loan in-principle approval within 10 minutes on Loan Management System Portal! Expanded my retail store seamlessly.\"": "\"ऋण प्रबंधन प्रणाली पोर्टल पर 10 मिनट के भीतर मुझे अपने ₹5 लाख मुद्रा ऋण की सैद्धांतिक स्वीकृति मिल गई! मैंने अपने खुदरा स्टोर का निर्बाध विस्तार किया।\"",
+  "\"PMFME Food processing subsidy of 35% helped me setup my spice processing unit with State Bank of India credit link.\"": "\"35% की PMFME खाद्य प्रसंस्करण सब्सिडी ने मुझे भारतीय स्टेट बैंक क्रेडिट लिंक के साथ अपनी मसाला प्रसंस्करण इकाई स्थापित करने में मदद की।\"",
+  "\"CMEGP state self-employment approval through Loan Management System Portal provided timely seed capital for my electronics shop.\"": "\"ऋण प्रबंधन प्रणाली पोर्टल के माध्यम से CMEGP राज्य स्वरोजगार स्वीकृति ने मेरी इलेक्ट्रॉनिक्स दुकान के लिए समय पर बीज पूंजी प्रदान की।\"",
+
+  // Navbar & Global Navigation
+  "Home": "होम",
+  "Schemes ▾": "योजनाएं ▾",
+  "Process": "प्रक्रिया",
+  "Grievances": "शिकायतें",
+  "Nodal Admin Portal": "नोडल एडमिन पोर्टल",
+  "Auto-Fill Demo Data": "डेमो डेटा स्वतः भरें",
+  "Voice Guide": "वॉइस गाइड",
+  "Government Credit Assistance Portal": "सरकारी ऋण सहायता पोर्टल",
 
   // Process & Grievances Pages
   "The 8-Step Application Process": "8-स्तरीय आवेदन प्रक्रिया",
@@ -1110,7 +1208,7 @@ function applyTranslation(lang) {
       if (!el.getAttribute('data-orig-placeholder')) {
         el.setAttribute('data-orig-placeholder', el.placeholder);
       }
-      const orig = el.getAttribute('data-orig-placeholder');
+      const orig = el.getAttribute('data-orig-placeholder').trim();
       if (lang === 'hi' && HINDI_TRANSLATIONS[orig]) {
         el.placeholder = HINDI_TRANSLATIONS[orig];
       } else if (lang === 'en' && orig) {
@@ -1121,7 +1219,8 @@ function applyTranslation(lang) {
     // Process text nodes inside element
     el.childNodes.forEach(node => {
       if (node.nodeType === Node.TEXT_NODE) {
-        const txt = node.nodeValue.trim();
+        const rawTxt = node.nodeValue;
+        const txt = rawTxt.trim();
         if (txt) {
           if (!node._origText) {
             node._origText = txt;
@@ -1130,9 +1229,11 @@ function applyTranslation(lang) {
           if (lang === 'hi') {
             if (HINDI_TRANSLATIONS[orig]) {
               node.nodeValue = node.nodeValue.replace(txt, HINDI_TRANSLATIONS[orig]);
+            } else if (HINDI_TRANSLATIONS[txt]) {
+              node.nodeValue = node.nodeValue.replace(txt, HINDI_TRANSLATIONS[txt]);
             } else {
               for (const [enKey, hiVal] of Object.entries(HINDI_TRANSLATIONS)) {
-                if (orig === enKey || txt === enKey) {
+                if (orig.toLowerCase() === enKey.toLowerCase() || txt.toLowerCase() === enKey.toLowerCase()) {
                   node.nodeValue = node.nodeValue.replace(txt, hiVal);
                   break;
                 }
@@ -1146,7 +1247,7 @@ function applyTranslation(lang) {
     });
   };
 
-  const selectors = 'h1, h2, h3, h4, h5, h6, p, label, button, a, span, option, li, th, td, div, input[placeholder]';
+  const selectors = 'h1, h2, h3, h4, h5, h6, p, label, button, a, span, option, li, th, td, div, b, strong, input[placeholder]';
   document.querySelectorAll(selectors).forEach(el => translateElement(el));
 }
 
